@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="AKLabs">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>About</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="About">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://www.aklabs.net/about/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/images/akesterson.webp">
+    
+    
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">AKLabs</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/" 
+        class="navbar-menu-item">
+        
+          Home
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/tags" 
+        class="navbar-menu-item">
+        
+          Tags
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/links" 
+        class="navbar-menu-item">
+        
+          Friends
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/images/akesterson.webp" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">Andrew Kesterson</p>
+<p class="author-description"><center>Leadership || DevOps || GameDev <br/>Emergency Response <br/> <br/> <i>"Love God. Live Righteously. Die Well."</i> <br/> <br/> <a target="_blank" rel="noopener" href="https://github.com/akesterson">GitHub</a> || <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/andrewkesterson/">LinkedIn</a> </center></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>13</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>4</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>0</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/Leadership/">
+        <div class="categories-list-item">
+          Leadership
+          <span class="categories-list-item-badge">4</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Books/">
+        <div class="categories-list-item">
+          Books
+          <span class="categories-list-item-badge">12</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Faith/">
+        <div class="categories-list-item">
+          Faith
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Outdoors/">
+        <div class="categories-list-item">
+          Outdoors
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+  </div>
+</div>
+  </article>
+  
+  
+    <article class="card card-content widescreen-archive archive-widget">
+      <div class="archive-card">
+  <div class="archive-card-header">
+    <i 
+      class="iconfont icon-wodebaobiao" 
+      style="padding-right: 2px;">
+    </i>Archive
+  </div>
+  <div class="archive-card-list">
+    
+    
+    
+      
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a 
+            href="/archives/2024" 
+            class="archive-card-list-item">
+            2024
+            <span class="archive-card-list-item-badge">2</span>
+          </a>
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a 
+            href="/archives/2023" 
+            class="archive-card-list-item">
+            2023
+            <span class="archive-card-list-item-badge">6</span>
+          </a>
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+    
+      <a 
+        href="/archives/2022" 
+        class="archive-card-list-item">
+        2022
+        <span class="archive-card-list-item-badge">5</span>
+      </a>
+    
+  </div>
+</div>
+    </article>
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      About
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2024-02-27T00:43:47.243Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2024-02-26</span>
+    </time>
+    
+    
+      <span class="dot"></span>
+      <span>827 words</span>
+    
+  </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <h2 id="Family"><a href="#Family" class="headerlink" title="Family"></a>Family</h2><p>I grew up in the Ozark mountains of southwestern Missouri. Born to hard working middle class parents from an agricultural background, I am the youngest of six sons.</p>
+<center><img alt="Andrew and His Extended Family" width=50% src="/images/brothersandfamily.jpg"><img alt="Andrew and His Brothers" width=50% src="/images/brothersdisco.JPG"></center>
+
+<p>I met my wife Cameron online in the mid 1990s, when the internet was a very different place. (Alas - the internet we knew back then is dead and buried - but I digress.) After having met Cameron, I moved to Georgia to live with her in 2002. Cameron made me the happiest man ever by agreeing to marry me in February 2004. Together we have bounced around the continental United States several times, and currently live in Georgia, near Cameron’s family. Cameron and I have three children: Annastasia (2005), Gabriel (2008), and Catherine (2010).</p>
+<center><img alt="Andrew and His Family" width=50% src="/images/lineupfamily.jpg"><img alt="Andrew's wife Cameron" width=50% src="/images/cameron.jpg">
+</center>
+
+<p>I have dedicated my life to the service of my family, and put them first at all times. Only my dedication to my God can come before them.</p>
+<h2 id="Technology-Leadership"><a href="#Technology-Leadership" class="headerlink" title="Technology Leadership"></a>Technology Leadership</h2><h1 id="Infrastructure-amp-Cloud-Engineering-Manager"><a href="#Infrastructure-amp-Cloud-Engineering-Manager" class="headerlink" title="Infrastructure &amp; Cloud Engineering Manager"></a>Infrastructure &amp; Cloud Engineering Manager</h1><p><em>Wiser Solutions, Inc.</em> <em>4&#x2F;2022–2&#x2F;2024</em></p>
+<p>Directed engineering of Cloud and hybrid infrastructures to align with business goals and empower teams across enterprise to achieve growth and scale objectives. Built relationships with colleagues and leaders, leveraging relationships to guide decision-making, strategic planning, and vision for future initiatives. Championed automation to streamline processes and engage teams in higher-level projects. Managed performance from a fully remote environment.</p>
+<h1 id="IT-Manager"><a href="#IT-Manager" class="headerlink" title="IT Manager"></a>IT Manager</h1><p><em>Nintendo of America</em> <em>2&#x2F;2014–4&#x2F;2022</em></p>
+<p>Managed complexity of multiple functions spanning reliability engineering, IT operations, hosting, build &amp; delivery functions, and enterprise IT for Nintendo of America and Nintendo Technology Development. Monitored performance of multimillion-dollar portfolio encompassing dozens of platforms, including eCommerce solutions, internal tools, B2B integrations, and other key systems. Defined engineering standards, including creating measures and metrics for assessing designs, products, and solutions in terms of alignment with said standards. Collaborated with global Nintendo on strategic planning and process development. Served as part of Product Support Team for critical platforms and products.</p>
+<h1 id="Automation-Team-Manager"><a href="#Automation-Team-Manager" class="headerlink" title="Automation Team Manager"></a>Automation Team Manager</h1><p><em>Vonage Business Solutions</em> <em>4&#x2F;2013–2&#x2F;2014</em></p>
+<p>Oversaw team of Automation Architects and provided ongoing leadership, mentoring, and performance management to ensure performance goals were met. Managed critical technical projects related to automation. Developed tools in Bash and Puppet for deployment across diverse environments, as well as wrote automated build and test frameworks in Ruby, Puppet, and Jenkins. Gathered requirements from other teams (System Administration, Product Development, and more) and acted as liaison between teams to create bridges across projects and processes. Provided ongoing troubleshooting.</p>
+<h1 id="DevOps-Team-Leader"><a href="#DevOps-Team-Leader" class="headerlink" title="DevOps Team Leader"></a>DevOps Team Leader</h1><p><em>Total Systems, Inc</em>  <em>2&#x2F;2011–4&#x2F;2013</em></p>
+<p>Led DevOps team responsible for creation of automation tools and other technologies, improving operating capacity and processes such as audits through tools. Championed DevOps practices to guide integration across enterprise.</p>
+<h1 id="Miscellanious"><a href="#Miscellanious" class="headerlink" title="Miscellanious"></a>Miscellanious</h1><p>Also served as Software Engineer for Global Net Access (leading software development for major colocation datacenter) and Software Engineer&#x2F;Network Administrator at Logical Solutions (managing 300 remote sites).</p>
+<p>For more information about my professional background, current workplace, open positions, or to approach me with an opportunity, please see <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/andrewkesterson/">My LinkedIn Profile</a>.</p>
+<h2 id="Civil-Service"><a href="#Civil-Service" class="headerlink" title="Civil Service"></a>Civil Service</h2><h1 id="Infantry-Soldier"><a href="#Infantry-Soldier" class="headerlink" title="Infantry Soldier"></a>Infantry Soldier</h1><p><em><a target="_blank" rel="noopener" href="https://www.gasdf.com/">Georgia State Defense Force</a></em> <em>04&#x2F;2022-06&#x2F;2023</em></p>
+<ul>
+<li>Swore oath of enlistment February 2022 (for the second time - first time in 2000)</li>
+<li>Completed IET July 2022, graduated with honors</li>
+<li>Served in the elite <a target="_blank" rel="noopener" href="https://paonews.net/units-map/opfor/">OPFOR Battalion</a>, simulating enemy forces to train Georgia national guard troops. Serving as an infantry soldier and as the acting S4, managing signal (radio) equipment, processes, and training for the batallion.</li>
+</ul>
+<h1 id="Volunteer-Firefighter"><a href="#Volunteer-Firefighter" class="headerlink" title="Volunteer Firefighter"></a>Volunteer Firefighter</h1><p><em><a target="_blank" rel="noopener" href="https://www.facebook.com/Fortperryvfd/">Fort Perry, Georgia</a></em> Volunteer Fire Department <em>03&#x2F;2022 - Current</em><br><em><a target="_blank" rel="noopener" href="https://www.facebook.com/GenevaGaVFD/">Geneva, Georgia</a></em> Volunteer Fire Department <em>03&#x2F;2022 - Current</em></p>
+<ul>
+<li>Joined both departments in March 2022.</li>
+<li>Completed Firefighter 1 certification July 2022, training with Flint Hill Fire Dept, Georgia.</li>
+<li>Elected Treasurer of Geneva Fire Dept Sep 2022</li>
+</ul>
+<h1 id="Knight"><a href="#Knight" class="headerlink" title="Knight"></a>Knight</h1><p><em><a target="_blank" rel="noopener" href="https://christianknights.com/">Order of Christian Knights</a></em> <em>2019 - 06&#x2F;2023</em></p>
+<ul>
+<li>Became attached to the Order around 2019.</li>
+<li>Knighted as Sir Andrew in September, 2021. Committed to living a lifestyle that affirms the traditions of chivalry.</li>
+<li>Helped craft founding documents for the organization - primarily bylaws and constitution.</li>
+<li>Elected Master Deputy in Winter 2021 to assist the Grandmaster of the Order with executive functions. Served until December 2022.</li>
+<li>Appointed Master Secretary of the Order and Commander of the Southeast Regional Commandery December 2022.</li>
+<li>Active in numerous churches to encourage men and women to serve their family, churches and community.</li>
+<li>Vacated Order positions in June 2023 to focus on Fire department and local Church responsiblities</li>
+</ul>
+<h1 id="Search-and-Rescue-Technician"><a href="#Search-and-Rescue-Technician" class="headerlink" title="Search and Rescue Technician"></a>Search and Rescue Technician</h1><p><em><a target="_blank" rel="noopener" href="https://www.facebook.com/skagitcountysar/">Skagit Ground Search and Rescue</a></em> <em>2017 - 10&#x2F;2021</em></p>
+<ul>
+<li>Joined Fall 2017 after traveling to Houston, Texas to provide humanitarian aid after Hurricane Harvey.</li>
+<li>Served as field rescue technician, locating and extricating lost or injured subjects.</li>
+<li>Trained in First Aid, CPR, AED, bleeding control, and patient packout.</li>
+<li>Assisted with evidence searches for Skagit county Washington Sheriff’s Office.</li>
+<li>Assisted with the 2018, 2019, and 2020 SAR training academies.</li>
+<li>Served as Secretary in 2021 and briefly as Vice President.</li>
+<li>Assisted Search and Rescue Council with the implementation of Google Suites for Nonprofits via Techsoup</li>
+</ul>
+
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Family"><span class="toc-text">Family</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Technology-Leadership"><span class="toc-text">Technology Leadership</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Infrastructure-amp-Cloud-Engineering-Manager"><span class="toc-text">Infrastructure &amp; Cloud Engineering Manager</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IT-Manager"><span class="toc-text">IT Manager</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Automation-Team-Manager"><span class="toc-text">Automation Team Manager</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DevOps-Team-Leader"><span class="toc-text">DevOps Team Leader</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Miscellanious"><span class="toc-text">Miscellanious</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Civil-Service"><span class="toc-text">Civil Service</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Infantry-Soldier"><span class="toc-text">Infantry Soldier</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Volunteer-Firefighter"><span class="toc-text">Volunteer Firefighter</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Knight"><span class="toc-text">Knight</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Search-and-Rescue-Technician"><span class="toc-text">Search and Rescue Technician</span></a>
+</div>
+
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-02-09</div>
+        <a href="/2024/02/09/expectations/"><div class="recent-posts-item-content">Setting Expectations</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-01-29</div>
+        <a href="/2024/01/29/Simon-Sinek-Start-with-Why/"><div class="recent-posts-item-content">Start with Why</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-12-23</div>
+        <a href="/2023/12/23/United-States-Catholic-Catechism-for-Adults/"><div class="recent-posts-item-content">US Catholic Catechism for Adults</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-11-05</div>
+        <a href="/2023/11/05/Copper-Sun/"><div class="recent-posts-item-content">Copper Sun</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+    <article class="card card-content">
+      <div class="archive-card">
+  <div class="archive-card-header">
+    <i 
+      class="iconfont icon-wodebaobiao" 
+      style="padding-right: 2px;">
+    </i>Archive
+  </div>
+  <div class="archive-card-list">
+    
+    
+    
+      
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a 
+            href="/archives/2024" 
+            class="archive-card-list-item">
+            2024
+            <span class="archive-card-list-item-badge">2</span>
+          </a>
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a 
+            href="/archives/2023" 
+            class="archive-card-list-item">
+            2023
+            <span class="archive-card-list-item-badge">6</span>
+          </a>
+        
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+    
+      <a 
+        href="/archives/2022" 
+        class="archive-card-list-item">
+        2022
+        <span class="archive-card-list-item-badge">5</span>
+      </a>
+    
+  </div>
+</div>
+    </article>
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2024
+          
+          
+        </span>
+        &nbsp;
+        <a 
+          href="/" 
+          class="footer-link">
+          AKLabs
+        </a>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+    
+  </body>
+</html>
