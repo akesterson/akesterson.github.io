@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="AKLabs">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>Advice for New Managers : Part 2</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="Advice for New Managers : Part 2">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://www.aklabs.net/2024/03/05/new-manager-pt2/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/images/akesterson.webp">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2024-03-05">
+      <meta 
+        property="og:article:modified_time" 
+        content="2024-03-06">
+      <meta 
+        property="og:article:author" 
+        content="Andrew Kesterson">
+      
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">AKLabs</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/" 
+        class="navbar-menu-item">
+        
+          Home
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/tags" 
+        class="navbar-menu-item">
+        
+          Tags
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/links" 
+        class="navbar-menu-item">
+        
+          Friends
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/images/akesterson.webp" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">Andrew Kesterson</p>
+<p class="author-description"><center>Leadership || DevOps || GameDev <br/>Emergency Response <br/> <br/> <i>"Love God. Live Righteously. Die Well."</i> <br/> <br/> <a target="_blank" rel="noopener" href="https://github.com/akesterson">GitHub</a> || <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/andrewkesterson/">LinkedIn</a> </center></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>15</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>4</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>0</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Understand-the-difference-between-a-contributor-a-manager-and-an-executive"><span class="toc-text">Understand the difference between a contributor, a manager, and an executive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identify-and-network-with-your-new-peer-group"><span class="toc-text">Identify and network with your new peer group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identify-a-mentor-who-is-not-your-boss"><span class="toc-text">Identify a mentor - who is not your boss</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stay-Tuned-for-Part-3"><span class="toc-text">Stay Tuned for Part 3</span></a>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/Leadership/">
+        <div class="categories-list-item">
+          Leadership
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Books/">
+        <div class="categories-list-item">
+          Books
+          <span class="categories-list-item-badge">12</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Faith/">
+        <div class="categories-list-item">
+          Faith
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Outdoors/">
+        <div class="categories-list-item">
+          Outdoors
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      Advice for New Managers : Part 2
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2024-03-05T17:10:28.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2024-03-05</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/Leadership/" 
+          class="post-meta-link">
+          Leadership
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>2.6k words</span>
+    
+  </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <p>Welcome back to my series of advice for new managers. In the previous post, <a href="/2024/03/03/new-manager-pt1/">Advice for New Managers : Part 1</a>, we established three important ground rules for contributors that have just moved into management:</p>
+<ul>
+<li>Remember, you probably don’t know what you’re doing, and that’s OK</li>
+<li>What is the difference between a boss and a leader (and why you should be a leader)</li>
+<li>Understanding the power that comes with your new role (and why you should avoid using it)</li>
+</ul>
+<p>Now in this episode in the series, we will build on that knowledge with three more important topics. Again, this is all information that, when I was promoted into management from a senior contributor, I had to learn the hard way. I really wish I had a guide like this back then. I hope it will help you.</p>
+<h2 id="Understand-the-difference-between-a-contributor-a-manager-and-an-executive"><a href="#Understand-the-difference-between-a-contributor-a-manager-and-an-executive" class="headerlink" title="Understand the difference between a contributor, a manager, and an executive"></a>Understand the difference between a contributor, a manager, and an executive</h2><p>In most companies, there are three broad categories of people: contributors, managers, and executives. A simplified explanation of their different roles follows:</p>
+<ul>
+<li><em>Executives</em> craft a vision of the future and a strategy for how to get from here to there, align the organization with that vision and strategy, and motivate the organization to action.</li>
+<li><em>Managers</em> translate the strategic plan of the executives in their specific domain into concrete tactical operations that can be executed by groups of skilled contributors, and manage the complexity of completing those operations.</li>
+<li><em>Contributors</em> use their skills, expertise and experience to complete the tasks assigned to them by their manager, executing with competence and efficiency.</li>
+</ul>
+<p>One of the most important things for you to understand, as you learn to become a manager, is this: You are not a contributor anymore. See the “Delegation” section later for more about this. At the same time, you are also not an executive! </p>
+<p>… But wait, the Executive description looks a lot like what “Leader” looked like in the “Boss vs Leader” section above. I’m supposed to be a leader, right? Yes, you are supposed to be a leader. A person can be a leader regardless of their position in the organization. But you are most effective when leading within your scope, and each of these roles have different scopes. </p>
+<ul>
+<li><em>Executives</em> have a scope that covers one or more entire business functions - usually this will map to a department boundary of some sort. For example, an executive’s scope might be the operations function, or the engineering function, or the sales function. This scope is very high level and is where lots of big strategic decisions get made. However operating at this scope makes it difficult to track details, or the complexity of any specific project or program.</li>
+<li><em>Managers</em> have a scope that is defined within the scope of their executive, and which covers a specific slice of the function for which their executive is responsible. Usually these correspond to specific service offerings or products that the executive offers to the business, or which perform some specific set of tasks within the larger scope to enable the business function to operate. The manager must be responsible for managing the complexity of this slice of business functionality and its day to day operations. Otherwise, the executive will become hopelessly bogged down in minute details and become totally ineffective. At the same time, the executive provides the manager with air cover by managing the strategic plan which guides their projects, aligning the manager’s roadmaps with the higher level vision of the executive team; if the manager was responsible for doing this all themselves, then they would be unable to manage their tactical responsibilities on the ground, as their heads would constantly be in the metaphorical clouds.</li>
+<li><em>Contributors</em> have a scope that is defined by the projects and tasks to which their manager has assigned them to execute. They bring concrete domain specific skills to bear on a specific set of tasks to drive forward the objectives of the business function within which they work.</li>
+</ul>
+<p>There are two huge risks waiting for you if you don’t understand this:</p>
+<ol>
+<li>If you conflate the scope of Manager and Executive, you are liable to have a lot of conflicts with your boss (or, even worse, your boss’s boss). You won’t understand where their scopes and yours overlap, and where your respective responsibilities end. You will make decisions and statements based on incomplete information that you have observed from within your own scope without the added context of their scope. This is a career limiting move that will be very difficult to repair.</li>
+<li>If you conflate the scope of Manager and Contributor, you will spend more time getting in your employees’ way than enabling them. You will hold on to work they should be doing, negatively impacting every outcome you’re connected to. This will negatively impact the careers of every employee reporting to you.</li>
+</ol>
+<p>As you try to learn more about how to be a manager, you’re going to come across a lot of material that talks about leadership. Much of this will be titled as “manager” instruction, but it is actually targeted at executives. Don’t get me wrong, you absolutely should learn this; part of preparing for the next step in your career is knowing the job of the person above you. But if you’re not careful, and you misinterpret the material, you’ll wind up making the mistake of treating your boss like your peer because you don’t understand the difference in your roles; or you will make the mistake of staying too close to the work because you don’t understand the difference between managing the work and doing it. Both will result in you failing to effectively discharge your own role’s responsibilities, because you’re trying to work in the wrong scope. It’s a subtle but dangerous trap that’s very difficult to get out of.</p>
+<p>Before we move on from this, let me make one thing clear - I am not saying that you should “stay in your lane”, “mind your own business”, or “just do as you are told”. A very important skill for a manager to learn is how to “manage up” - coping with a senior manager or executive who doesn’t quite understand how to do their job (or is unwilling to do so) and requires some help. In these situations, knowledge of how an executive can and should function is invaluable. And there are plenty of times where it is fully appropriate to, with all due respect, tell your boss, “I don’t agree with your decision here for XYZ reasons”. But it must be done respectfully, with the humility that <em>you probably don’t know what you’re doing yet</em>, and it must be done in private. But the thing you must always remember is that your scopes are different, which means the decisions you make will be done at different levels and for different reasons.</p>
+<h2 id="Identify-and-network-with-your-new-peer-group"><a href="#Identify-and-network-with-your-new-peer-group" class="headerlink" title="Identify and network with your new peer group"></a>Identify and network with your new peer group</h2><p><em>Do not neglect the creation and maintenance of your network, or your career will suffer</em></p>
+<p>Now that you understand what your job is and what it is not, you need to understand that in leaving your previous scope, you have left your prior peer group. Your previous network of other experienced senior contributors now have a different scope than you do, and you can no longer effectively peer with them. It doesn’t mean you can’t stay friends with them, or maintain a very healthy professional relationship with them where you consult and advise each other. But that’s not the same thing as being a peer.</p>
+<p>Peers have similar interests, maturity levels, background, and&#x2F;or social status. As we discussed in the previous point, your old team mates and your new bosses are not appropriately similar to you in these ways to effectively serve as a peer group. So you can’t just be lazy about this and say “Well I’ve already got a strong network” - no you don’t. Those people are not your peers anymore. And you can’t just say “Well I’ve got a great boss” - your boss is not your peer! By the very nature of your relationship, they can not be your peer.</p>
+<p>There are two steps to figuring out who your new peers are. First, ask your boss to show you around to everyone they think it is important for you to peer with. This will help you understand which relationships your boss thinks will be the most critical. It is very important for you to know this - your boss has their own peer group, and it will include the bosses of the people who they introduce you to. They may even ask you to build some relationships directly into their own peer group. And feedback will flow in that network that you may not hear. So it is critical that you understand this dynamic, and that you give some priority to the relationships that your boss directly hands off to you. Make your absolute best effort to establish and nurture relationships with these people.</p>
+<p>Second, ask your boss for a copy of the current organization chart. They may tell you “we don’t have one” - but this is almost certainly false, pretty much every company has one. If nothing else, the payroll software absolutely knows whose boss is who, and has some kind of an organization chart. If your boss doesn’t know where to get the organization chart, ask your payroll department.</p>
+<p>Once you have the organization chart, you need to identify two groups of people: the other bosses at the same organizational level as your boss (other senior managers and directors), and the other managers who report to them. Once you have that information, don’t ask your boss which ones are important - you already did that, and your boss gave you the ones they know are critical to the success of the things they will delegate to you. Your boss knows “in order for you to achieve X you need to collaborate with Manager Z”. But your peer group is bigger than your immediate tactical needs, and your boss may or may not have cast a net that broad. Reach out to the other managers in that list, and get to know them. This is also how you begin to develop a very important executive level habit: reaching out across department and functional boundaries, creating and nurturing relationships with business functions you aren’t personally responsible for. This will allow you to discover opportunities and influence the business in ways that a single tactical line manager can’t.</p>
+<p>Once you have your list of peer managers, whether they came from your boss or your own investigation, setup some 1on1 meetings with each of these people. At these meetings, you need to accomplish:</p>
+<ol>
+<li>Understand what is this peer manager responsible for accomplishing?</li>
+<li>Understand what does this peer manager or their teams consume from you or your teams?</li>
+<li>Understand what do you or your teams consume from this peer manager or their teams?</li>
+<li>Understand what is going to be important for both of you to accomplish in the next 3, 6, and 12 months?</li>
+<li>Establish a recurring meeting at a cadence that makes sense based on the previous 4 questions. If you have a high level of dependency with each other, you should meet no less than monthly; maybe even weekly. If you aren’t tightly coupled, you might only need to sync up every few months.</li>
+</ol>
+<p>Lastly, identify groups of peers that are similar in some way, and set up (or join, if they already exist) some recurring roundtable meetings. Don’t look for the obvious similarities - “we are in the same department” or “we are working on the same projects”. Getting people together along these lines is the responsibility of department leaders and project managers, so if you want to get that group together, suggest it to those people and let them manage that. (I’m not saying you can’t be the one to organize those groups if such events don’t already exist, but I am saying that the organization already has people it pays to manage that complexity, and you have plenty of your own, so don’t take on responsibility you don’t need.) Use whatever criteria you think fits - but there should be a thematic similarity of some type between all of these people. It may be as simple as “we are all line managers in different departments at MegaCorp X”, or it could be “we are all engineering line managers”, or “we are all line managers who have a similar background”, or whatever.</p>
+<p>By creating these recurring roundtable meetings, you want to create a recurring cadence for <em>your peer group</em> to come together, to renew shared connections, share information and news from their respective disciplines, and vent about their struggles. By creating these recurring roundtables, you will establish relationships that are not based on projects or departments, but rather on shared identity as peers, which will survive as you (or your peers) move around the organization between departments and projects - or even if some of you leave the company entirely. And this network will be able to help each other in the company, and beyond.</p>
+<h2 id="Identify-a-mentor-who-is-not-your-boss"><a href="#Identify-a-mentor-who-is-not-your-boss" class="headerlink" title="Identify a mentor - who is not your boss"></a>Identify a mentor - who is not your boss</h2><p>This is important for everyone at all levels, but it’s especially important for leaders. Find a mentor, and do it sooner than later.</p>
+<p>You are going to need someone to talk to. Someone to ask for advice. Someone to vent to. Someone to look up to. Someone to help you wrestle with the really hard questions. This person <em>absolutely should not</em> be your boss. The reason for this might not be immediately obvious, but it’s a critical thing to understand: the nature of your relationship with your boss, and the relationship with your mentor, are different and may very well be at odds.</p>
+<p>To put it simply - your boss’ first responsibility is to the business, while your mentor’s first responsibility is to your career (and personal) development. In order to fully develop your career or character, you may need to follow a trajectory that will take you into a different job, a different department, a different company or an entirely different industry. Few bosses have the ability to juggle their loyalties between their business, their employees, and their mentees, to effectively coach someone in this way.</p>
+<p>In addition, this mentor and mentee relationship needs to last longer than whatever job you’re currently working. It needs to be able to follow you through the next several steps of your career. Your boss’ relationship with you only exists at this current time because of your shared employment by the company. Despite how much they may want to see you succeed, if your shared employment is the basis of your relationship, then you will struggle to maintain the relationship if and when one of you leaves.</p>
+<p>Be selective in who you ask to be your mentor. Pick someone who models the kind of success, maturity, and character you want to have. But understand that asking them to be your mentor creates risk for them; you will consume time and resources from them. You need to commit to actually following the advice they give you, and not wasting their time. This alone (asking for someone advice and actually taking it) is an incredibly important habit to develop.</p>
+<h1 id="Stay-Tuned-for-Part-3"><a href="#Stay-Tuned-for-Part-3" class="headerlink" title="Stay Tuned for Part 3"></a>Stay Tuned for Part 3</h1><p>Next I will publish part 3 of this series, where we will cover</p>
+<ul>
+<li>How your performance is judged (results and retention)</li>
+<li>Defining the relationship between you, your team, and the business</li>
+<li>Delegating all the way to the floor</li>
+</ul>
+<p>Stay tuned</p>
+
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2024/03/03/new-manager-pt1/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">Advice for New Managers : Part 1 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Understand-the-difference-between-a-contributor-a-manager-and-an-executive"><span class="toc-text">Understand the difference between a contributor, a manager, and an executive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identify-and-network-with-your-new-peer-group"><span class="toc-text">Identify and network with your new peer group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identify-a-mentor-who-is-not-your-boss"><span class="toc-text">Identify a mentor - who is not your boss</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stay-Tuned-for-Part-3"><span class="toc-text">Stay Tuned for Part 3</span></a>
+</div>
+
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Understand-the-difference-between-a-contributor-a-manager-and-an-executive"><span class="toc-text">Understand the difference between a contributor, a manager, and an executive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identify-and-network-with-your-new-peer-group"><span class="toc-text">Identify and network with your new peer group</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identify-a-mentor-who-is-not-your-boss"><span class="toc-text">Identify a mentor - who is not your boss</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stay-Tuned-for-Part-3"><span class="toc-text">Stay Tuned for Part 3</span></a>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-03-05</div>
+        <a href="/2024/03/05/new-manager-pt2/"><div class="recent-posts-item-content">Advice for New Managers : Part 2</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-03-03</div>
+        <a href="/2024/03/03/new-manager-pt1/"><div class="recent-posts-item-content">Advice for New Managers : Part 1</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-02-09</div>
+        <a href="/2024/02/09/expectations/"><div class="recent-posts-item-content">Setting Expectations</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-01-29</div>
+        <a href="/2024/01/29/Simon-Sinek-Start-with-Why/"><div class="recent-posts-item-content">Start with Why</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2024
+          
+          
+        </span>
+        &nbsp;
+        <a 
+          href="/" 
+          class="footer-link">
+          AKLabs
+        </a>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+    
+  </body>
+</html>
