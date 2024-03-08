@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="AKLabs">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>Advice for New Managers : Part 3</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="Advice for New Managers : Part 3">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://www.aklabs.net/2024/03/08/new-manager-pt3/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/images/akesterson.webp">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2024-03-08">
+      <meta 
+        property="og:article:modified_time" 
+        content="2024-03-08">
+      <meta 
+        property="og:article:author" 
+        content="Andrew Kesterson">
+      
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">AKLabs</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/consulting" 
+        class="navbar-menu-item">
+        
+          Consulting
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/images/akesterson.webp" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">Andrew Kesterson</p>
+<p class="author-description"><center>Leadership || DevOps || GameDev <br/>Emergency Response <br/> <br/> <i>"Love God. Live Righteously. Die Well."</i> <br/> <br/> <a target="_blank" rel="noopener" href="https://github.com/akesterson">GitHub</a> || <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/andrewkesterson/">LinkedIn</a> </center></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>16</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>4</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>0</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#You-are-now-judged-on-the-results-and-retention-of-your-team"><span class="toc-text">You are now judged on the results and retention of your team</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Correctly-define-the-relationship-between-you-your-team-and-the-business"><span class="toc-text">Correctly define the relationship between you, your team, and the business</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delegate-all-the-way-to-the-floor"><span class="toc-text">Delegate all the way to the floor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-now"><span class="toc-text">What now?</span></a></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/Leadership/">
+        <div class="categories-list-item">
+          Leadership
+          <span class="categories-list-item-badge">7</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Books/">
+        <div class="categories-list-item">
+          Books
+          <span class="categories-list-item-badge">12</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Faith/">
+        <div class="categories-list-item">
+          Faith
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Outdoors/">
+        <div class="categories-list-item">
+          Outdoors
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      Advice for New Managers : Part 3
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2024-03-08T05:10:28.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2024-03-08</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/Leadership/" 
+          class="post-meta-link">
+          Leadership
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>5k words</span>
+    
+  </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <p>Welcome back to my series of advice for new managers. In the previous post, <a href="/2024/03/05/new-manager-pt2/">Advice for New Managers : Part 2</a>, we built upon the foundation from <a href="/2024/03/03/new-manager-pt1/">Part 1</a> with three more important things about scope, peers and mentors:</p>
+<ul>
+<li>Understanding the difference between a contributor, a manager, and an executive</li>
+<li>How to identify and network with your new peer group, and why it’s important</li>
+<li>The importance of identifying a mentor (who is not your boss)</li>
+</ul>
+<p>Now in this episode in the series, we will close out with results, retention, relationships and delegation. Again, this is all information that, when I was promoted into management from a senior contributor, I had to learn the hard way. I really wish I had a guide like this back then. I hope it will help you.</p>
+<h2 id="You-are-now-judged-on-the-results-and-retention-of-your-team"><a href="#You-are-now-judged-on-the-results-and-retention-of-your-team" class="headerlink" title="You are now judged on the results and retention of your team"></a>You are now judged on the results and retention of your team</h2><p>We talked about how your job is no longer executing the tasks, but translating from the strategic to the tactical, and managing the complexity of distributing and completing that work. Your boss will be measuring your success by two primary factors:</p>
+<ul>
+<li>Your ability to achieve results with the resources you have on the goals you have been given</li>
+<li>Your ability to acquire and retain quality resources (people and capital assets)</li>
+</ul>
+<p>There are two primary risks you are there to mitigate:</p>
+<ul>
+<li>Stuff not getting done (lost opportunity cost)</li>
+<li>Time and productivity being lost due to personnel churn</li>
+</ul>
+<p>You need to talk to your boss about how they will judge your success in your role. They may not give you very good metrics - chances are, if they’re like most bosses, they don’t actually know how to measure whether you’re being successful. They have gut feelings, they know when major projects go off the rails, and they know when people in their network complain about or praise you, but they don’t really have good metrics on the performance of you or your teams. But even if they don’t give you really good metrics, you need to understand what their expectations are. But understand that, regardless of what they say, it really boils down to your ability to deliver results, retain good employees, and coach the troublesome ones up or out.</p>
+<p>Since you are no longer in your previous (contributor) role, and your experience in that role formed the basis for your ability to achieve results, how do you achieve results as a manager without acting like a contributor? For example, if you were an engineer, you no longer write the code; you manage those who write the code. Writing the code is no longer your contribution. Many of the ways you have previously achieved results are no longer relevant, and now you need to learn new ways. The first thing you must do is ensure that you are constantly framing your approach correctly. You no longer contribute directly to the effort; you contribute through the efforts of others.</p>
+<p>A huge part of this adaptation will be learning to delegate instead of execute. This skill is so important that it gets its own section at the end of this article. But if all you learn is delegation, you still won’t be successful. There are lots of other skills that go along with contributing through others, and helping them achieve success. So those are what I will discuss now.</p>
+<p>Begin by setting <a href="/2024/02/09/expectations/">clear, fair, simple expectations</a>. This, as so many other things in this article, begins with you asking your boss for clarification. This is different than asking them how they will judge whether or not you are successful - this question focuses on the things your team needs to deliver to the business. It may be specific, such as, “this team produces widgets of type A, B and C for the Amazing Machine”, or “We write advertising copy for radio, television and print advertisements”. It may be incredibly vague, such as “We provide domain-specific services to enable and empower our business partners to achieve success”. But you have to start somewhere, and from there, you have to drive it down to specific deliverables. </p>
+<p>You need to build up what’s known as a “service catalog” for your teams - a document that clearly outlines the products or services that your teams offer to the business, and how that product or service impacts the (internal or external) consumer. If you’ve followed the instructions up to this point and built out your peer group, and held those meetings where you discovered dependencies, you will already know a lot of the specific things your team needs to deliver to others. These are the items that go into your service catalog.  Call a meeting with your boss, present this document to them, and ask them if you’ve missed anything. Work on the document with your boss until both of you agree it’s accurate.</p>
+<p>Once you have a service catalog document, you need to set Service Level Objectives (SLOs). A service level objective is a target for the predictability, availability or performance of a given service. To do this, you speak to the Subject Matter Experts (SMEs) in your teams, and ask them about how long it takes to complete an average case for each one of these services. Your SMEs will want to avoid giving estimates because they don’t want to get boxed into unreasonable expectations in the future, so it’s fine to tell them to estimate on the high end - it’s better for these to be too generous rather than perfectly accurate. </p>
+<p>Now you refine those SLOs. If you have access to prior years’ worth of data, look at how long it historically took to complete some of these items and see if your SME’s estimates pass the smell test. Go back and work with them some more if there are discrepancies - be patient with them during this process, you may be the first manager who has done this, and they may initially feel like they’re being trapped by a bean counter. Continue this process until you and the SME are both happy. Add these SLOs to your service catalog document. Once you’ve done this, go back to your boss, and ask them for feedback on the new SLOs attached to the service document. Work with your boss until you and your boss both agree on the SLOs. If there is drastic disagreement, there may be a realignment that needs to happen between your boss’s expectations and the processes used to provide these services. That can be painful (for everybody) and expensive (for the business) but will ultimately drive away confusion and increase clarity, which is good for everybody.</p>
+<p>Once you and your boss agree on the service catalog and the SLOs, then you take the document to your (internal) customers. Go through the same process you did with your boss. What’s missing? Which SLO doesn’t make sense? Don’t argue, just gather data. If they want to add services, or if they want you to improve an SLO, just take that information down. Go back to your data and see if what they’re asking for is possible. For SLO improvements, ask your SMEs first if the improvement is possible before going to your boss. For new services added to your catalog, ask your boss if it makes sense to add that service to your catalog before going to your SMEs to talk about an SLO. Engage in the same loop you did when first building the catalog and setting SLOs. Once you, your boss and your SMEs are all aligned on the improvements (even if the answer you all align on is “no”), take that back to your customers.</p>
+<p>Congratulations, you’ve just set fair, simple, clear expectations with the three most important groups related to your ability to drive results:</p>
+<ul>
+<li>Your boss</li>
+<li>Your teams</li>
+<li>Your customers</li>
+</ul>
+<p>Now that you have done this, you need to ensure that your teams have a reliable process of procuring and completing work. This requires that you are able to collect, clarify, prioritize, and dispatch work in a continuous pipeline that doesn’t require your employees to keep coming to you and asking “what now, boss?”. The nature of your team’s specific work, your company’s culture, and the technologies in use by your organization will all play into how this specific pipeline is built. But the pipeline you build must adhere to a certain set of fundamental rules.</p>
+<p>First, there must be one and only one way by which work enters your team’s queue. If your team may be given work through slack, and email, and a ticketing system, and someone walking by their desk, and … this isn’t sustainable. You need a single way for work to enter your team. It’s okay for you to have multiple places for that work to be discussed, but until the work item enters that official entry method (usually some kind of internal ticketing system), everyone needs to understand that it’s just talk and nobody is obligated to do anything with it.</p>
+<p>Second, you need to clarify and classify work as it comes in, aligning it with the items in your service catalog. Once you have everything coming into a single intake funnel, you will discover lots of kinds of work that your teams are doing that don’t really match up with what your boss wants your teams to focus on. This scope expansion of your teams’ responsibilities through work unaligned with your teams’ purpose will sap their ability to deliver on more critical service catalog items. Work that is not aligned with your service catalog should be discussed with the requestor, escalated to your boss for potential reassignment to a different team, and should never be executed until you’ve gone through that exception process. Once you’re sure that the work should in fact be completed by your team, ensure that the work item has all the information your team needs. This is especially important for knowledge workers; if the work item makes it to your contributors, but they have to spend twice the regular SLO time figuring out the missing details of the work, then you are setting them up for failure.</p>
+<p>Third, you need a prioritization mechanism that obviously tags one item as being more important than the next. It could be as simple as “first in, first out” - that one came in first, therefore it gets done first. This is something you should work with your boss about, just like you did with the SLOs. But unlike the SLOs, don’t take feedback from your customers, just announce it to them. Your customers need to understand that your priorities are based on the business priorities and that your priorities are aligned with those of your boss. This will prevent some confusion and some people trying to make an end-run around the priorities by talking to your boss or your boss’s boss. At the same time, understand that an essential function of your role is to serve as a negotiator and tie-breaker when two items have an otherwise identical priority and one has to wait. Nobody likes being told to wait, and you’re going to have to manage that. Sometimes you and the customer will have to go to your boss and figure out what gets done first. That’s okay, the important thing is that you have a clear way of saying, as soon as you get a new work item in your hand, “this is X and it is more or less important than Y”.</p>
+<p>Fourth, your teams need to understand that only you can give them work. I’ve seen plenty of otherwise productive teams brought low by a tendency to be entirely too helpful. These teams will allow other managers to directly assign work items to them, bypassing your intake and prioritization mechanism. Your team will not be successful in this way, and they must commit to only drawing work items from the prioritized collection mechanism you just built. This will make perfect sense in larger organizations, but in some smaller organizations that are used to work just flowing freely between contributors, it can seem draconian. What you’re doing is protecting the workstream of the business’ resources from chaotic input, which is a byproduct of organizational, project and priority sprawl. And it’s ultimately good for your customers - once they have only one way of sending in work, the processes of sending, referencing, and following up on work all get easier.</p>
+<p>Fifth, establish a monitoring process wherein you measure the amount of time a given work item spends in a given status. You should be able to describe, for every service catalog item you have, how long it takes to:</p>
+<ul>
+<li>Intake that item</li>
+<li>Categorize that item</li>
+<li>Clarify that item</li>
+<li>Prioritize that item</li>
+<li>Delegate that item to a team member for execution</li>
+<li>Complete the actual execution of that item</li>
+</ul>
+<p>These items are called Service Level Indicators, and are what you need to measure whether or not your teams are being successful in the things the business is asking of them. If you see a service catalog item where any of these steps are exceeding the average time in a given step, or when a work item exceeds the SLO time overall, you can begin looking for trends, and from there you can make improvements to the process.</p>
+<p>Now that your teams are able to churn through units of work, you need to ensure that you have a reliable and effective way of communicating that progress up and out. Trust me, it doesn’t matter how awesome you and your teams are, if you aren’t effectively communicating, you’re setting yourself up for failure. Get in the habit of producing regular reports to your boss and your peers that show how your teams are doing. Regularly survey your peers to ask for feedback on how your teams are doing and what problems they are having, and work that into your regular continual improvement process. </p>
+<p>When it comes to retention, you only really need to understand a few things. And they’re not surprising or difficult. If you have these things, your people will bend over backwards to do good work for you.</p>
+<ul>
+<li>People want to do work that they think needs matters</li>
+<li>People want to be rewarded for a job well done</li>
+<li>People want to see a path ahead of them where they can advance their career</li>
+<li>People want to be dealt with fairly and honestly</li>
+</ul>
+<p>It really is that simple. There is so much to be said here, and this article is already way too long. I’ll publish a future follow-up article on what you, as a manager, can do to help improve retention among their employees - and how to deal with the factors that are completely out of your control.</p>
+<h2 id="Correctly-define-the-relationship-between-you-your-team-and-the-business"><a href="#Correctly-define-the-relationship-between-you-your-team-and-the-business" class="headerlink" title="Correctly define the relationship between you, your team, and the business"></a>Correctly define the relationship between you, your team, and the business</h2><p>Managers who were promoted from the ranks of contributors face a special challenge that, on the one hand, can seem beneficial - but on the other hand, can create huge problems. And that challenge is that the manager may view themselves as, and the contributors will view them as, “one of us”, and that “now one of us has a seat at the table”.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KlWlhyX6rb0?si=NhbMJEbrPEfq8JvR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+
+<p>As attractive as this is, and as useful as this sentiment can be, you must be very cautious about this. You need to carefully set expectations with your team, your boss, and yourself, about what your role is and is not. Hopefully, by this point in this series :</p>
+<ul>
+<li>you have a good idea of what your role is</li>
+<li>you have a strong peer network to lean on</li>
+<li>you have a good mentor to guide you</li>
+<li>you have a clear picture of how your boss will measure your success</li>
+<li>you have a clear breakdown of responsibility between you and the other layers of the business.</li>
+</ul>
+<p>All of this knowledge will allow you to be effective in your role, but you can sabotage all of it if you don’t have the proper relationship with your teams. Here are a few boundaries that are critical for you to establish with yourself and your team.</p>
+<ul>
+<li>This is a business, not a family</li>
+<li>This team, and these employees, are not yours</li>
+<li>You should be their advocate, but you cannot be their friend</li>
+<li>You are there to enable them to deliver results to the business, not to protect them from the business</li>
+</ul>
+<p>There is a pernicious lie spread in some organizations that “Here, we are a family”. This is said by well-meaning but clueless leaders and managers who are trying to create an inclusive environment that feels safe. But the actual effect is to create an environment where people feel trapped and abused. Families are a network of natural, biological connections we don’t get a choice about, and they are primarily held together by unconditional love. A business is a network of skilled individuals primarily held together by a contractual agreement to provide a wage in exchange for time and effort. It is critical to understand this difference, or you will do enormous psychological harm to yourself, your business and your employees. </p>
+<p>Nobody can love you like family, and nobody can hurt you like family. Business relationships can be nurturing and fulfilling in many ways, but a business will never, ever love you. It can not. An individual within a business may love a person or every person, and may exhibit exceptional caring and empathy, and they may go to exceptional and inspiring lengths for those people. But the business itself is a faceless, heartless thing that must make logical decisions based on success criteria, which usually boils down to financial impact. </p>
+<p>Some of my readers might be very offended by this. Maybe you work for a non-profit that does great work within society. Maybe you work for an organization where every employee truly does feel loved and cared for. I’m not denying that there are some amazing companies out there; but they are amazing because of the people who lead them, not because of the company itself. They are not families. Ask yourself - would you rather starve than leave your coworkers? Would you rather freeze on the street with them, than leave them? Would you sacrifice your own happiness, well being, and safety, in order to offer them something better? That’s what family does. And that’s why it’s so dangerous to tell people that your business is a family. Because while people can and often are motivated to go to such extremes for the people around them, the business <em>absolutely will not do these things for them</em>. And the moral injury that results from this realization can be crushing for everyone, and many will never recover from it when it happens.</p>
+<p>This brings us to the next point: these teams, these people, are not yours. As leaders, it is critical that you create a shared identity with the teams you have been assigned to lead, and that you personally invest in the success of the individuals you have been asked to manage. You cannot lead if the workers don’t feel that you represent them, and someone will not allow you into their life to develop them if they don’t believe you actually care about them. It’s been said that “nobody cares how much you know until they know how much you care”. These things can lead to you using identifying language like “my teams”, or “my employees”. They have been assigned to you, and you’re putting in the work, so they’re yours - your responsibility, your work, your resources. Except … they’re not.</p>
+<p>Remember, this is a business, not a family. And those employees, those teams, have a contract with the business, not with you. The business may, for reasons completely and entirely unrelated to your performance, decide to take those employees and teams and move them to a different part of the organization with a different manager. Or the business may move you to a different team and different employees. And none of this is personal; it’s just business. Your relationship with them, as strong as it may be, is temporary and based entirely around the needs of the business. </p>
+<p>Failing to understand this can often lead to you feeling resentment towards the business based on the things the business does in regards to “your people”. And it can lead to you developing a habit that you and your team will see as very beneficial, but which is actually really dangerous. You may begin to feel like you have been placed into that position to protect your team from the business.</p>
+<p>If you feel that you must protect your team from the business, this creates an adversarial relationship between you, your boss, and their objectives. It paints a big bullseye on your team’s back when it comes time for layoffs and reorganizations. And it severely limits your effectiveness, because it shows you really don’t understand the priorities that your boss has set for you, and that you can’t be trusted to manage the complexity of the work you’re being given. </p>
+<p>The desire to protect your team from the business usually comes from past trauma that you’re carrying around from a prior moral injury you sustained at the hands of some representative of the business. You need to dig that up, work through it, and square it away. Talk to your peer groups and your mentor about it. Understand what drove the business decisions that were at play in what happened to you, and understand how much of what happened was simply due to the human being who delivered that business decision to you. Once you’re able to effectively divorce the actions of the business from the actions of the humans that were employed by that business, you can prepare to do something that is actually useful for your team. These useful things include managing relationships between your team and the various humans representing the business, so that you can predict and interdict troublesome human interactions around business decisions that are likely to result in moral injury in the first place. Taking this approach will ensure the business sees that you are fully utilizing your resources in support of the goals set before you and your leadership, while your teams will see you as a leader who is calm under fire, a rock in times of trouble, and a fierce protector against injustice.</p>
+<p>At the same time, as we discussed when defining your new peer group, you have to be careful about staying too close to your team. This brings us to the final point of this section: your team needs you to be their manager, not their friend. You are responsible for their productivity, and ensuring that they are doing what the business needs them to do. As much as you do your best to inspire them by leading from the front, by modeling the values you expect them to show… Ultimately you do control their addiction to food clothing and shelter, you tell them what to do, and you will be the one who has to discipline (or fire) them if things aren’t going well. </p>
+<p>It is important that you establish trust with your team, that they understand you will go to bat for them and will always stand behind them, but that you establish clear boundaries. You are a representative of their employer. You lead them as their boss. Just because you don’t like using your role power doesn’t mean you don’t have it, and you both need to maintain a healthy level of respect for the position you hold and the business you represent. Remember this is for you as much as it is for them - otherwise you won’t be able to provide honest feedback, you won’t be able to issue difficult commands, and you won’t be able to make difficult decisions. You won’t provide discipline (which is not the same as punishment) where necessary, and things will fall apart. Your teams will suffer if you don’t establish boundaries here.</p>
+<h2 id="Delegate-all-the-way-to-the-floor"><a href="#Delegate-all-the-way-to-the-floor" class="headerlink" title="Delegate all the way to the floor"></a>Delegate all the way to the floor</h2><p>The last thing I’m going to cover in this article is delegation. You understand now that your job is tactical execution of the strategic objectives given to you by your boss, breaking up that work amongst your resources, assigning it out, and following up to make sure it gets done. If you were a successful contributor, you’re almost certainly going to fail here. And it’s because you’re used to executing, not delegating.</p>
+<p>The process of learning to delegate is why lots of managers who used to be contributors feel like their transition to management has made them useless. They are so used to directly executing tasks that they can’t be productive without their hands directly in the work. These managers usually also feel like they need to protect their teams from the business. As a result, when these managers are given a task by their boss, they will hold on to that work and try to get it done themselves.</p>
+<p>Unfortunately, you are NOT the correct person to get this work done anymore. Holding on to this work might make you feel good because you’re comfortable with this kind of work and you can feel productive, whereas with your other managerial tasks you might not feel as productive, that’s just sticking your head in the sand. By holding on to that work, you prevent your employees (who are better positioned to actually do this work) from picking it up and executing it. Further, you are delaying the completion of that work, or you are delaying completion of managerial work that your boss expects you to do, or both. By holding on to this work and trying to get it done yourself, you are making everything about this task worse. This is a terrible habit.</p>
+<p>A much better habit to develop is <a target="_blank" rel="noopener" href="https://www.manager-tools.com/2012/02/delegating-floor">delegating to the floor</a>. The idea is simple: Any time you get something from your boss, or when you are dealing with a large pile of tasks broken out from a larger initiative your boss gave you, you delegate everything by default. You take a unit of work, and ask two questions:</p>
+<ul>
+<li>Am I the CORRECT person to do this work?</li>
+<li>Am I the ONLY person who knows how to do this work?</li>
+</ul>
+<p>If you are the correct person to do the work, then you should do it. But you should also ask yourself if there’s anyone in your team who is ready to learn the task - remember, part of being a good manager is training the people beneath you to learn your job so that both of you can be ready to move up to new roles when vacancies appear in the organization. If so, then grab someone else and have them learn the task as you do it. Then, when the next time comes along, if it is appropriate to do so, you can delegate it to them.</p>
+<p>If you are the ONLY person who knows how to do a task, and you are not the correct person to do it, this is a big problem. You now have a training responsibility. Pull your team together, walk them through how this task should be done, set clear expectations with them, and then delegate it to someone. This is how you empower your team, and yourself, to do bigger and better things.</p>
+<p>Don’t worry about over-delegating to your team, as long as they understand that they, too, can delegate - to the floor! What you need to focus on is ensuring that your team knows the priority order in which things need to be done. If you are setting clear expectations around priorities, then when you delegate something new to your employees, they know exactly what to do - they delegate the same way you do. The things that can and should be handed off to a peer or a more junior contributor are handed off; and when the work item gets delegated down so far that it can’t be delegated to any other person, and it is lower priority than some other work item, it gets <a target="_blank" rel="noopener" href="https://www.manager-tools.com/2012/02/delegating-floor">delegated to the floor</a>. It doesn’t get done. And that’s okay. Not everything gets done; nobody leaves the office at the end of the day with 100% of their tasks done. But we have to make sure the right things are getting done at the right time by the right people, and delegating to the floor allows us to make sure that those right people are doing those right things instead of constantly chasing every little thing that comes their way.</p>
+<h2 id="What-now"><a href="#What-now" class="headerlink" title="What now?"></a>What now?</h2><p>We’ve covered 9 fundamental topics in this series:</p>
+<ul>
+<li>Understanding the difference between a contributor, a manager, and an executive</li>
+<li>Identifying and networking with your new peer group</li>
+<li>Identifying a mentor - who is not your boss</li>
+<li>Remember, you probably don’t know what you’re doing, and that’s OK</li>
+<li>What is the difference between a boss and a leader (and why you should be a leader)</li>
+<li>Understanding the power that comes with your new role (and why you should avoid using it)</li>
+<li>How your performance is judged (results and retention)</li>
+<li>Defining the relationship between you, your team, and the business</li>
+<li>Delegating all the way to the floor</li>
+</ul>
+<p>There is so much more to being a good manager and a good leader. Literal libraries of content have been written on the topic. But these 9 things are, in my opinion, absolutely critical for new managers to learn and implement effectively. If you do these things, you will rise head and shoulders above 90% of your peers.</p>
+<p>Good luck out there.</p>
+
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2024/03/05/new-manager-pt2/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">Advice for New Managers : Part 2 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#You-are-now-judged-on-the-results-and-retention-of-your-team"><span class="toc-text">You are now judged on the results and retention of your team</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Correctly-define-the-relationship-between-you-your-team-and-the-business"><span class="toc-text">Correctly define the relationship between you, your team, and the business</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delegate-all-the-way-to-the-floor"><span class="toc-text">Delegate all the way to the floor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-now"><span class="toc-text">What now?</span></a></li></ol>
+</div>
+
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#You-are-now-judged-on-the-results-and-retention-of-your-team"><span class="toc-text">You are now judged on the results and retention of your team</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Correctly-define-the-relationship-between-you-your-team-and-the-business"><span class="toc-text">Correctly define the relationship between you, your team, and the business</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Delegate-all-the-way-to-the-floor"><span class="toc-text">Delegate all the way to the floor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-now"><span class="toc-text">What now?</span></a></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-03-08</div>
+        <a href="/2024/03/08/new-manager-pt3/"><div class="recent-posts-item-content">Advice for New Managers : Part 3</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-03-05</div>
+        <a href="/2024/03/05/new-manager-pt2/"><div class="recent-posts-item-content">Advice for New Managers : Part 2</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-03-03</div>
+        <a href="/2024/03/03/new-manager-pt1/"><div class="recent-posts-item-content">Advice for New Managers : Part 1</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-02-09</div>
+        <a href="/2024/02/09/expectations/"><div class="recent-posts-item-content">Setting Expectations</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2024
+          
+          
+        </span>
+        &nbsp;
+        <a 
+          href="/" 
+          class="footer-link">
+          AKLabs
+        </a>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+      <script>
+        var googleAnalytics = function () {
+          window.dataLayer = window.dataLayer || []
+          function gtag() {
+            dataLayer.push(arguments)
+          }
+          gtag('js', new Date())
+          gtag('config', 'G-S3YLF516N6')
+        }
+    </script>
+      <script>
+        loadScript(
+          'https://www.googletagmanager.com/gtag/js?id=' +
+            'G-S3YLF516N6',
+          googleAnalytics
+        )
+      </script>
+    
+    
+  </body>
+</html>
