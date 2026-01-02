@@ -7,7 +7,7 @@ FN:Andrew Kesterson
 IMPP;TYPE=discord:andrew.kesterson
 X-SOCIALPROFILE;TYPE=discord;X-USER=andrew.kesterson:https://discord.com/users/andrew.kesterson
 IMPP;TYPE=irc:akesterson
-KEY:TYPE=data:application/pgp-keys;base64,mDMEaVD8fhYJKwYBBAHaRw8BAQdAsijhCDBv4syqeWHw/CmPw6NEOrPH19L07VTinAF26e20JEFuZHJldyBLZXN0ZXJzb24gPGFuZHJld0Bha2xhYnMubmV0PoiTBBMWCgA7FiEEJUSSQ9CeS++lc54aUteZKksJ/ecFAmlQ/H4CGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQUteZKksJ/edAnwEAxv8T8Jy/OuAvWkI+9uQ3abqw8P34CdkLX55A6mvaUKYBAPrxU0/XupNQokqlUHYEcm3vItc5ZiuCHLLGHTp/vUUBuDgEaVD8fhIKKwYBBAGXVQEFAQEHQOYIlwWL6pYCBtkXJGdGgmkREA46VUsYReLPnIQ5JjlyAwEIB4h4BBgWCgAgFiEEJUSSQ9CeS++lc54aUteZKksJ/ecFAmlQ/H4CGwwACgkQUteZKksJ/ed9igD/ZsUov2A0LG+aMY/fsYN7GuiEtr4hO1eBKj2qTQoK2y0BAPmaAJ8LXC2f1HtISNrELh3TF5sXjsqn7qeIIe6Nd8EN
+KEY:MEDIATYPE=data:application/pgp-keys:https://aklabs.net/contact/pubkey.asc
 KIND:individual
 LANG:en-US
 LOGO:MEDIATYPE=image/png;https://aklabs.net/images/arms.png
