@@ -79,6 +79,37 @@
   </script>
   
     
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-defauult.min.css', '[data-prism]', 'prism-defauult');
+              } else {
+                loadCSS('/js/lib/prism/prism-defauult.min.css', 'prism', 'prism-defauult');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+      
+    
   
   <script>
     // control reverse button
@@ -118,15 +149,18 @@
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else if(reverseDarkList[setting]) {
         document.documentElement.setAttribute('data-user-color-scheme', setting);
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else {
         document.documentElement.removeAttribute('data-user-color-scheme');
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
         document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
       }
     };
     setDarkmode();
@@ -265,13 +299,13 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>20</span>
+    <span>21</span>
     <span>Posts</span>
   </a>
   <a 
     class="author-categories-count" 
     href="/categories">
-    <span>9</span>
+    <span>10</span>
     <span>Categories</span>
   </a>
   <a 
@@ -335,6 +369,13 @@
       <a href="/categories/Philosophy/">
         <div class="categories-list-item">
           Philosophy
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/technology/">
+        <div class="categories-list-item">
+          technology
           <span class="categories-list-item-badge">1</span>
         </div>
       </a>
@@ -407,11 +448,15 @@
     
       
         
+      
+    
+      
+        
           <a 
             href="/archives/2026" 
             class="archive-card-list-item">
             2026
-            <span class="archive-card-list-item-badge">3</span>
+            <span class="archive-card-list-item-badge">4</span>
           </a>
         
         
@@ -538,26 +583,10 @@
     <div class="archive-timeline-item">
       <div class="archive-timeline-post">
         <div class="card card-content">
-          <div class="archive-timeline-post-date">2026-01-08</div>
+          <div class="archive-timeline-post-date">2026-01-11</div>
           <div class="archive-timeline-post-content">
             <a 
-              href="/2026/01/08/News-2026-Week-1/"
-              class="archive-timeline-post-item">
-              News - 2026 - Week 1
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2026-01-08</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2026/01/08/Single-Pane-of-Glass/"
+              href="/2026/01/11/Single-Pane-of-Glass/"
               class="archive-timeline-post-item">
               Single Pane of Glass
             </a>
@@ -570,12 +599,44 @@
     <div class="archive-timeline-item">
       <div class="archive-timeline-post">
         <div class="card card-content">
-          <div class="archive-timeline-post-date">2026-01-08</div>
+          <div class="archive-timeline-post-date">2026-01-11</div>
           <div class="archive-timeline-post-content">
             <a 
-              href="/2026/01/08/Smart-LEGO/"
+              href="/2026/01/11/Smart-LEGO/"
               class="archive-timeline-post-item">
               Smart LEGO
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    
+    <div class="archive-timeline-item">
+      <div class="archive-timeline-post">
+        <div class="card card-content">
+          <div class="archive-timeline-post-date">2026-01-11</div>
+          <div class="archive-timeline-post-content">
+            <a 
+              href="/2026/01/11/libakerror/"
+              class="archive-timeline-post-item">
+              libakerror
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    
+    <div class="archive-timeline-item">
+      <div class="archive-timeline-post">
+        <div class="card card-content">
+          <div class="archive-timeline-post-date">2026-01-11</div>
+          <div class="archive-timeline-post-content">
+            <a 
+              href="/2026/01/11/News-2026-Week-1/"
+              class="archive-timeline-post-item">
+              News - 2026 - Week 1
             </a>
           </div>
         </div>
@@ -684,25 +745,6 @@
       </div>
     </div>
   
-    
-      <div class="archive-timeline-tag"><span>2023</span></div>
-      
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2023-12-23</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2023/12/23/United-States-Catholic-Catechism-for-Adults/"
-              class="archive-timeline-post-item">
-              US Catholic Catechism for Adults
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
 </div>
 
   <div class="nav">
@@ -739,23 +781,23 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2026-01-08</div>
-        <a href="/2026/01/08/News-2026-Week-1/"><div class="recent-posts-item-content">News - 2026 - Week 1</div></a>
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/Single-Pane-of-Glass/"><div class="recent-posts-item-content">Single Pane of Glass</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2026-01-08</div>
-        <a href="/2026/01/08/Single-Pane-of-Glass/"><div class="recent-posts-item-content">Single Pane of Glass</div></a>
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/Smart-LEGO/"><div class="recent-posts-item-content">Smart LEGO</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2026-01-08</div>
-        <a href="/2026/01/08/Smart-LEGO/"><div class="recent-posts-item-content">Smart LEGO</div></a>
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/libakerror/"><div class="recent-posts-item-content">libakerror</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2025-01-04</div>
-        <a href="/2025/01/04/Socrates-got-a-raw-deal/"><div class="recent-posts-item-content">Socrates got a raw deal</div></a>
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/News-2026-Week-1/"><div class="recent-posts-item-content">News - 2026 - Week 1</div></a>
       </div>
     
   </div>
@@ -791,11 +833,15 @@
     
       
         
+      
+    
+      
+        
           <a 
             href="/archives/2026" 
             class="archive-card-list-item">
             2026
-            <span class="archive-card-list-item-badge">3</span>
+            <span class="archive-card-list-item-badge">4</span>
           </a>
         
         

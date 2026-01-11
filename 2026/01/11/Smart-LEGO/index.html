@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="AKLabs">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>Smart LEGO</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="Smart LEGO">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://aklabs.net/2026/01/11/Smart-LEGO/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/images/akesterson.webp">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2026-01-11">
+      <meta 
+        property="og:article:modified_time" 
+        content="2026-01-11">
+      <meta 
+        property="og:article:author" 
+        content="Andrew Kesterson">
+      
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-defauult.min.css', '[data-prism]', 'prism-defauult');
+              } else {
+                loadCSS('/js/lib/prism/prism-defauult.min.css', 'prism', 'prism-defauult');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+      
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="AKLabs" type="application/atom+xml">
+</head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">AKLabs</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/now" 
+        class="navbar-menu-item">
+        
+          ~/.plan
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/consulting" 
+        class="navbar-menu-item">
+        
+          Consulting
+        
+      </a>
+    
+      <a 
+        href="/contact" 
+        class="navbar-menu-item">
+        
+          Contact
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/images/akesterson.webp" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">Andrew Kesterson</p>
+<p class="author-description"><center><i>"Love God. Live Righteously. Die Well."</i> <br/> <br/> <a target="_blank" rel="noopener" href="https://github.com/akesterson">GitHub</a> || <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/andrewkesterson/">LinkedIn</a> <br/> </center></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>21</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>10</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>0</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/Books/">
+        <div class="categories-list-item">
+          Books
+          <span class="categories-list-item-badge">13</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Faith/">
+        <div class="categories-list-item">
+          Faith
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Outdoors/">
+        <div class="categories-list-item">
+          Outdoors
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Technology/">
+        <div class="categories-list-item">
+          Technology
+          <span class="categories-list-item-badge">3</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Leadership/">
+        <div class="categories-list-item">
+          Leadership
+          <span class="categories-list-item-badge">7</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Philosophy/">
+        <div class="categories-list-item">
+          Philosophy
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/technology/">
+        <div class="categories-list-item">
+          technology
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Current-Events/">
+        <div class="categories-list-item">
+          Current-Events
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/History/">
+        <div class="categories-list-item">
+          History
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Liberal-Education/">
+        <div class="categories-list-item">
+          Liberal-Education
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      Smart LEGO
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2026-01-11T03:03:05.994Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2026-01-11</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/Technology/" 
+          class="post-meta-link">
+          Technology
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>279 words</span>
+    
+  </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <p><a target="_blank" rel="noopener" href="https://tech.slashdot.org/story/26/01/06/1842257/lego-unveils-smart-bricks-its-most-significant-evolution-in-50-years?utm_source=rss1.0mainlinkanon&utm_medium=feed">A Slashdot user reports that</a></p>
+<blockquote>
+<p>The Lego Group today unveiled Smart Bricks, a tiny computer that fits entirely inside a classic 2x4 brick and which the company is calling the most significant evolution in its building system since the introduction of the minifigure in 1978. The Smart Brick contains a custom ASIC smaller than a single Lego stud and includes light and sound output, light sensors, inertial sensors for detecting movement and tilt, and a microphone that functions as a virtual button rather than a recording device. The bricks detect NFC-equipped smart tags embedded in new tiles and minifigures, and they form a Bluetooth mesh network to sense each other’s position and orientation. They charge wirelessly on a pad that can handle multiple bricks simultaneously.</p>
+</blockquote>
+<p>So we have physical artifacts the size of a lego brick that can:</p>
+<ul>
+<li>detect movement and tilt</li>
+<li>sense light</li>
+<li>output light and sound</li>
+<li>a microphone that acts like a button</li>
+</ul>
+<p>I’m really curious to get my hands on some of these and see what you can do with them. I could easily see them being constructed into physical artifacts that serve as some kind of interactive amusement device - at the very least, you would be able to make a Simon Says or BopIt. I’m also curious how (if at all) they could interact with Mindstorms. I’m sure someone out there will figure out a way to make them interact with smoething they weren’t meant to.</p>
+<p>On a long enough timeline, we’ll have an entire computer constructed entirely of LEGO Smart Bricks that runs DOOM, like a real life minecraft Redstone contraption.</p>
+<p>What a time to be alive.</p>
+
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2026/01/11/Single-Pane-of-Glass/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">Prev</div>
+          
+            <div class="nav-title">Single Pane of Glass </div>
+          
+        </div>
+      </a>
+    </div>
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2026/01/11/libakerror/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">libakerror </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+
+</div>
+
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/Single-Pane-of-Glass/"><div class="recent-posts-item-content">Single Pane of Glass</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/Smart-LEGO/"><div class="recent-posts-item-content">Smart LEGO</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/libakerror/"><div class="recent-posts-item-content">libakerror</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/News-2026-Week-1/"><div class="recent-posts-item-content">News - 2026 - Week 1</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+          
+                - 
+                2026
+          
+        </span>
+        &nbsp;
+        <a 
+          href="mailto:andrew@aklabs.net" 
+          class="footer-link">
+          Andrew Kesterson
+        </a>
+	<br/>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+      <script>
+        var googleAnalytics = function () {
+          window.dataLayer = window.dataLayer || []
+          function gtag() {
+            dataLayer.push(arguments)
+          }
+          gtag('js', new Date())
+          gtag('config', 'G-S3YLF516N6')
+        }
+    </script>
+      <script>
+        loadScript(
+          'https://www.googletagmanager.com/gtag/js?id=' +
+            'G-S3YLF516N6',
+          googleAnalytics
+        )
+      </script>
+    
+    
+  </body>
+</html>

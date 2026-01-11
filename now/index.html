@@ -79,6 +79,37 @@
   </script>
   
     
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-defauult.min.css', '[data-prism]', 'prism-defauult');
+              } else {
+                loadCSS('/js/lib/prism/prism-defauult.min.css', 'prism', 'prism-defauult');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+      
+    
   
   <script>
     // control reverse button
@@ -118,15 +149,18 @@
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else if(reverseDarkList[setting]) {
         document.documentElement.setAttribute('data-user-color-scheme', setting);
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else {
         document.documentElement.removeAttribute('data-user-color-scheme');
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
         document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
       }
     };
     setDarkmode();
@@ -265,13 +299,13 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>20</span>
+    <span>21</span>
     <span>Posts</span>
   </a>
   <a 
     class="author-categories-count" 
     href="/categories">
-    <span>9</span>
+    <span>10</span>
     <span>Categories</span>
   </a>
   <a 
@@ -335,6 +369,13 @@
       <a href="/categories/Philosophy/">
         <div class="categories-list-item">
           Philosophy
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/technology/">
+        <div class="categories-list-item">
+          technology
           <span class="categories-list-item-badge">1</span>
         </div>
       </a>
@@ -407,11 +448,15 @@
     
       
         
+      
+    
+      
+        
           <a 
             href="/archives/2026" 
             class="archive-card-list-item">
             2026
-            <span class="archive-card-list-item-badge">3</span>
+            <span class="archive-card-list-item-badge">4</span>
           </a>
         
         
@@ -532,17 +577,17 @@
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2026-01-08T14:22:41.450Z">
+    <time datetime="2026-01-11T03:03:06.043Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2026-01-08</span>
+      <span>2026-01-11</span>
     </time>
     
     
       <span class="dot"></span>
-      <span>253 words</span>
+      <span>264 words</span>
     
   </div>
   
@@ -559,12 +604,15 @@ Patched libsdlerror (which is now renamed to <a target="_blank" rel="noopener" h
 <li><p><input checked="" disabled="" type="checkbox"> 
 Started a fork of <a target="_blank" rel="noopener" href="https://github.com/akesterson/py-synologydsm-api">py-synologydsm-api</a> to implement the various <code>SYNO.Cal.*</code> APIs necessary to fetch Calendar and Event objects. (See the WIP here](<a target="_blank" rel="noopener" href="https://github.com/akesterson/py-synologydsm-api/pull/1">https://github.com/akesterson/py-synologydsm-api/pull/1</a>)) Very primitive enumeration is working. Needs some more work before it’s useful for my purposes, lots more work before it’s suitable for contribution back upstream.</p>
 </li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+Wrote an article about <a target="_blank" rel="noopener" href="https://github.com/akesterson/libakerror">libakerror</a> explaining why this kind of error handling is useful in C</p>
+</li>
 </ul>
 <h2 id="Specific-Plans"><a href="#Specific-Plans" class="headerlink" title="Specific Plans"></a>Specific Plans</h2><!-- personal .plan here -->
 <ul>
-<li>Write an article about <a target="_blank" rel="noopener" href="https://github.com/akesterson/libakerror">libakerror</a> explaining why this kind of error handling is useful in C</li>
 <li>Implement <a target="_blank" rel="noopener" href="https://github.com/akesterson/py-synologydsm-api">py-synologydsm-api</a> SYNO.Cal event filtering by calendar ID and filtering by date (only show me events in the future)</li>
 <li>Publish my RFC on Decentralized Claim-Based Professional Credentials and Trust Attestations, aka, “how we can use the crypto web of trust to solve the AI slop hiring problem in our job market”</li>
+<li>Do some things with the kubernetes homelab, letsencrypt, synology, and …. things</li>
 </ul>
 <h1 id="Musings"><a href="#Musings" class="headerlink" title="Musings"></a>Musings</h1><!-- musings here -->
 <blockquote>
@@ -610,23 +658,23 @@ Started a fork of <a target="_blank" rel="noopener" href="https://github.com/ake
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2026-01-08</div>
-        <a href="/2026/01/08/News-2026-Week-1/"><div class="recent-posts-item-content">News - 2026 - Week 1</div></a>
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/Single-Pane-of-Glass/"><div class="recent-posts-item-content">Single Pane of Glass</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2026-01-08</div>
-        <a href="/2026/01/08/Single-Pane-of-Glass/"><div class="recent-posts-item-content">Single Pane of Glass</div></a>
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/Smart-LEGO/"><div class="recent-posts-item-content">Smart LEGO</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2026-01-08</div>
-        <a href="/2026/01/08/Smart-LEGO/"><div class="recent-posts-item-content">Smart LEGO</div></a>
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/libakerror/"><div class="recent-posts-item-content">libakerror</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2025-01-04</div>
-        <a href="/2025/01/04/Socrates-got-a-raw-deal/"><div class="recent-posts-item-content">Socrates got a raw deal</div></a>
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/News-2026-Week-1/"><div class="recent-posts-item-content">News - 2026 - Week 1</div></a>
       </div>
     
   </div>
@@ -662,11 +710,15 @@ Started a fork of <a target="_blank" rel="noopener" href="https://github.com/ake
     
       
         
+      
+    
+      
+        
           <a 
             href="/archives/2026" 
             class="archive-card-list-item">
             2026
-            <span class="archive-card-list-item-badge">3</span>
+            <span class="archive-card-list-item-badge">4</span>
           </a>
         
         

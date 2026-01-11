@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="AKLabs">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>News - 2026 - Week 1</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="News - 2026 - Week 1">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://aklabs.net/2026/01/11/News-2026-Week-1/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/images/akesterson.webp">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2026-01-11">
+      <meta 
+        property="og:article:modified_time" 
+        content="2026-01-11">
+      <meta 
+        property="og:article:author" 
+        content="Andrew Kesterson">
+      
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-defauult.min.css', '[data-prism]', 'prism-defauult');
+              } else {
+                loadCSS('/js/lib/prism/prism-defauult.min.css', 'prism', 'prism-defauult');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+      
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="AKLabs" type="application/atom+xml">
+</head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">AKLabs</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/now" 
+        class="navbar-menu-item">
+        
+          ~/.plan
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/consulting" 
+        class="navbar-menu-item">
+        
+          Consulting
+        
+      </a>
+    
+      <a 
+        href="/contact" 
+        class="navbar-menu-item">
+        
+          Contact
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/images/akesterson.webp" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">Andrew Kesterson</p>
+<p class="author-description"><center><i>"Love God. Live Righteously. Die Well."</i> <br/> <br/> <a target="_blank" rel="noopener" href="https://github.com/akesterson">GitHub</a> || <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/andrewkesterson/">LinkedIn</a> <br/> </center></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>21</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>10</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>0</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AOSP-twice-yearly-releases-Calm-down-F-x2F-OSS-advocates"><span class="toc-text">AOSP twice yearly releases? Calm down, F&#x2F;OSS advocates.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Everything-old-is-new-again-the-return-of-the-keyboard-computer"><span class="toc-text">Everything old is new again: the return of the keyboard computer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There-is-nothing-new-under-the-sun-AI-just-does-it-faster"><span class="toc-text">There is nothing new under the sun, AI just does it faster</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sociopaths-and-hardcore-gamers-in-civil-service"><span class="toc-text">Sociopaths and hardcore gamers in civil service</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goodbye-APIs-hello-AI-interfaces"><span class="toc-text">Goodbye APIs, hello AI interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quantum-computing-complexity-and-comprehension"><span class="toc-text">Quantum computing, complexity, and comprehension</span></a></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/Books/">
+        <div class="categories-list-item">
+          Books
+          <span class="categories-list-item-badge">13</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Faith/">
+        <div class="categories-list-item">
+          Faith
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Outdoors/">
+        <div class="categories-list-item">
+          Outdoors
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Technology/">
+        <div class="categories-list-item">
+          Technology
+          <span class="categories-list-item-badge">3</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Leadership/">
+        <div class="categories-list-item">
+          Leadership
+          <span class="categories-list-item-badge">7</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Philosophy/">
+        <div class="categories-list-item">
+          Philosophy
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/technology/">
+        <div class="categories-list-item">
+          technology
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Current-Events/">
+        <div class="categories-list-item">
+          Current-Events
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/History/">
+        <div class="categories-list-item">
+          History
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Liberal-Education/">
+        <div class="categories-list-item">
+          Liberal-Education
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      News - 2026 - Week 1
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2026-01-11T03:03:05.993Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2026-01-11</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/Technology/" 
+          class="post-meta-link">
+          Technology
+        </a>
+      
+        <a 
+          href="/categories/Current-Events/" 
+          class="post-meta-link">
+          Current Events
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>3k words</span>
+    
+  </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <p>Here are my thoughts on the news this week. It’s worth what you paid for it.</p>
+<h2 id="AOSP-twice-yearly-releases-Calm-down-F-x2F-OSS-advocates"><a href="#AOSP-twice-yearly-releases-Calm-down-F-x2F-OSS-advocates" class="headerlink" title="AOSP twice yearly releases? Calm down, F&#x2F;OSS advocates."></a>AOSP twice yearly releases? Calm down, F&#x2F;OSS advocates.</h2><p><a target="_blank" rel="noopener" href="https://www.androidauthority.com/aosp-source-code-schedule-3630018/">AndroidAuthority</a> reports that Google will only be releasing the source code for AOSP, Android Open Source Platform, twice a year.</p>
+<blockquote>
+<p>“Effective in 2026, to align with our trunk-stable development model and ensure platform stability for the ecosystem, we will publish source code to AOSP in Q2 and Q4. For building and contributing to AOSP, we recommend utilizing android-latest-release instead of aosp-main. The aosp-latest-release manifest branch will always reference the most recent release pushed to AOSP. For more information, see Changes to AOSP.”</p>
+</blockquote>
+<p>Reactions on slashdot and other places are typically upset. “Android isn’t open source”, “Time to find an alternative”, etc. While I don’t necessarily <em>disagree</em> with some of these commenters, I think they’re misunderstanding (or choosing to distort) what’s happening here. They feel like Google is doing the Evil thing again (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Criticism_of_Google">which they are frequently guilty of</a>) and withholding source code from certain releases that fall between the twice yearly releases. They see this as a stepping stone towards Android becoming closed source. I’m inclined to read the announcement at face value, and believe what it says: They’re transitioning to twice yearly releases, and asking everyone to start doing the same, and are aligning their source releases with that process. I don’t really see the problem with that.</p>
+<p>Now whether or not Android is truly open source is an entirely different (and nuanced) question, and <a target="_blank" rel="noopener" href="https://www.reddit.com/r/Android/comments/1ld6u05/aosp_is_no_longer_open_source_and_hasnt_been/">some of us do feel a certain kind of way about that</a>. But this announcement is a bit of a nothing burger.</p>
+<h2 id="Everything-old-is-new-again-the-return-of-the-keyboard-computer"><a href="#Everything-old-is-new-again-the-return-of-the-keyboard-computer" class="headerlink" title="Everything old is new again: the return of the keyboard computer"></a>Everything old is new again: the return of the keyboard computer</h2><p>Remember the home computers of the 1980s? Remember how their form factor tended to be that of a big bulky keyboard you plugged in to a monitor (or, if you were spendy, a special monitor)? Commodore VIC-20, 64 and 128, ZX Spectrum and Spectrum +2, Amiga 500, Amstad CPC 464, BBC Micro, etc. This form factor essentially defined personal computers in the late 1970s and early 1980s. </p>
+<p>Now, we see this form factor as a quaint reminder of a simpler time, and there is even some nostalgia around it. The Commodore 64 has always had a really strong cult following, and with <a target="_blank" rel="noopener" href="https://www.tomshardware.com/video-games/retro-gaming/commodore-corporation-bv-acquisition-completed-by-fan-led-consortium-prepare-for-new-retro-futurist-products-with-the-deal-signed-sealed-and-paid-for-ahead-of-schedule">the recent acquisition of Commodore by (essentially) the fan community itself</a>, there is even a new Commodore computer being released for the first time in decades, <a target="_blank" rel="noopener" href="https://www.commodore.net/product-page/commodore-64-ultimate-basic-beige-batch2">the Commodore Ultimate</a> - and you can guess the form factor on this bad boy. Thus far, I have resisted the completely nonsensical urge to buy one of these things and put it on my desk. We’ll see how long the $350 price tag helps me keep such a level headed position. </p>
+<p>I like to say “everything old is new again”, because we tend to live in a circle of trends, and things keep coming back around. Apparently it is the time of the keyboard computer once again, because - believe it or not! - there is a brand new keyboard form factor PC <strong>for the enterprise</strong>. Yes, you read that right, HP’s enterprise PC lineup now includes a keyboard PC, the HP EliteBoard G1a.</p>
+<center><img alt="HP EliteBoard G1a" src="/images/hp-eliteboard-g1a.jpg"/></center>
+
+<p><a target="_blank" rel="noopener" href="https://www.theregister.com/2026/01/06/hp_keyboard_pc/">The Register</a> ran a story about this little curiosity recently, and they note that it is intended to fill a very specific niche: for enterprises which use “hot desks” or “hotel cubes” where an employee might pop in and work for a day, but they may not use the same hot desk or hotel cube every day, so leaving a permanent workstation doesn’t make sense. I guess that HP also assumes A) these workers do not work when away from their desk (a blessed expectation in this modern age), or B) these enterprises are going to choose not to simply issue laptops to these workers. </p>
+<p>Personally, it’s charming, and I love to see it. But as a former enterprise IT manager, it’s a baffling choice. Issuing laptops seems like the smarter thing to do as an enterprise - your IT team is probably already issuing them, already storing them, already has a support contract for keeping them running, already has spare parts, your workforce is already using them, and you don’t have to equip desks with separate monitors and mice. Mice are going to get lost. Monitors are going to get moved away from the hotel cube&#x2F;hot desk when someone’s “give me a second monitor” IT ticket takes too long to fulfill. And the workers who are issued these things are absolutely not going to be inclined to open them and work from home, let alone a coffee shop. You’d better have very strict expectations that these workers only do work in the hot desk, at the office.</p>
+<p>And if that’s your expectation …. why not just put a frickin desktop there? I don’t get it.</p>
+<h2 id="There-is-nothing-new-under-the-sun-AI-just-does-it-faster"><a href="#There-is-nothing-new-under-the-sun-AI-just-does-it-faster" class="headerlink" title="There is nothing new under the sun, AI just does it faster"></a>There is nothing new under the sun, AI just does it faster</h2><p>This one probably should’ve gotten its own post.</p>
+<p><a target="_blank" rel="noopener" href="https://thenewstack.io/why-your-dashboards-are-obsolete-in-the-age-of-ai/">The New Stack</a> ran a story recently about how traditional methods of monitoring and reacting to events in your IT infrastructure are out of date in the age of AI. Specifically they mention dashboards, but that’s not what they’re actually talking about. They’re talking about having humans in the incident response loop.</p>
+<p>In the article, they make the point that the traditional incident response workflow is slow. Consider:</p>
+<ol>
+<li>An event occurs somewhere in your IT infrastructure or application</li>
+<li>Some sensor detects this event</li>
+<li>Some sensor sends the event to a centralized tool for monitoring such events</li>
+<li>The centralized tool slaps a timestamp on the event and aggregates it with everything else</li>
+<li>Something notices that event, and decides it needs to alert a human. Incident Response procedures for your organization begins here.</li>
+<li>A human receives the alert, reads it with their eyeballs, and process it with their smartmeat.</li>
+<li>That human consults with other humans, and they combine their smartmeat about what to do about the event</li>
+<li>Some human (maybe the same human) uses their fingermeat to twiddle some bits, reacting to the event, and hopefully resolving it. If not, GOTO 3.</li>
+</ol>
+<p>The argument in the article is that AI tools make your dashboards obsolete because steps 6, 7, and 8 of the process can now be automated by AI, and executed faster than a human team could ever hope to do so. And, yes, that’s true, automation can react faster than humans. But that’s no secret to those of us who have actually been in this industry for more than a few days, and we don’t need AI to do it.</p>
+<p>Anyone hear of <a target="_blank" rel="noopener" href="https://medium.com/@seetharamugn/the-complete-guide-to-event-driven-architecture-b25226594227">“event driven architecture”</a>? This is a very old idea that predates AI. The idea is that you have an architecture where decoupled systems don’t really know about each other’s guts, and they just respond to events occurring, with those events coming over standardized interfaces. It’s a good idea. It’s also been coupled with incident response by DevOps folks for nearly as long <a target="_blank" rel="noopener" href="https://www.test-king.com/blog/mastering-incident-and-event-response-foundations-for-devops-resilience/">to automate systems in response to bad things happening</a>.</p>
+<p>The AI driven workflows that the New Stack article refers to are really no different than what your DevOps&#x2F;DevSecOps&#x2F;NoOps&#x2F;SRE team has been doing alrady. The difference is that these flows:</p>
+<ol>
+<li>Probably use some amount of automatic introspection (AI tools inspecting the output of a set of components to determine how to parse that output, and classify it into normal and error conditions)</li>
+<li>Probably use some amount of automatic code generation (AI tools generating code that <strong>should</strong> work to reset a given system to a normal state when an error condition is detected)</li>
+<li>Probably replace humans in steps 6, 7, 8 of the previous flow with multiple AI agents that can reach consensus (according to business rules codified by humans) about when it is time to execute the code from item #2</li>
+</ol>
+<p>Which I think is just hilarious, because it flies in the face of what we got told by the enterprise for so long. Your human automation teams have been capable of delivering this functionality to you all along - in fact we’ve been BEGGING you to let us write the software and turn it on, and you have continuously refused. And the reasoning is always the same. “You want to automatically change the production system in response to a change? We aren’t comfortable with that. A human must be in charge of deciding to throw that lever.” And even when the business may have been comfortable with allowing automation to do it, frequently change controls were in place that prevented such activities, often in response to regulatory or legal requirements that prevented the automation from doing the needful.</p>
+<p>So how is this suddenly okay now that it’s AI doing it? AI is less deterministic, less idempotent, less comprehensible, and less predictable. And yet we expect enterprises to allow AI to have the keys to prod when the deterministic, idempotent, comprehensible, utterly predictable code from their automation teams, has been refused for so long?</p>
+<p>Whatever. Do what you want, man. But when your agents hallucinate something and fire when they shouldn’t, or don’t fire when they should, your SRE team is gonna have a bash script that can fix your problems. This problem, and the solution, is not new, you’re just finding a new, faster, and arguably worse way to handle it.</p>
+<p>Get off my lawn.</p>
+<h2 id="Sociopaths-and-hardcore-gamers-in-civil-service"><a href="#Sociopaths-and-hardcore-gamers-in-civil-service" class="headerlink" title="Sociopaths and hardcore gamers in civil service"></a>Sociopaths and hardcore gamers in civil service</h2><p><a target="_blank" rel="noopener" href="https://slashdot.org/story/26/01/05/1452249/people-of-dubious-character-are-more-likely-to-enter-public-service?utm_source=rss1.0mainlinkanon&utm_medium=feed">Slashdot reports on a Chinese paper thusly</a></p>
+<blockquote>
+<p>A new working paper from researchers at the University of Hong Kong has found that Chinese graduate students who plagiarized more heavily in their master’s theses were significantly more likely to pursue careers in the civil service and to climb the ranks faster once inside. John Liu and co-authors analyzed 6 million dissertations from CNKI, a Chinese academic repository, and cross-referenced them against public records of civil-service exam-takers to identify 120,000 civil servants and their academic work. Those who entered the public sector had plagiarism scores 15.6% above average. Customs and tax officials fared worst – their scores ran 25% and 26% higher than private-sector peers respectively. Within the civil service, those who plagiarized more were promoted 9% faster during the first five years of their careers. The researchers validated their plagiarism metric through an experiment involving 443 job applicants who were asked to roll dice for rewards without monitoring. Those who had plagiarized more also reported improbably high rolls.</p>
+</blockquote>
+<p>This shouldn’t really surprise anyone who has spent any time working in civil service - whether in government, police, fire, or EMS. For whatever reason, these positions tend to attract a certain kind of people who tend to either be the absolute best kind of person, or the absolute worst kind of person. (And sometimes they are both, unfortunately.) We also know that civil service somehow tends to wind up promoting and rewarding nepotists and sociopaths, because they’ve learned how to play the game, and to rig it. What’s worse is that, often times, they are doing it from a place of positive moral justification - “the ends justify the means”. And history has shown us, over and over, why that’s a very dangerous line to walk, and we shouldn’t tolerate it. But we do, because ultimately, we need <strong>results</strong> from the people in these positions. And we are often willing to either look the other way, or simply not look too hard into the details, when someone is getting results.</p>
+<p>Sociopaths are great at getting results. They also scare the hell out of us. But sociopaths are great at understanding the rules, and maximizing their ability to operate in those rules for their own benefit. They learn what people expect to see, and they use their chameleon superpowers to show that on the outside, while still getting what they want through other less visible means. Cheating is fine, as long as the social expectations are met on the outside. Dirty deeds are fine, as long as the socially acceptable outcome is achieved, and nobody can really see how that sausage is getting made. The ends justify the means.</p>
+<p>Back in the early 2000s, <a target="_blank" rel="noopener" href="https://www.escapistmagazine.com/">The Escapist</a> was still being published as a zine. (Personally I miss it.) It was released as a PDF with pages you would turn and everything (anyone remember PDF readers that animated pages turning and made the paper shuffling noise? I do, and I don’t miss that at all.) One article from Volume 1 Issue 22 struck me as being so damned good that I’ve saved a copy of that on my NAS ever since, and every once in a while, something happens that makes me bring it up again.</p>
+<p><a target="_blank" rel="noopener" href="https://archive.org/details/theescapist_201911/TheEscapist_22_final/page/n17/mode/2up">Escapist Volume 1 Issue 22</a> is still available on the Internet Archive as of the time of this writing. Just in case, I also have a local copy of it <a href="/pdf/escapist-1-22.pdf">attached to this article</a>. In this issue, John Tynes wrote an article called “The Contrarian: Why We Fight”. In the article, he explains why hardcore gamers so often tended to gravitate towards games about war and conquest with violent themes. It’s a really great article that says more about human psychology than maybe the author meant to say, and I recommend reading it. But when thinking of sociopaths in civil service, I’m remindeded of this part of the article:</p>
+<blockquote>
+<p>I believe humans have a deep longing for authority, to possess it or to obey it. It is tempered by our empathy, our ability to view another’s situation and project it onto ourselves. But our games know nothing of empathy. We optimize our play to reach the solution in the most direct way possible. When you watch a video of someone completing the entirety of Half-Life in 45 minutes, you have to think: That guy could make the trains run on time. There is no pause for conversation or exploration. There is merely the fanatical implementation of an optimal result.</p>
+<p>A final solution.</p>
+<p>Somebody has to save the world. And that means somebody has to rule it. We gamers have had the training. We’ve learned the mindset. We know the score. We are efficient, deadly, methodical. If only we were in charge – then, oh then, we could show the world how much we care about it. We could wrap our arms around all that suffering and whisper over our speed runs, our fervent smashing of crates, the countless times we’ve saved them all already. And if any of them talked back or questioned our wisdom we could show them exactly what we’ve learned.</p>
+<p>Press the button.</p>
+</blockquote>
+<h2 id="Goodbye-APIs-hello-AI-interfaces"><a href="#Goodbye-APIs-hello-AI-interfaces" class="headerlink" title="Goodbye APIs, hello AI interfaces"></a>Goodbye APIs, hello AI interfaces</h2><p><a target="_blank" rel="noopener" href="https://thenewstack.io/data-in-2026-interchangeable-models-clouds-and-specialization/">The New Stack</a> ran a story recently about how data management is going to change in 2026, for a bunch of reasons. In the article, there was an interesting claim made about how systems will interact in the future.</p>
+<blockquote>
+<p>Such collaboration will range the gamut of data-centric resources, from federation infrastructure to traditional databases supporting different modalities, vector embeddings, and protocols such as MCP, Agent-User Interaction (AG-UI), and Agent to UI (A2UI). Users will no longer look for a single hyperscaler or vendor offering these things, but rather “the ability to plug and play,” commented Yugabyte CEO Karthik Ranganathan. “Just saying one thing will do it all is like saying we know the answer to a question even before you’ve asked it.”</p>
+</blockquote>
+<p>Imagine the horror of your only programmatic interface to a given system being, not a well defined API, with defined and structured inputs and outputs on a contract with a schema, but an agentic interface that you talk to, in awful natural language, and hope it does the right thing.</p>
+<p>Sweet Jesus. And developers think they have it bad now.</p>
+<h2 id="Quantum-computing-complexity-and-comprehension"><a href="#Quantum-computing-complexity-and-comprehension" class="headerlink" title="Quantum computing, complexity, and comprehension"></a>Quantum computing, complexity, and comprehension</h2><p>I am not a quantum computing expert, but <a target="_blank" rel="noopener" href="https://thenewstack.io/fewer-wires-more-qubits-d-wave-tackles-quantum-computings-cable-problem/">a recent article about wires and qubits</a> got me thinking.</p>
+<blockquote>
+<p>“If you think about how the semiconducting industry evolved, you’ve got chips in your phone and your laptop with billions of transistors. There’s absolutely not billions of control lines that go down to the chip,” </p>
+</blockquote>
+<p>It’s been said that you haven’t achieved mastery of something until you can explain it to a non-technical person outside of your field. It’s also been said that genius is the ability to reduce the complex to the simple.</p>
+<p>The shrinking number of control lines on a chip represent an increasing understanding of the utility of the chip, thereby allowing us to present a more narrow interface to the device. In the early days there was a 1:1 number of lines on a CPU for memory address, data, etc. An 8 bit machine had 8 address lines and 8 data lines. Over time we’ve been able to improve performance and simplify the API on these components to reduce the number of directly exposed items. Even in the 80s, computers did not have instructions for referencing individual bits in memory, they dealt only in bytes (logical operations not excepted). As our understanding of the machine and its use cases proceeded, the interfaces got smaller and simpler.</p>
+<p>On a long enough timeline Quantum computing will, assuming the technology has sufficient utility to drive continued development and refinement, reach the point where binary <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Von_Neumann_architecture">von neumann</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Computer">general purpose computers</a> reached in the 80s. When that happens, I wonder what the languages and tooling to communicate with them is going to look like, as the interfaces (once standardized) will undoubtedly look nothing like what we’re used to.</p>
+<p>Just as one example, the idea of a “General Purpose Computer” is so intrinsically tied to our idea of a “Computer” that Wikipedia has no separate article for a General Purpose Computer. Quantum Computing is going to be a whole new frontier.</p>
+
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2026/01/11/libakerror/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">Prev</div>
+          
+            <div class="nav-title">libakerror </div>
+          
+        </div>
+      </a>
+    </div>
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2025/01/04/Socrates-got-a-raw-deal/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">Socrates got a raw deal </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AOSP-twice-yearly-releases-Calm-down-F-x2F-OSS-advocates"><span class="toc-text">AOSP twice yearly releases? Calm down, F&#x2F;OSS advocates.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Everything-old-is-new-again-the-return-of-the-keyboard-computer"><span class="toc-text">Everything old is new again: the return of the keyboard computer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There-is-nothing-new-under-the-sun-AI-just-does-it-faster"><span class="toc-text">There is nothing new under the sun, AI just does it faster</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sociopaths-and-hardcore-gamers-in-civil-service"><span class="toc-text">Sociopaths and hardcore gamers in civil service</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goodbye-APIs-hello-AI-interfaces"><span class="toc-text">Goodbye APIs, hello AI interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quantum-computing-complexity-and-comprehension"><span class="toc-text">Quantum computing, complexity, and comprehension</span></a></li></ol>
+</div>
+
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AOSP-twice-yearly-releases-Calm-down-F-x2F-OSS-advocates"><span class="toc-text">AOSP twice yearly releases? Calm down, F&#x2F;OSS advocates.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Everything-old-is-new-again-the-return-of-the-keyboard-computer"><span class="toc-text">Everything old is new again: the return of the keyboard computer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There-is-nothing-new-under-the-sun-AI-just-does-it-faster"><span class="toc-text">There is nothing new under the sun, AI just does it faster</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sociopaths-and-hardcore-gamers-in-civil-service"><span class="toc-text">Sociopaths and hardcore gamers in civil service</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goodbye-APIs-hello-AI-interfaces"><span class="toc-text">Goodbye APIs, hello AI interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quantum-computing-complexity-and-comprehension"><span class="toc-text">Quantum computing, complexity, and comprehension</span></a></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/Single-Pane-of-Glass/"><div class="recent-posts-item-content">Single Pane of Glass</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/Smart-LEGO/"><div class="recent-posts-item-content">Smart LEGO</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/libakerror/"><div class="recent-posts-item-content">libakerror</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/News-2026-Week-1/"><div class="recent-posts-item-content">News - 2026 - Week 1</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+          
+                - 
+                2026
+          
+        </span>
+        &nbsp;
+        <a 
+          href="mailto:andrew@aklabs.net" 
+          class="footer-link">
+          Andrew Kesterson
+        </a>
+	<br/>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+      <script>
+        var googleAnalytics = function () {
+          window.dataLayer = window.dataLayer || []
+          function gtag() {
+            dataLayer.push(arguments)
+          }
+          gtag('js', new Date())
+          gtag('config', 'G-S3YLF516N6')
+        }
+    </script>
+      <script>
+        loadScript(
+          'https://www.googletagmanager.com/gtag/js?id=' +
+            'G-S3YLF516N6',
+          googleAnalytics
+        )
+      </script>
+    
+    
+  </body>
+</html>

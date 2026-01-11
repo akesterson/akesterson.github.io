@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="AKLabs">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>libakerror</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="libakerror">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://aklabs.net/2026/01/11/libakerror/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/images/akesterson.webp">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2026-01-11">
+      <meta 
+        property="og:article:modified_time" 
+        content="2026-01-11">
+      <meta 
+        property="og:article:author" 
+        content="Andrew Kesterson">
+      
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-defauult.min.css', '[data-prism]', 'prism-defauult');
+              } else {
+                loadCSS('/js/lib/prism/prism-defauult.min.css', 'prism', 'prism-defauult');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+      
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="AKLabs" type="application/atom+xml">
+</head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">AKLabs</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/now" 
+        class="navbar-menu-item">
+        
+          ~/.plan
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/consulting" 
+        class="navbar-menu-item">
+        
+          Consulting
+        
+      </a>
+    
+      <a 
+        href="/contact" 
+        class="navbar-menu-item">
+        
+          Contact
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/images/akesterson.webp" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">Andrew Kesterson</p>
+<p class="author-description"><center><i>"Love God. Live Righteously. Die Well."</i> <br/> <br/> <a target="_blank" rel="noopener" href="https://github.com/akesterson">GitHub</a> || <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/andrewkesterson/">LinkedIn</a> <br/> </center></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>21</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>10</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>0</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Getting-roasted-in-IRC-is-motivational"><span class="toc-text">Getting roasted in IRC is motivational</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There-is-no-problem-C-is-not-broken"><span class="toc-text">There is no problem. C is not broken.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Because-we-can-do-better"><span class="toc-text">Because we can do better</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-errno-stupid"><span class="toc-text">Check errno, stupid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-libakerror-way"><span class="toc-text">The libakerror way</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#But-the-macros-hide-a-lot-of-complexity"><span class="toc-text">But the macros hide a lot of complexity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#We-don%E2%80%99t-like-it"><span class="toc-text">We don’t like it</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-I-like-it"><span class="toc-text">Why I like it</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ensuring-errors-get-checked"><span class="toc-text">Ensuring errors get checked</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debugging-when-all-you-have-is-logs"><span class="toc-text">Debugging when all you have is logs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ensuring-cleanup-behavior-occurs-on-error"><span class="toc-text">Ensuring cleanup behavior occurs on error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Managing-early-exit-handlers-with-cleanup-without-goto"><span class="toc-text">Managing early exit handlers with cleanup without goto</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solving-a-problem-you-don%E2%80%99t-actually-have"><span class="toc-text">Solving a problem you don’t actually have</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#I-still-don%E2%80%99t-like-it"><span class="toc-text">I still don’t like it</span></a>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/Books/">
+        <div class="categories-list-item">
+          Books
+          <span class="categories-list-item-badge">13</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Faith/">
+        <div class="categories-list-item">
+          Faith
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Outdoors/">
+        <div class="categories-list-item">
+          Outdoors
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Technology/">
+        <div class="categories-list-item">
+          Technology
+          <span class="categories-list-item-badge">3</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Leadership/">
+        <div class="categories-list-item">
+          Leadership
+          <span class="categories-list-item-badge">7</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Philosophy/">
+        <div class="categories-list-item">
+          Philosophy
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/technology/">
+        <div class="categories-list-item">
+          technology
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Current-Events/">
+        <div class="categories-list-item">
+          Current-Events
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/History/">
+        <div class="categories-list-item">
+          History
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Liberal-Education/">
+        <div class="categories-list-item">
+          Liberal-Education
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      libakerror
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2026-01-11T03:03:05.994Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2026-01-11</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/technology/" 
+          class="post-meta-link">
+          technology
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>5.6k words</span>
+    
+  </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <p>I’d like to present a C library I wrote for exception style error handling in C code, why I wrote it, and why I prefer this style of error handling when writing in the C language. </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/akesterson/libakerror">libakerror: A safe exception handling library for C</a></p>
+<p>To be clear, when I say “exception style error handling”, I am referring to the practice of one section of code creating an <code>exception</code> object, which is an object containing a rich error context, and then the language <code>raising</code> (or <code>throwing</code>) that exception up through the call stack, allowing all code paths in the call stack the opportunity to respond to that exception, and if the exception reaches all the way back up to the program’s top level without being handled, it will terminate the program.</p>
+<p>Before completing this article, I strongly recommend that you go and read <a target="_blank" rel="noopener" href="https://github.com/akesterson/libakerror/blob/main/README.md">the libakerror README</a>, at least the “Library Architecture” section. This article will not spend a lot of time explaining <strong>what</strong> libakerror does, or even <strong>how</strong> it does it, but rather <strong>why</strong> I prefer this style of error handling. So if you don’t go through the README, you may be a bit lost for the rest of the article.</p>
+<center><img alt="Ill wait" src="/images/waiting-bear.webp"/></center>
+
+<p>Note that the question of “why do you like writing software in C so much” won’t be answered here. That’s a separate blog post TBD. This post also assumes you are already familiar with the C programming language, although if you know any programming languages at all, you can probably get through it. If you don’t know C, I strongly recommend these two books:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://archive.org/details/the-ansi-c-programming-language-by-brian-w.-kernighan-dennis-m.-ritchie.org/mode/2up">The C Programming Language by Kernigan &amp; Ritchie</a> aka “the K&amp;R C book”</li>
+<li><a target="_blank" rel="noopener" href="https://inria.hal.science/hal-02383654">Modern C by Jens Gustedt</a></li>
+</ul>
+<h2 id="Getting-roasted-in-IRC-is-motivational"><a href="#Getting-roasted-in-IRC-is-motivational" class="headerlink" title="Getting roasted in IRC is motivational"></a>Getting roasted in IRC is motivational</h2><p>I recently decided to do a fun thing: I took this software library on LiberaChat to #c and asked them roast it. Fun times!</p>
+<p>It did result in some improvements to the library (what doesn’t kill us makes us stronger), but mostly what it resulted in was illustrating a huge philosophical divide between me and some other C programmers. Essentially it can be summed up as</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;#c user&gt; this is solving a problem that doesn&#39;t exist
+
+&lt;#c user&gt; and you&#39;re a retard<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>Touché, sir.</p>
+<p>To be fair, the jury is still (and will probably remain) out on the extent and nature of my particular retardation. I’m open to the possibility. But let’s address the more serious question. </p>
+<h2 id="There-is-no-problem-C-is-not-broken"><a href="#There-is-no-problem-C-is-not-broken" class="headerlink" title="There is no problem. C is not broken."></a>There is no problem. C is not broken.</h2><p>Let me be clear: <strong>There is nothing wrong with the C language.</strong> I hold that C is basically perfect (fight me). This is especially true about its error handling mechanisms: C’s error handling is not broken, and this library does not claim to fix it.</p>
+<p>Well if it’s perfect then why write the library? </p>
+<h2 id="Because-we-can-do-better"><a href="#Because-we-can-do-better" class="headerlink" title="Because we can do better"></a>Because we can do better</h2><p>Even though it’s not <em>broken</em>, I think it provides us the tools to do <em>better</em>. Consider this code:</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	FILE <span class="token operator">*</span>fp <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"somefile.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> fp <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token function">fprintf</span><span class="token punctuation">(</span>fp<span class="token punctuation">,</span> <span class="token string">"Some message\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>What is the return value of this function? … In the simplest case, it is equal to <code>strlen(&quot;Some message\n&quot;)</code>. But what about when it fails? man describes the failure behavior of <code>fprintf</code> thusly:</p>
+<pre class="line-numbers language-none"><code class="language-none">If an output error is encountered, a negative value is returned.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>So …. there are conceivably times when, theoretically, we could get a valid file pointer, pass it off to fprintf(), and get a non-zero return code. We can capture that error code, we can react to it, but we are left to wonder about the meaning of that return code.</p>
+<center><img alt="But why?" src="/images/butwhy.jpeg"/></center>
+
+<p>If we look at <a target="_blank" rel="noopener" href="https://github.com/bminor/glibc/blob/bcf231ec71183a343449af69550562ecd969a97f/stdio-common/vfprintf-internal.c#L1525">the libc source code for fprintf</a>, we see that there are several possible failure modes:</p>
+<ul>
+<li>arguments malformed (NULL file pointer or message)</li>
+<li>streams are incorrectly oriented (character or wide character)</li>
+<li>errors on IO locking and&#x2F;or unlocking</li>
+<li>errors flushing buffers to disk (such as no space remaining on the output device)</li>
+</ul>
+<p>So, yeah, we know that there was a failure. Something bad happened. But what? And why?</p>
+<h2 id="Check-errno-stupid"><a href="#Check-errno-stupid" class="headerlink" title="Check errno, stupid"></a>Check errno, stupid</h2><p>In the case of fprintf and other well behaved libc functions, the C standard <strong>requires</strong> that they set <code>errno</code>. This is a global variable that contains an integer value corresponding to an error code. You can see which values of <code>errno</code> are valid on your system at the command line:</p>
+<pre class="line-numbers language-none"><code class="language-none">$ errno --list
+EPERM 1 Operation not permitted
+ENOENT 2 No such file or directory
+ESRCH 3 No such process
+EINTR 4 Interrupted system call
+EIO 5 Input&#x2F;output error
+ENXIO 6 No such device or address
+E2BIG 7 Argument list too long
+ENOEXEC 8 Exec format error
+EBADF 9 Bad file descriptor
+ECHILD 10 No child processes
+ENAMETOOLONG 36 File name too long
+.....<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>So in the simple case above, we can get the exact reason from <code>errno</code>. Then we can react with a much more specific course of action, even if the correct action is, “abort the program”. Consider:</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> rc <span class="token operator">=</span> <span class="token function">fprintf</span><span class="token punctuation">(</span>fp<span class="token punctuation">,</span> <span class="token string">"Some message\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span> rc <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Failed to write"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">switch</span> <span class="token punctuation">(</span> errno <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">case</span> ESTALE<span class="token operator">:</span>
+        <span class="token comment">// Stale file handle</span>
+		<span class="token comment">// do something about it here and continue (somehow)</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">case</span> ENOSPC<span class="token operator">:</span>
+	    <span class="token comment">// No space on the device</span>
+		<span class="token comment">// do something about it here and continue (somehow)</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token keyword">default</span><span class="token operator">:</span>
+		<span class="token comment">// Some other undefined error, all we know how to do is abort</span>
+		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>This isn’t <em>bad</em>, but it is a little bit inconvenient.</p>
+<ul>
+<li>You have to know that the library in question returns one value, but that value is not the actual error, the actual error is somewhere else</li>
+<li>You have to fetch the error from somewhere else and check it explicitly</li>
+<li>You have to explicitly handle every possible error case and ensure you have a default error handler.</li>
+</ul>
+<h2 id="The-libakerror-way"><a href="#The-libakerror-way" class="headerlink" title="The libakerror way"></a>The libakerror way</h2><p>How does that same fprintf checking code look in <code>libakerror</code>?</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;akerror.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;errno.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    FILE <span class="token operator">*</span>fp <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"somefile.txt"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">PREPARE_ERROR</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ATTEMPT <span class="token punctuation">&#123;</span>
+	<span class="token function">FAIL_NONZERO_BREAK</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> <span class="token function">fprintf</span><span class="token punctuation">(</span>fp<span class="token punctuation">,</span> <span class="token string">"Some message\n"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token string">"Failed to write"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> CLEANUP <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span> <span class="token function">PROCESS</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span> <span class="token function">HANDLE</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> ESTALE<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	    <span class="token comment">// Stale file handle</span>
+	    <span class="token comment">// do something about it here and continue (somehow)</span>
+    <span class="token punctuation">&#125;</span> <span class="token function">HANDLE</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> ENOSPC<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	    <span class="token comment">// No space on the device</span>
+	    <span class="token comment">// do something about it here and continue (somehow)</span>
+    <span class="token punctuation">&#125;</span> <span class="token function">HANDLE_DEFAULT</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	    <span class="token comment">// Some other undefined error, all we know how to do is abort</span>
+	    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token function">FINISH_NORETURN</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>I believe this approach has several advantages over the previous method, without even digging into some of the library’s cooler features:</p>
+<ul>
+<li>It’s 2 lines shorter (not much, but it counts)</li>
+<li>The separate portions of the error checking logic are placed into explicitly named scopes (attempting something, cleaning up from the attempt, and handling errors), clarifying what each block of code is doing</li>
+<li>The initial process of performing an action, capturing the initial return code, and checking further <code>errno</code> details, and storing it into a single error context object, is done on one line that also encodes your intent (“fail if this operation returns non-zero”)</li>
+<li>There is an explicit cleanup step in the error handling process - more on that in a minute</li>
+<li>The default error handling behavior is wrapped into the FINISH macro; we don’t have to worry about it</li>
+</ul>
+<h2 id="But-the-macros-hide-a-lot-of-complexity"><a href="#But-the-macros-hide-a-lot-of-complexity" class="headerlink" title="But the macros hide a lot of complexity"></a>But the macros hide a lot of complexity</h2><p>Fair enough. Let’s compare what the two look like after the preprocessor is done with them.</p>
+<p>First, our test case without libakerror:</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">
+   <span class="token keyword">int</span> rc <span class="token operator">=</span> <span class="token function">fprintf</span><span class="token punctuation">(</span>fp<span class="token punctuation">,</span> <span class="token string">"Some message\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">if</span> <span class="token punctuation">(</span> rc <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Failed to write"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span> errno <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">case</span> ESTALE<span class="token operator">:</span>
+
+
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token keyword">case</span> ENOSPC<span class="token operator">:</span>
+
+
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token keyword">default</span><span class="token operator">:</span>
+
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>As expected, it looks basically exactly as we wrote it, whitespace not withstanding.</p>
+<p>Now here is the preprocessed libakerror code (after cleaning it up - the preprocessor has no respect for humans and how we see whitespace):</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// PREPARE_ERROR(errctx);</span>
+<span class="token function">akerr_error_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+akerr_ErrorContext <span class="token keyword">__attribute__</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>unused<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span>errctx <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// ATTEMPT</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// FAIL_NONZERO_BREAK</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">fprintf</span><span class="token punctuation">(</span>fp<span class="token punctuation">,</span> <span class="token string">"Some message\n"</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span> errctx <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			errctx <span class="token operator">=</span> <span class="token function">array_next_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span> errctx <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token function">error_log_method</span><span class="token punctuation">(</span><span class="token string">"%s:%s:%d: Unable to pull an ErrorContext from the array!"</span><span class="token punctuation">,</span> <span class="token string">"test2.c"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token constant">__func__</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+				<span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+		errctx<span class="token operator">-></span>refcount <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		errctx<span class="token operator">-></span>status <span class="token operator">=</span> errno<span class="token punctuation">;</span>
+		<span class="token function">snprintf</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>errctx<span class="token operator">-></span>fname<span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">,</span> <span class="token string">"test2.c"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">snprintf</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>errctx<span class="token operator">-></span>function<span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">,</span> <span class="token constant">__func__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		errctx<span class="token operator">-></span>lineno <span class="token operator">=</span> <span class="token number">13</span><span class="token punctuation">;</span>
+		<span class="token function">snprintf</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>errctx<span class="token operator">-></span>message<span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token string">"Failed to write"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		errctx<span class="token operator">-></span>stacktracebufptr <span class="token operator">+=</span> <span class="token function">snprintf</span><span class="token punctuation">(</span>errctx<span class="token operator">-></span>stacktracebufptr<span class="token punctuation">,</span> AKERR_MAX_ERROR_STACKTRACE_BUF_LENGTH<span class="token punctuation">,</span> <span class="token string">"%s:%s:%d: %d (%s) : %s\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>errctx<span class="token operator">-></span>fname<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span>errctx<span class="token operator">-></span>function<span class="token punctuation">,</span> errctx<span class="token operator">-></span>lineno<span class="token punctuation">,</span> errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token function">akerr_name_for_status</span><span class="token punctuation">(</span>errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> errctx<span class="token operator">-></span>message<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// CLEANUP &#123; &#125;</span>
+<span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// PROCESS &#123;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span> errctx <span class="token operator">!=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span> errctx<span class="token operator">-></span>status <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span>
+	errctx<span class="token operator">-></span>handled <span class="token operator">=</span> true<span class="token punctuation">;</span>
+	<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+	<span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token comment">// HANDLE(errctx, ESTALE)</span>
+    <span class="token keyword">case</span> ESTALE<span class="token operator">:</span>
+	errctx<span class="token operator">-></span>stacktracebufptr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>errctx<span class="token operator">-></span>stacktracebuf<span class="token punctuation">;</span>
+	errctx<span class="token operator">-></span>handled <span class="token operator">=</span> true<span class="token punctuation">;</span>
+	<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+	<span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token comment">// HANDLE(errctx, ENOSPC)</span>
+    <span class="token keyword">case</span> ENOSPC<span class="token operator">:</span>
+	errctx<span class="token operator">-></span>stacktracebufptr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>errctx<span class="token operator">-></span>stacktracebuf<span class="token punctuation">;</span>
+	errctx<span class="token operator">-></span>handled <span class="token operator">=</span> true<span class="token punctuation">;</span>
+	<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+	<span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token comment">// HANDLE_DEFAULT(errctx)</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+	errctx<span class="token operator">-></span>stacktracebufptr <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>errctx<span class="token operator">-></span>stacktracebuf<span class="token punctuation">;</span> 
+	errctx<span class="token operator">-></span>handled <span class="token operator">=</span> true<span class="token punctuation">;</span>
+	<span class="token punctuation">&#123;</span>
+	    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token comment">// FINISH_NORETURN(errctx)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">!=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx<span class="token operator">-></span>handled <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">akerr_log_method</span> <span class="token punctuation">(</span><span class="token string">"%s%s:%s:%d: %s %d (%s): %s"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>errctx<span class="token operator">-></span>stacktracebuf<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token string">"test2.c"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token constant">__func__</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token string">"Unhandled Error"</span><span class="token punctuation">,</span> errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token function">akerr_name_for_status</span> <span class="token punctuation">(</span>errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> errctx<span class="token operator">-></span>message<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        <span class="token function">akerr_handler_unhandled_error</span> <span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">!=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    errctx <span class="token operator">=</span> <span class="token function">akerr_release_error</span> <span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>The preprocessed libakerror code, prettied up, expands to 72 lines. That’s quite a balloon from our original 15 lines of error handling code.</p>
+<h2 id="We-don’t-like-it"><a href="#We-don’t-like-it" class="headerlink" title="We don’t like it"></a>We don’t like it</h2><p>There are a few obvious criticisms we can level against the preprocessed <code>libakerror</code> code here, and I think all of them are defensible.</p>
+<ul>
+<li><strong>It’s switch statements all the way down, man.</strong> Yes, the macros primarily just wrap a big switch statement that detects when the error has been set and uses case statements to define how to handle it. As I said, C isn’t broken. And if it’s not broke, don’t fix it. We just wrap it.</li>
+<li><strong>It’s calling methods I didn’t ask for, like <code>error_init()</code></strong> Yes. There are a few helper methods that are called to manage the internal error state of the library as part of the macros. The things it’s doing are:<ul>
+<li>Initializing the library and its objects, if they are not already initialized (one-time cost)</li>
+<li>Finding the next available error context object (or failing gracefully if there is not one available). The performance of this method is predictable related to the <code>MAX_HEAP_ERROR</code> setting defining the maximum number of error frames, and it doesn’t do much. The other less performant code (like managing error context objects, string formatting, etc) are never executed unless there is an error detected.</li>
+</ul>
+</li>
+<li><strong>That FAIL_NONZERO_BREAK macro is freakin huge</strong>. Yes, there’s a lot of code hidden behind the <code>CATCH</code> and <code>FAIL_*</code> macros. But if you look at what they’re doing, it’s setting up a durable error context object with a ton of context about the error and where it occurred. This (to me) is worth the lines of code.</li>
+<li><strong>It’s doing expensive string formatting</strong>. This is true but only in the cases where an error has been detected. None of that code is executed when there is no error.</li>
+<li><strong>You’re doing things with pointers! That’s dangerous!</strong> This is a C library, <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ASQvZr6Zz4o">get over it</a>. Pointer management is not inherently unsafe behavior, and what we’re doing here is not particularly creative or risky.</li>
+</ul>
+<h2 id="Why-I-like-it"><a href="#Why-I-like-it" class="headerlink" title="Why I like it"></a>Why I like it</h2><p>Because it helps me in several ways:</p>
+<ol>
+<li>It helps me avoid situations where I don’t check errors</li>
+<li>It helps me debug a program error when all I have is a log and can’t attach a debugger</li>
+<li>It helps me ensure cleanup behavior occurs on errors</li>
+<li>It creates an automatic “jump to an error handler on error” pattern without using <code>goto</code></li>
+</ol>
+<p>Again, C is not broken, and you can do all of this without this library. This library just makes it easier. And as humans, if something is easier, we are more likely to do it.</p>
+<h3 id="Ensuring-errors-get-checked"><a href="#Ensuring-errors-get-checked" class="headerlink" title="Ensuring errors get checked"></a>Ensuring errors get checked</h3><p>It’s easy to end up in a situation where you don’t check a return code. </p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span>memptr<span class="token punctuation">;</span>
+memptr <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span>SOME_SIZE<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* Uh oh, what happens if memory allocation fails? */</span>
+<span class="token function">strcpy</span><span class="token punctuation">(</span>memptr<span class="token punctuation">,</span> <span class="token string">"Some string"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* Kaboom! */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>This exact behavior is the source of a stunning number of errors in professional code that runs large portions of very important systems. Obviously you can discipline yourself to check and handle errors</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span>memptr<span class="token punctuation">;</span>
+memptr <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span>SOME_SIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span> memptr <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">/* Let's assume our caller knows what to do */</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">strcpy</span><span class="token punctuation">(</span>memptr<span class="token punctuation">,</span> <span class="token string">"Some string"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>This is how the grand majority of C code ever written solves these problems. Modern C standards add a helpful keyword to cause our compilers to emit an error when return codes are not checked. For example in gcc you can:</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">extern</span> <span class="token keyword">int</span> <span class="token function">dangerous_func</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token keyword">__attribute__</span><span class="token punctuation">(</span><span class="token punctuation">(</span>warn_unused_result<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">dangerous_func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Compiler will warn here</span>
+    <span class="token keyword">int</span> rc <span class="token operator">=</span> <span class="token function">dangerous_func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// OK, return value is used</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Unfortunately it’s not so much a language standard so compilers may implement it differently. For example MSVC uses a <code>_Check_return</code> annotation instead. But they both offer the functionality.</p>
+<p>This also only helps if the libraries you’re calling (like <code>malloc</code>) were defined with this semantic. And, again unfortunately, the C standard library does not require (or embrace) this mechanism. C stdlib’s default philosophy (which I generally agree with) is “I assume you know what you’re doing”. Unfortunately, assuming I know what I’m doing (or that any human knows what they’re doing) is a famously dangerous thing.</p>
+<p>So if we can’t rely on our standard library enforcing that we’re doing <em>something</em> with return codes, we have to make it easier to discipline ourselves into checking the code. We have to build habits. Checking for a null pointer and returning 1 does not seem like a difficult habit to build. And it certainly seems simple to build when compared to stacking a series of macros. </p>
+<table rows=2 cols=2>
+    <tr>
+        <td>**Naked C**</td>
+        <td>**libakerr C**</td>
+    </tr>
+    <tr>
+        <td>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span>memptr<span class="token punctuation">;</span>
+memptr <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span>SOME_SIZE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span> memptr <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Failed to allocate memory"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token function">strcpy</span><span class="token punctuation">(</span>memptr<span class="token punctuation">,</span> <span class="token string">"Some string"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        </td>
+        <td>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token function">PREPARE_ERROR</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ATTEMPT <span class="token punctuation">&#123;</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>memptr<span class="token punctuation">;</span>
+  <span class="token function">FAIL_ZERO_BREAK</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> <span class="token punctuation">(</span>memptr <span class="token operator">=</span> <span class="token function">malloc</span><span class="token punctuation">(</span>SOME_SIZE<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> AKERR_NULLPOINTER<span class="token punctuation">,</span> <span class="token string">"Failed to allocate memory"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">strcpy</span><span class="token punctuation">(</span>memptr<span class="token punctuation">,</span> <span class="token string">"Some string"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> CLEANUP <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span> <span class="token function">PROCESS</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span> <span class="token function">FINISH</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> true<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        </td>
+    </tr>
+</table>
+
+<p>Again, it’s only 1 line longer than the naked C. The working line in libakerr seems longer - however the <code>FAIL_ZERO_BREAK</code> line is only 102 characters, while the naked C code (memptr assignment from malloc, result comparison, and return statement) is 150 characters. Even I’m surprised, because honestly looking at the libakerror code, it does <em>feel</em> longer and more verbose to me. It’s probably some headtrick with the length of that <code>FAIL_ZERO_BREAK</code> line.</p>
+<p>Now, that doesn’t matter, because we all know that the keyboard is not the choke point on getting code written. But it’s worth pointing out - if something <em>feels like it’s taking longer</em>, then the programmmer will <em>hate it</em>. And that’s where we come to another philosophical difference: The naked C version <em>feels like it’s slower to write</em>. (Because it actually is!) This means I will be less likely to discipline myself when writing the Naked C code, and more likely to take shortcuts, because (as much as I love writing code and I love writing it in C) ultimately I want to get it done and make it work.</p>
+<p>Ultimately, by allowing me to write my code in such a way that error checking feels less cumbersome, I am confident that libakerror helps me solve a very major problem that most of us tend to overlook:</p>
+<center><img alt="you lack discipline" width=50% src="/images/disciprine.jpg"/></center>
+
+<h3 id="Debugging-when-all-you-have-is-logs"><a href="#Debugging-when-all-you-have-is-logs" class="headerlink" title="Debugging when all you have is logs"></a>Debugging when all you have is logs</h3><blockquote>
+<p>Without good debug logs, a program is much more difficult to debug.</p>
+</blockquote>
+<p>I’ve spent the majority of my career working with software that runs in environments where the only hope for debugging it is to interrogate some log files after an error has already occurred. Getting the chance to attach a debugger and examine the state of the running program is a rare treat that we almost never get to experience in the DevSecOps world. So if a program does not emit useful logs, in my opinion, it is basically impossible to debug it in my world.</p>
+<p>And even when you have a debugger, a log is still a good way to quickly hone in on <em>where</em> something happened, even if you must take a much longer time to figure out <em>why</em> it happened. Let’s consider the code in <a target="_blank" rel="noopener" href="https://github.com/akesterson/libakerror/blob/main/tests/err_trace.c">one of the libakerror test programs</a>.</p>
+<p>In this code, we have a call graph like <code>main() -&gt; func1() -&gt; func2()</code>. In <code>func2()</code> we experience some error that causes us to exit early. If we were to run this in naked C, it might look like this:</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">int</span> <span class="token function">func2</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"This is a failure in func2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">func1</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> <span class="token function">func2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> <span class="token function">func1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Now running the naked C code, we get</p>
+<pre class="line-numbers language-none"><code class="language-none">$ .&#x2F;test ; echo $?
+This is a failure in func2
+1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>This might seem like a good result. It tells us that there was an error, and where that error occurred. This is easy to do by manually adding debug printfs in naked C. But there is a question it does not help us answer, a question that is incredibly important in the real world:</p>
+<blockquote>
+<p>HOW DID WE GET TO WHERE THE ERROR HAPPENED IN THE FIRST PLACE?</p>
+</blockquote>
+<p>In this contrived example we know clearly that <code>func1()</code> called <code>func2()</code> and so here we are. But let’s say we’re working with some amount of code that is a black box to us - maybe our code is a callback from another library and we can’t be sure just exactly what the code path is that’s being taken. Or maybe it’s our own code, and we’ve simply forgotten all the possible pathways that this code could be reached. (This happens far more often than we want to admit.)</p>
+<p>Now if we look at the libakerror version:</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"akerror.h"</span></span>
+
+akerr_ErrorContext <span class="token operator">*</span><span class="token function">func2</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">PREPARE_ERROR</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ATTEMPT <span class="token punctuation">&#123;</span>
+	    <span class="token function">FAIL</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> AKERR_NULLPOINTER<span class="token punctuation">,</span> <span class="token string">"This is a failure in func2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> CLEANUP <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span> <span class="token function">PROCESS</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span> <span class="token function">FINISH</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> true<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">SUCCEED_RETURN</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+akerr_ErrorContext <span class="token operator">*</span><span class="token function">func1</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">PREPARE_ERROR</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ATTEMPT <span class="token punctuation">&#123;</span>
+	    <span class="token function">CATCH</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> <span class="token function">func2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> CLEANUP <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span> <span class="token function">PROCESS</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span> <span class="token function">FINISH</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> true<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">SUCCEED_RETURN</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">PREPARE_ERROR</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ATTEMPT <span class="token punctuation">&#123;</span>
+    	<span class="token function">CATCH</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> <span class="token function">func1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> CLEANUP <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span> <span class="token function">PROCESS</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span> <span class="token function">FINISH_NORETURN</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>… and the libakerror output:</p>
+<pre class="line-numbers language-none"><code class="language-none">libakerror&#x2F;tests&#x2F;err_trace.c:func2:7: 1 (Null Pointer Error) : This is a failure in func2
+libakerror&#x2F;tests&#x2F;err_trace.c:func2:10
+libakerror&#x2F;tests&#x2F;err_trace.c:func1:18: Detected error 0 from array (refcount 1)
+libakerror&#x2F;tests&#x2F;err_trace.c:func1:18
+libakerror&#x2F;tests&#x2F;err_trace.c:func1:21
+libakerror&#x2F;tests&#x2F;err_trace.c:main:30: Detected error 0 from array (refcount 1)
+libakerror&#x2F;tests&#x2F;err_trace.c:main:30
+libakerror&#x2F;tests&#x2F;err_trace.c:main:33: Unhandled Error 1 (Null Pointer Error): This is a failure in func2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Every <code>akerr_ErrorContext</code> object that’s been populated with <code>PREPARE_ERROR()</code> contains the file, line number, and function name of the location where it is <em>when the error is encountered</em>. The stack frame that actually detects the error includes the actual error code, a description of the error code’s meaning, and a short message from the <code>CATCH</code> or <code>FAIL_*</code> macro that set it. This gives us a pretty good stacktrace to start diagnosing the problem.</p>
+<p>Now there are other ways of getting a stacktrace, and they are arguably better options than what’s being done here, but they have a few caveats:</p>
+<ol>
+<li>Lots of the options only work well on Linux or BSD variants</li>
+<li>Some of the options only work well with a certain binary format (such as ELF)</li>
+<li>Since all of them inspect the call stack at runtime, they can’t tell you things like file names, line numbers, and method names unless the code was compiled with DWARF or other debugging symbols enabled</li>
+</ol>
+<p>The libakerror backtrace code <em>is</em> limited in that it can <em>only</em> tell you about the frames wherein <code>PREPARE_ERROR()</code>, <code>CATCH</code> or <code>FAIL_*</code> macros are used, but:</p>
+<ol>
+<li>The behavior is entirely cross platform. It works equally well on any platform where your code will compile that supplies <code>__FILE__</code>, <code>__LINE__</code> and <code>__func__</code> macros. (Every compiler supplies these as far as I know.)</li>
+<li>The behavior works independently of machine architecture or binary formats</li>
+<li>Because these are all preprocessor macros, the names of source files, lines, and function names are inserted at compile time, requiring no debugging symbols to be explicitly included in your binary.</li>
+</ol>
+<p>And I think that’s a perfectly acceptable set of tradeoffs. </p>
+<h3 id="Ensuring-cleanup-behavior-occurs-on-error"><a href="#Ensuring-cleanup-behavior-occurs-on-error" class="headerlink" title="Ensuring cleanup behavior occurs on error"></a>Ensuring cleanup behavior occurs on error</h3><p>This is another very common class of problems in basically every language, not just C. Let’s consider this code:</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">writeToFile</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>fname<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>string<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> success <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	FILE <span class="token operator">*</span>fp <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>fname<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> fp <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error %d (%s)"</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">strerror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+   	<span class="token keyword">if</span> <span class="token punctuation">(</span> string <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+   		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Can't print null string to file!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+   	<span class="token punctuation">&#125;</span>
+	success <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   	<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">fwrite</span><span class="token punctuation">(</span>fp<span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token operator">!=</span> success <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error %d (%s)"</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">strerror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">fclose</span><span class="token punctuation">(</span>fp<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error %d (%s)"</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">sterror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>The error should stand out. When we check for the null string pointer, we return early, but we forget to close the file handle we just opened. Using <code>libakerror</code> helps prevent this behavior in 2 ways:</p>
+<ol>
+<li>Since I have a macro that inserts a <code>PREPARE .. ATTEMPT .. CLEANUP .. PROCESS .. HANDLE .. FINISH</code> block at the stroke of a single key, I’m automatically presented with a clearly named block where I’m supposed to put cleanup code. This triggers me to ask myself “what should I clean up here?”, and write that code. (To be fair, you can do the same thing with a macro and a naked C block with a comment inside of it that prompts you appropriately.)</li>
+<li>If I begin a <code>ATTEMPT</code> block and omit the <code>CLEANUP</code> block, the macros generate invalid code, and compilation will fail. (Granted - the compilation fails in a way that is confusing in the way that a missing brace is confusing, but it does prevent running code with an incomplete error management block. Not quite rust, but I’ll take it.)</li>
+</ol>
+<p>In libakerror, this code becomes:</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">akerr_ErrorContext <span class="token operator">*</span><span class="token function">writeToFile</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>fname<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>string<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token function">PREPARE_ERROR</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	FILE <span class="token operator">*</span>fp <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> success <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	ATTEMPT <span class="token punctuation">&#123;</span>
+	    <span class="token function">FAIL_ZERO_BREAK</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> <span class="token punctuation">(</span>fp <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>fname<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token string">"Failed to open %s : %s"</span><span class="token punctuation">,</span> fname<span class="token punctuation">,</span> <span class="token function">strerr</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">FAIL_ZERO_BREAK</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> string<span class="token punctuation">,</span> AKERR_NULLPOINTER<span class="token punctuation">,</span> <span class="token string">"Null pointer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		success <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   		<span class="token function">FAIL_NONZERO_BREAK</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token function">fwrite</span><span class="token punctuation">(</span>fp<span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token operator">==</span> success<span class="token punctuation">)</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">strerror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span> CLEANUP <span class="token punctuation">&#123;</span>
+		<span class="token function">FAIL_NONZERO_RETURN</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> <span class="token function">fclose</span><span class="token punctuation">(</span>fp<span class="token punctuation">)</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">strerror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span> <span class="token function">PROCESS</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token punctuation">&#125;</span> <span class="token function">FINISH</span><span class="token punctuation">(</span>errctx<span class="token punctuation">,</span> true<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">SUCCEED</span><span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Now this is, of course, a contrived example made purely to prove a point - this could just as easily be solved by moving the string <code>NULL</code> check <em>above</em> the opening of the file pointer (which is, in fact, the more correct thing to do). But this issue (needing to perform some kind of clean up, such as freeing memory or closing files, after an error) is very common in the real world and this was an easy way to demonstrate it.</p>
+<h3 id="Managing-early-exit-handlers-with-cleanup-without-goto"><a href="#Managing-early-exit-handlers-with-cleanup-without-goto" class="headerlink" title="Managing early exit handlers with cleanup without goto"></a>Managing early exit handlers with cleanup without goto</h3><p>Continuing the <code>writeToFile()</code> example from above, we have an issue of best practice. As the code is currently written (in naked C), when we fix the code to add the cleanup after the string check, we wind up with this:</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">writeToFile</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>fname<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>string<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> success <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	FILE <span class="token operator">*</span>fp <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>fname<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> fp <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error %d (%s)"</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">strerror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+   	<span class="token keyword">if</span> <span class="token punctuation">(</span> string <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+   		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Can't print null string to file!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token function">fclose</span><span class="token punctuation">(</span>fp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+   	<span class="token punctuation">&#125;</span>
+	success <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   	<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">fwrite</span><span class="token punctuation">(</span>fp<span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token operator">!=</span> success <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error %d (%s)"</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">strerror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">fclose</span><span class="token punctuation">(</span>fp<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error %d (%s)"</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">sterror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>… But wait a second … we know that it’s possible (although odd) that <code>fclose(fp)</code> could ALSO fail. We might need to report that error as well! So now we do what most programmers do, and we duplicate the code.</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">writeToFile</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>fname<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>string<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> success <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	FILE <span class="token operator">*</span>fp <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>fname<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> fp <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error %d (%s)"</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">strerror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+   	<span class="token keyword">if</span> <span class="token punctuation">(</span> string <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+   		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Can't print null string to file!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">fclose</span><span class="token punctuation">(</span>fp<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error %d (%s)"</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">sterror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+   		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+   	<span class="token punctuation">&#125;</span>
+	success <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   	<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">fwrite</span><span class="token punctuation">(</span>fp<span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token operator">!=</span> success <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error %d (%s)"</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">strerror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">fclose</span><span class="token punctuation">(</span>fp<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error %d (%s)"</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">sterror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Gag me with a spoon. I hate it, and so do you. So we have another pattern that we use: the <em>early exit handler</em> with our friend that everyone loves to hate, <em>goto</em>.</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">writeToFile</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>fname<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>string<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> success <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span> rc <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	FILE <span class="token operator">*</span>fp <span class="token operator">=</span> <span class="token function">fopen</span><span class="token punctuation">(</span>fname<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> fp <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">goto</span> _writeToFile_earlyexit
+	<span class="token punctuation">&#125;</span>
+   	<span class="token keyword">if</span> <span class="token punctuation">(</span> string <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+   		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Can't print null string to file!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   		rc <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	   	<span class="token keyword">goto</span> _writeToFile_cleanup
+   	<span class="token punctuation">&#125;</span>
+	success <span class="token operator">=</span> <span class="token function">strlen</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   	<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">fwrite</span><span class="token punctuation">(</span>fp<span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token operator">!=</span> success <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">goto</span> _writeToFile_earlyexit
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">goto</span> _writeToFile_cleanup
+_writeToFile_earlyexit<span class="token operator">:</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error %d (%s)"</span><span class="token punctuation">,</span> errno<span class="token punctuation">,</span> <span class="token function">sterror</span><span class="token punctuation">(</span>errno<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+_writeToFile_cleanup<span class="token operator">:</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">fclose</span><span class="token punctuation">(</span>fp<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">||</span> rc <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">goto</span> _writeToFile_earlyexit
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Despite the revulsion that I know a lot of you are feeling right now, this code is <em>better</em> than the code we had before, and it is in fact <em>using a common pattern</em> that is acceptable in the industry. However, this has several problems.</p>
+<ol>
+<li>The use of <code>goto</code> in the C language is so universally feared that most C linters will report this code as a warning at the least, and some static code analyzers may in fact flag it as an “unsafe” risk, blocking your code from leaving the build system</li>
+<li>You will feel bad about publishing it (unless you’re me, go off)</li>
+<li><code>goto</code> labels share a single universal namespace, so they have to be very lengthy, and writing a ton of them can get annoying</li>
+<li>In order to do this properly, we had to introduce two separate blocks: one for the cleanup, one for the early exit behavior. This is because some code paths don’t need to call the cleanup, but all code paths (including the cleanup) might need to call the early exit behavior. So in order to prevent duplicating code, we made two <code>goto</code> targets.</li>
+<li>For the same reason as above, we had to introduce a new variable, <code>rc</code>, to hold the intended final return code for our method - either <code>0</code> or <code>1</code>. Then, because the cleanup method is in the unhappy path for the string null check, and we must flow from there into the earlyexit handler, but ONLY  in the case when we in the unhappy code path, we had to set the <code>rc</code> variable in the string NULL check and then check it again in the cleanup method, using it as a flag to divert execution into the early exit handler.</li>
+</ol>
+<blockquote>
+<p><em>“That’s crazy. Real C programmers don’t do this! This is just proof that you’re retarded!”</em></p>
+</blockquote>
+<p>Again, I accept the possibility that I’m just an idiot. <a target="_blank" rel="noopener" href="https://gprivate.com/6jlcr">But I promise you, real C programmers do this with remarkable frequency</a>. To be clear, you do NOT have to do this. There ARE better ways. Creative use of <code>switch</code>, and <code>break</code> will give you a better result.</p>
+<p>But I don’t worry about it, because using <code>libakerr</code>, I do not have to manage this! My early exit behavior is baked into the macros and the macro structure. We don’t even need to change the <code>libakerror</code> code from our previous example to get the same (but smarter) behavior as what you see in the naked C example; it’s already doing it. Look at the cleaned up preprocessed code after the macros have been expanded, look at where the code may return, why, and how the cleanup logic is handled.</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">akerr_ErrorContext <span class="token operator">*</span><span class="token function">writeToFile</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span>fname<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>string<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token comment">// PREPARE_ERROR(errctx)</span>
+    <span class="token function">akerr_init</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    akerr_ErrorContext <span class="token keyword">__attribute__</span><span class="token punctuation">(</span><span class="token punctuation">(</span>unused<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> errctx <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+	
+    FILE <span class="token operator">*</span>fp <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> success <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	
+	<span class="token comment">// ATTEMPT</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+		
+		<span class="token comment">// FAIL_ZERO_BREAK(errctx, (fp = fopen(fname, "w")), errno, "Failed to open %s : %s", fname, strerror(errno));</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>fp <span class="token operator">=</span> <span class="token function">fopen</span> <span class="token punctuation">(</span>fname<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                errctx <span class="token operator">=</span> <span class="token function">akerr_next_error</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    <span class="token function">akerr_log_method</span><span class="token punctuation">(</span><span class="token string">"%s:%s:%d: Unable to pull an error context from the array!"</span><span class="token punctuation">,</span> <span class="token string">"test2.c"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token constant">__func__</span><span class="token punctuation">,</span> <span class="token number">118</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">exit</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            errctx<span class="token operator">-></span>refcount <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+            errctx<span class="token operator">-></span>status <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span><span class="token function">__errno_location</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>fname<span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">,</span> <span class="token string">"test2.c"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>function<span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">,</span> <span class="token constant">__func__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            errctx<span class="token operator">-></span>lineno <span class="token operator">=</span> <span class="token number">118</span><span class="token punctuation">;</span>
+            <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>message<span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token string">"Failed to open %s : %s"</span><span class="token punctuation">,</span> fname<span class="token punctuation">,</span> <span class="token function">strerror</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token function">__errno_location</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            errctx<span class="token operator">-></span>stacktracebufptr <span class="token operator">+=</span> <span class="token function">snprintf</span> <span class="token punctuation">(</span>errctx<span class="token operator">-></span>stacktracebufptr<span class="token punctuation">,</span> <span class="token number">2048</span><span class="token punctuation">,</span> <span class="token string">"%s:%s:%d: %d (%s) : %s\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>fname<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>function<span class="token punctuation">,</span> errctx<span class="token operator">-></span>lineno<span class="token punctuation">,</span> errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token function">akerr_name_for_status</span> <span class="token punctuation">(</span>errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> errctx<span class="token operator">-></span>message<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+	    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+		
+		<span class="token comment">// FAIL_ZERO_BREAK(errctx, string, AKERR_NULLPOINTER, "Null pointer");</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>string <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                errctx <span class="token operator">=</span> <span class="token function">akerr_next_error</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    <span class="token function">akerr_log_method</span><span class="token punctuation">(</span><span class="token string">"%s:%s:%d: Unable to pull an error context from the array!"</span><span class="token punctuation">,</span> <span class="token string">"test2.c"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token constant">__func__</span><span class="token punctuation">,</span> <span class="token number">119</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">exit</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		        <span class="token punctuation">&#125;</span>
+	        <span class="token punctuation">&#125;</span>
+            errctx<span class="token operator">-></span>refcount <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+            errctx<span class="token operator">-></span>status <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>fname<span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">,</span> <span class="token string">"test2.c"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>function<span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">,</span> <span class="token constant">__func__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            errctx<span class="token operator">-></span>lineno <span class="token operator">=</span> <span class="token number">119</span><span class="token punctuation">;</span>
+            <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>message<span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token string">"Null pointer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            errctx<span class="token operator">-></span>stacktracebufptr <span class="token operator">+=</span> <span class="token function">snprintf</span> <span class="token punctuation">(</span>errctx<span class="token operator">-></span>stacktracebufptr<span class="token punctuation">,</span> <span class="token number">2048</span><span class="token punctuation">,</span> <span class="token string">"%s:%s:%d: %d (%s) : %s\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>fname<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>function<span class="token punctuation">,</span> errctx<span class="token operator">-></span>lineno<span class="token punctuation">,</span> errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token function">akerr_name_for_status</span> <span class="token punctuation">(</span>errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> errctx<span class="token operator">-></span>message<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+	    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        success <span class="token operator">=</span> <span class="token function">strlen</span> <span class="token punctuation">(</span>string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// FAIL_NONZERO_BREAK(errctx, (fprintf(fp, "%s", string) == success), errno, "%s", strerror(errno));</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">fprintf</span> <span class="token punctuation">(</span>fp<span class="token punctuation">,</span> <span class="token string">"%s"</span><span class="token punctuation">,</span> string<span class="token punctuation">)</span> <span class="token operator">==</span> success<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                errctx <span class="token operator">=</span> <span class="token function">akerr_next_error</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    <span class="token function">akerr_log_method</span><span class="token punctuation">(</span><span class="token string">"%s:%s:%d: Unable to pull an error context from the array!"</span><span class="token punctuation">,</span> <span class="token string">"test2.c"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token constant">__func__</span><span class="token punctuation">,</span> <span class="token number">121</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token function">exit</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		        <span class="token punctuation">&#125;</span>
+	        <span class="token punctuation">&#125;</span>
+            errctx<span class="token operator">-></span>refcount <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+            errctx<span class="token operator">-></span>status <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span><span class="token function">__errno_location</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>fname<span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">,</span> <span class="token string">"test2.c"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>function<span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">,</span> <span class="token constant">__func__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            errctx<span class="token operator">-></span>lineno <span class="token operator">=</span> <span class="token number">121</span><span class="token punctuation">;</span>
+            <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>message<span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token string">"%s"</span><span class="token punctuation">,</span> <span class="token function">strerror</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token function">__errno_location</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            errctx<span class="token operator">-></span>stacktracebufptr <span class="token operator">+=</span> <span class="token function">snprintf</span><span class="token punctuation">(</span>errctx<span class="token operator">-></span>stacktracebufptr<span class="token punctuation">,</span> <span class="token number">2048</span><span class="token punctuation">,</span> <span class="token string">"%s:%s:%d: %d (%s) : %s\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>fname<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>function<span class="token punctuation">,</span> errctx<span class="token operator">-></span>lineno<span class="token punctuation">,</span> errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token function">akerr_name_for_status</span> <span class="token punctuation">(</span>errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> errctx<span class="token operator">-></span>message<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+	    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	
+	<span class="token comment">// CLEANUP</span>
+    <span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">fclose</span> <span class="token punctuation">(</span>fp<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	    <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		    errctx <span class="token operator">=</span> <span class="token function">akerr_next_error</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		    <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		        <span class="token function">akerr_log_method</span><span class="token punctuation">(</span><span class="token string">"%s:%s:%d: Unable to pull an error context from the array!"</span><span class="token punctuation">,</span> <span class="token string">"test2.c"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token constant">__func__</span><span class="token punctuation">,</span> <span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		        <span class="token function">exit</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		    <span class="token punctuation">&#125;</span>
+	    <span class="token punctuation">&#125;</span>
+	    errctx<span class="token operator">-></span>refcount <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+	    errctx<span class="token operator">-></span>status <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span><span class="token function">__errno_location</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	    <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>fname<span class="token punctuation">,</span> <span class="token number">256</span><span class="token punctuation">,</span> <span class="token string">"test2.c"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	    <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>function<span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">,</span> <span class="token constant">__func__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	    errctx<span class="token operator">-></span>lineno <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+	    <span class="token function">snprintf</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>message<span class="token punctuation">,</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token string">"%s"</span><span class="token punctuation">,</span> <span class="token function">strerror</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token function">__errno_location</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	    errctx<span class="token operator">-></span>stacktracebufptr <span class="token operator">+=</span> <span class="token function">snprintf</span><span class="token punctuation">(</span>errctx<span class="token operator">-></span>stacktracebufptr<span class="token punctuation">,</span> <span class="token number">2048</span><span class="token punctuation">,</span><span class="token string">"%s:%s:%d: %d (%s) : %s\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>fname<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> errctx<span class="token operator">-></span>function<span class="token punctuation">,</span> errctx<span class="token operator">-></span>lineno<span class="token punctuation">,</span> errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token function">akerr_name_for_status</span> <span class="token punctuation">(</span>errctx<span class="token operator">-></span>status<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> errctx<span class="token operator">-></span>message<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+	    <span class="token keyword">return</span> errctx<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+	
+	<span class="token comment">// PROCESS(errctx)</span>
+	
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">!=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	    <span class="token keyword">switch</span> <span class="token punctuation">(</span>errctx<span class="token operator">-></span>status<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span>
+            errctx<span class="token operator">-></span>handled <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	        <span class="token punctuation">&#123;</span>
+	        <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+	
+	<span class="token comment">// FINISH(errctx, true)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">!=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>errctx<span class="token operator">-></span>handled <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token number">1</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			errctx<span class="token operator">-></span>stacktracebufptr <span class="token operator">+=</span> <span class="token function">snprintf</span> <span class="token punctuation">(</span>errctx<span class="token operator">-></span>stacktracebufptr<span class="token punctuation">,</span> <span class="token number">2048</span><span class="token punctuation">,</span> <span class="token string">"%s:%s:%d\n"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token string">"test2.c"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token constant">__func__</span><span class="token punctuation">,</span> <span class="token number">125</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token keyword">return</span> errctx<span class="token punctuation">;</span>
+		<span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>	
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">!=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        errctx <span class="token operator">=</span> <span class="token function">akerr_release_error</span> <span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+	
+	<span class="token comment">// SUCCEED_RETURN(errctx);</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>errctx <span class="token operator">!=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      errctx <span class="token operator">=</span> <span class="token function">akerr_release_error</span> <span class="token punctuation">(</span>errctx<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">void</span> <span class="token operator">*</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Here we can see that using the <code>libakerror</code> framework, our code:</p>
+<ol>
+<li>Exits early whenever an <code>akerr_ErrorContext</code> object is unable to be initialized (via <code>exit(1)</code>)</li>
+<li>Returns from the <code>CLEANUP</code> block if the <code>fclose(fp)</code> call fails, returning the <code>akerr_ErrorContext</code> up to the calling context</li>
+<li>Returns 0 at the end of the function assuming everything happens correctly</li>
+</ol>
+<p>And it does it all without <code>goto</code>.</p>
+<h1 id="Solving-a-problem-you-don’t-actually-have"><a href="#Solving-a-problem-you-don’t-actually-have" class="headerlink" title="Solving a problem you don’t actually have"></a>Solving a problem you don’t actually have</h1><p>So, let’s revisit the claim</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;#c user&gt; this is solving a problem that doesn&#39;t exist<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol>
+<li>We have been able to demonstrate several varieties of problems which are very real, very common, and very much present even in our beloved <strong>C</strong> language.</li>
+<li>We have been able to demonstrate that <code>libakerror</code> solves these problems quite handily</li>
+</ol>
+<h1 id="I-still-don’t-like-it"><a href="#I-still-don’t-like-it" class="headerlink" title="I still don’t like it"></a>I still don’t like it</h1><p>And that’s fine. It’s okay for people to like different things. But if you have the same kinds of problems I’ve described here, and you love (or want to love) writing in C, but error handling has made you gunshy … Feel free to take this code and use it. It’s free (as in speech).</p>
+
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2026/01/11/Smart-LEGO/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">Prev</div>
+          
+            <div class="nav-title">Smart LEGO </div>
+          
+        </div>
+      </a>
+    </div>
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2026/01/11/News-2026-Week-1/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">News - 2026 - Week 1 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Getting-roasted-in-IRC-is-motivational"><span class="toc-text">Getting roasted in IRC is motivational</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There-is-no-problem-C-is-not-broken"><span class="toc-text">There is no problem. C is not broken.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Because-we-can-do-better"><span class="toc-text">Because we can do better</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-errno-stupid"><span class="toc-text">Check errno, stupid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-libakerror-way"><span class="toc-text">The libakerror way</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#But-the-macros-hide-a-lot-of-complexity"><span class="toc-text">But the macros hide a lot of complexity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#We-don%E2%80%99t-like-it"><span class="toc-text">We don’t like it</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-I-like-it"><span class="toc-text">Why I like it</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ensuring-errors-get-checked"><span class="toc-text">Ensuring errors get checked</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debugging-when-all-you-have-is-logs"><span class="toc-text">Debugging when all you have is logs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ensuring-cleanup-behavior-occurs-on-error"><span class="toc-text">Ensuring cleanup behavior occurs on error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Managing-early-exit-handlers-with-cleanup-without-goto"><span class="toc-text">Managing early exit handlers with cleanup without goto</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solving-a-problem-you-don%E2%80%99t-actually-have"><span class="toc-text">Solving a problem you don’t actually have</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#I-still-don%E2%80%99t-like-it"><span class="toc-text">I still don’t like it</span></a>
+</div>
+
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Getting-roasted-in-IRC-is-motivational"><span class="toc-text">Getting roasted in IRC is motivational</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There-is-no-problem-C-is-not-broken"><span class="toc-text">There is no problem. C is not broken.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Because-we-can-do-better"><span class="toc-text">Because we can do better</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-errno-stupid"><span class="toc-text">Check errno, stupid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-libakerror-way"><span class="toc-text">The libakerror way</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#But-the-macros-hide-a-lot-of-complexity"><span class="toc-text">But the macros hide a lot of complexity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#We-don%E2%80%99t-like-it"><span class="toc-text">We don’t like it</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-I-like-it"><span class="toc-text">Why I like it</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ensuring-errors-get-checked"><span class="toc-text">Ensuring errors get checked</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debugging-when-all-you-have-is-logs"><span class="toc-text">Debugging when all you have is logs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ensuring-cleanup-behavior-occurs-on-error"><span class="toc-text">Ensuring cleanup behavior occurs on error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Managing-early-exit-handlers-with-cleanup-without-goto"><span class="toc-text">Managing early exit handlers with cleanup without goto</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Solving-a-problem-you-don%E2%80%99t-actually-have"><span class="toc-text">Solving a problem you don’t actually have</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#I-still-don%E2%80%99t-like-it"><span class="toc-text">I still don’t like it</span></a>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/Single-Pane-of-Glass/"><div class="recent-posts-item-content">Single Pane of Glass</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/Smart-LEGO/"><div class="recent-posts-item-content">Smart LEGO</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/libakerror/"><div class="recent-posts-item-content">libakerror</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-11</div>
+        <a href="/2026/01/11/News-2026-Week-1/"><div class="recent-posts-item-content">News - 2026 - Week 1</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+          
+                - 
+                2026
+          
+        </span>
+        &nbsp;
+        <a 
+          href="mailto:andrew@aklabs.net" 
+          class="footer-link">
+          Andrew Kesterson
+        </a>
+	<br/>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+      <script>
+        var googleAnalytics = function () {
+          window.dataLayer = window.dataLayer || []
+          function gtag() {
+            dataLayer.push(arguments)
+          }
+          gtag('js', new Date())
+          gtag('config', 'G-S3YLF516N6')
+        }
+    </script>
+      <script>
+        loadScript(
+          'https://www.googletagmanager.com/gtag/js?id=' +
+            'G-S3YLF516N6',
+          googleAnalytics
+        )
+      </script>
+    
+    
+  </body>
+</html>

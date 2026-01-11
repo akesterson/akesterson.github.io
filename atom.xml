@@ -6,7 +6,7 @@
   <link href="https://aklabs.net/atom.xml" rel="self"/>
   
   <link href="https://aklabs.net/"/>
-  <updated>2026-01-08T14:22:41.402Z</updated>
+  <updated>2026-01-11T03:03:05.994Z</updated>
   <id>https://aklabs.net/</id>
   
   <author>
@@ -17,30 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>News - 2026 - Week 1</title>
-    <link href="https://aklabs.net/2026/01/08/News-2026-Week-1/"/>
-    <id>https://aklabs.net/2026/01/08/News-2026-Week-1/</id>
-    <published>2026-01-08T14:22:41.402Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
-    
-    
-    <summary type="html">Musings on android source code releases, the return of the keyboard PC, some AI workflows are just event driven architecture, sociopaths in civil service, what happens when AI interfaces replace proper APIs, and comprehensible interfaces to quantum computing chips</summary>
-    
-    
-    
-    <category term="Technology" scheme="https://aklabs.net/categories/Technology/"/>
-    
-    <category term="Current Events" scheme="https://aklabs.net/categories/Current-Events/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Single Pane of Glass</title>
-    <link href="https://aklabs.net/2026/01/08/Single-Pane-of-Glass/"/>
-    <id>https://aklabs.net/2026/01/08/Single-Pane-of-Glass/</id>
-    <published>2026-01-08T14:22:41.402Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
+    <link href="https://aklabs.net/2026/01/11/Single-Pane-of-Glass/"/>
+    <id>https://aklabs.net/2026/01/11/Single-Pane-of-Glass/</id>
+    <published>2026-01-11T03:03:05.994Z</published>
+    <updated>2026-01-11T03:03:05.994Z</updated>
     
     
     <summary type="html">There are too many ways of doing the same shit across too many different mediums and platforms</summary>
@@ -54,10 +35,10 @@
   
   <entry>
     <title>Smart LEGO</title>
-    <link href="https://aklabs.net/2026/01/08/Smart-LEGO/"/>
-    <id>https://aklabs.net/2026/01/08/Smart-LEGO/</id>
-    <published>2026-01-08T14:22:41.402Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
+    <link href="https://aklabs.net/2026/01/11/Smart-LEGO/"/>
+    <id>https://aklabs.net/2026/01/11/Smart-LEGO/</id>
+    <published>2026-01-11T03:03:05.994Z</published>
+    <updated>2026-01-11T03:03:05.994Z</updated>
     
     
       
@@ -76,11 +57,47 @@
   </entry>
   
   <entry>
+    <title>libakerror</title>
+    <link href="https://aklabs.net/2026/01/11/libakerror/"/>
+    <id>https://aklabs.net/2026/01/11/libakerror/</id>
+    <published>2026-01-11T03:03:05.994Z</published>
+    <updated>2026-01-11T03:03:05.994Z</updated>
+    
+    
+    <summary type="html">A C library I wrote for exception style error handling in C code</summary>
+    
+    
+    
+    <category term="technology" scheme="https://aklabs.net/categories/technology/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>News - 2026 - Week 1</title>
+    <link href="https://aklabs.net/2026/01/11/News-2026-Week-1/"/>
+    <id>https://aklabs.net/2026/01/11/News-2026-Week-1/</id>
+    <published>2026-01-11T03:03:05.993Z</published>
+    <updated>2026-01-11T03:03:05.993Z</updated>
+    
+    
+    <summary type="html">Musings on android source code releases, the return of the keyboard PC, some AI workflows are just event driven architecture, sociopaths in civil service, what happens when AI interfaces replace proper APIs, and comprehensible interfaces to quantum computing chips</summary>
+    
+    
+    
+    <category term="Technology" scheme="https://aklabs.net/categories/Technology/"/>
+    
+    <category term="Current Events" scheme="https://aklabs.net/categories/Current-Events/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Socrates got a raw deal</title>
     <link href="https://aklabs.net/2025/01/04/Socrates-got-a-raw-deal/"/>
     <id>https://aklabs.net/2025/01/04/Socrates-got-a-raw-deal/</id>
     <published>2025-01-04T15:06:30.000Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
+    <updated>2026-01-11T03:03:05.994Z</updated>
     
     
       
@@ -109,7 +126,7 @@
     <link href="https://aklabs.net/2024/03/08/new-manager-pt3/"/>
     <id>https://aklabs.net/2024/03/08/new-manager-pt3/</id>
     <published>2024-03-08T00:10:28.000Z</published>
-    <updated>2026-01-08T14:22:41.403Z</updated>
+    <updated>2026-01-11T03:03:05.995Z</updated>
     
     
       
@@ -132,7 +149,7 @@
     <link href="https://aklabs.net/2024/03/05/new-manager-pt2/"/>
     <id>https://aklabs.net/2024/03/05/new-manager-pt2/</id>
     <published>2024-03-05T12:10:28.000Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
+    <updated>2026-01-11T03:03:05.995Z</updated>
     
     
       
@@ -155,7 +172,7 @@
     <link href="https://aklabs.net/2024/03/03/new-manager-pt1/"/>
     <id>https://aklabs.net/2024/03/03/new-manager-pt1/</id>
     <published>2024-03-03T12:10:28.000Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
+    <updated>2026-01-11T03:03:05.994Z</updated>
     
     
       
@@ -178,7 +195,7 @@
     <link href="https://aklabs.net/2024/02/09/expectations/"/>
     <id>https://aklabs.net/2024/02/09/expectations/</id>
     <published>2024-02-09T08:30:30.000Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
+    <updated>2026-01-11T03:03:05.994Z</updated>
     
     
       
@@ -201,7 +218,7 @@
     <link href="https://aklabs.net/2024/01/29/Simon-Sinek-Start-with-Why/"/>
     <id>https://aklabs.net/2024/01/29/Simon-Sinek-Start-with-Why/</id>
     <published>2024-01-29T16:35:48.000Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
+    <updated>2026-01-11T03:03:05.994Z</updated>
     
     
       
@@ -226,7 +243,7 @@
     <link href="https://aklabs.net/2023/12/23/United-States-Catholic-Catechism-for-Adults/"/>
     <id>https://aklabs.net/2023/12/23/United-States-Catholic-Catechism-for-Adults/</id>
     <published>2023-12-23T17:03:44.000Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
+    <updated>2026-01-11T03:03:05.994Z</updated>
     
     
       
@@ -251,7 +268,7 @@
     <link href="https://aklabs.net/2023/11/05/Copper-Sun/"/>
     <id>https://aklabs.net/2023/11/05/Copper-Sun/</id>
     <published>2023-11-05T20:01:51.000Z</published>
-    <updated>2026-01-08T14:22:41.401Z</updated>
+    <updated>2026-01-11T03:03:05.993Z</updated>
     
     
       
@@ -276,7 +293,7 @@
     <link href="https://aklabs.net/2023/10/10/The-Cost-of-Discipleship/"/>
     <id>https://aklabs.net/2023/10/10/The-Cost-of-Discipleship/</id>
     <published>2023-10-10T20:23:33.000Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
+    <updated>2026-01-11T03:03:05.994Z</updated>
     
     
       
@@ -301,7 +318,7 @@
     <link href="https://aklabs.net/2023/09/28/Bill-Heavey-Jerkey-What-Did-I-Just-Eat/"/>
     <id>https://aklabs.net/2023/09/28/Bill-Heavey-Jerkey-What-Did-I-Just-Eat/</id>
     <published>2023-09-28T20:34:33.000Z</published>
-    <updated>2026-01-08T14:22:41.401Z</updated>
+    <updated>2026-01-11T03:03:05.993Z</updated>
     
     
       
@@ -326,7 +343,7 @@
     <link href="https://aklabs.net/2023/09/24/How-Should-We-Then-Live/"/>
     <id>https://aklabs.net/2023/09/24/How-Should-We-Then-Live/</id>
     <published>2023-09-24T20:58:40.000Z</published>
-    <updated>2026-01-08T14:22:41.401Z</updated>
+    <updated>2026-01-11T03:03:05.993Z</updated>
     
     
       
@@ -351,7 +368,7 @@
     <link href="https://aklabs.net/2023/09/12/Christianity-First-3000-Years/"/>
     <id>https://aklabs.net/2023/09/12/Christianity-First-3000-Years/</id>
     <published>2023-09-12T21:20:20.000Z</published>
-    <updated>2026-01-08T14:22:41.401Z</updated>
+    <updated>2026-01-11T03:03:05.993Z</updated>
     
     
       
@@ -376,7 +393,7 @@
     <link href="https://aklabs.net/2022/10/15/Live-Not-By-Lies/"/>
     <id>https://aklabs.net/2022/10/15/Live-Not-By-Lies/</id>
     <published>2022-10-15T22:11:25.000Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
+    <updated>2026-01-11T03:03:05.993Z</updated>
     
     
       
@@ -401,7 +418,7 @@
     <link href="https://aklabs.net/2022/05/19/Jesus-Outside-the-Lines/"/>
     <id>https://aklabs.net/2022/05/19/Jesus-Outside-the-Lines/</id>
     <published>2022-05-19T21:51:09.000Z</published>
-    <updated>2026-01-08T14:22:41.401Z</updated>
+    <updated>2026-01-11T03:03:05.993Z</updated>
     
     
       
@@ -426,7 +443,7 @@
     <link href="https://aklabs.net/2022/05/04/American-Prison/"/>
     <id>https://aklabs.net/2022/05/04/American-Prison/</id>
     <published>2022-05-04T21:42:34.000Z</published>
-    <updated>2026-01-08T14:22:41.401Z</updated>
+    <updated>2026-01-11T03:03:05.993Z</updated>
     
     
       
@@ -449,7 +466,7 @@
     <link href="https://aklabs.net/2022/05/02/The-Hero-Code/"/>
     <id>https://aklabs.net/2022/05/02/The-Hero-Code/</id>
     <published>2022-05-02T21:58:12.000Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
+    <updated>2026-01-11T03:03:05.994Z</updated>
     
     
       
@@ -457,31 +474,6 @@
         
         
     <summary type="html">&lt;img alt=&quot;Image of The Hero Code&quot; style=&quot;float: left; padding: 20px 20px 20px 20px;&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Books" scheme="https://aklabs.net/categories/Books/"/>
-    
-    <category term="Leadership" scheme="https://aklabs.net/categories/Leadership/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>The Righteous Mind</title>
-    <link href="https://aklabs.net/2022/03/17/The-Righteous-Mind/"/>
-    <id>https://aklabs.net/2022/03/17/The-Righteous-Mind/</id>
-    <published>2022-03-17T21:31:56.000Z</published>
-    <updated>2026-01-08T14:22:41.402Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img alt=&quot;Image of The Righteous Mind&quot; style=&quot;float: left; padding: 20px 20px 20px 20px;&quot;</summary>
         
       
     
