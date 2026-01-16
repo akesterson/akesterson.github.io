@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="AKLabs">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>News-2026-Week-2</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="News-2026-Week-2">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://aklabs.net/2026/01/16/News-2026-Week-2/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/images/akesterson.webp">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2026-01-16">
+      <meta 
+        property="og:article:modified_time" 
+        content="2026-01-16">
+      <meta 
+        property="og:article:author" 
+        content="Andrew Kesterson">
+      
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-defauult.min.css', '[data-prism]', 'prism-defauult');
+              } else {
+                loadCSS('/js/lib/prism/prism-defauult.min.css', 'prism', 'prism-defauult');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+      
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="AKLabs" type="application/atom+xml">
+</head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">AKLabs</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/now" 
+        class="navbar-menu-item">
+        
+          ~/.plan
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/consulting" 
+        class="navbar-menu-item">
+        
+          Consulting
+        
+      </a>
+    
+      <a 
+        href="/contact" 
+        class="navbar-menu-item">
+        
+          Contact
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/images/akesterson.webp" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">Andrew Kesterson</p>
+<p class="author-description"><center><i>"Love God. Live Righteously. Die Well."</i> <br/> <br/> <a target="_blank" rel="noopener" href="https://github.com/akesterson">GitHub</a> || <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/andrewkesterson/">LinkedIn</a> <br/> </center></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>22</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>9</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>0</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Rent-Is-Too-Damn-High"><span class="toc-text">The Rent Is Too Damn High</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jobs-and-Corporate"><span class="toc-text">Jobs and Corporate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-AI-Slop-Trough"><span class="toc-text">The AI Slop Trough</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Technology-and-Dev"><span class="toc-text">General Technology and Dev</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nature-and-Nature%E2%80%99s-God"><span class="toc-text">Nature and Nature’s God</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ennui-and-Hope-Read-some-books"><span class="toc-text">Ennui and Hope : Read some books</span></a></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/Books/">
+        <div class="categories-list-item">
+          Books
+          <span class="categories-list-item-badge">14</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Faith/">
+        <div class="categories-list-item">
+          Faith
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Outdoors/">
+        <div class="categories-list-item">
+          Outdoors
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Technology/">
+        <div class="categories-list-item">
+          Technology
+          <span class="categories-list-item-badge">5</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Leadership/">
+        <div class="categories-list-item">
+          Leadership
+          <span class="categories-list-item-badge">8</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Philosophy/">
+        <div class="categories-list-item">
+          Philosophy
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Current-Events/">
+        <div class="categories-list-item">
+          Current-Events
+          <span class="categories-list-item-badge">2</span>
+        </div>
+      </a>
+    
+      <a href="/categories/History/">
+        <div class="categories-list-item">
+          History
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Liberal-Education/">
+        <div class="categories-list-item">
+          Liberal-Education
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      News-2026-Week-2
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2026-01-16T15:27:42.513Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2026-01-16</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/Books/" 
+          class="post-meta-link">
+          Books
+        </a>
+      
+        <a 
+          href="/categories/Technology/" 
+          class="post-meta-link">
+          Technology
+        </a>
+      
+        <a 
+          href="/categories/Leadership/" 
+          class="post-meta-link">
+          Leadership
+        </a>
+      
+        <a 
+          href="/categories/Current-Events/" 
+          class="post-meta-link">
+          Current Events
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>5.2k words</span>
+    
+  </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <p>Here are my thoughts on news across the internet this week. We touch on rent denialism, collapsing job markets, corporate productivity theater, and the many ways AI is being oversold, misused, or shoved where it doesn’t belong. Along the way I rant about enshittification, ownership (of code, hardware, and ideas), bad APIs, worse management, the slow death of the old internet, and why UNIX got it right decades ago. It’s part news roundup, part cultural autopsy, part theological and philosophical musing — ending, as usual, with a reminder to ignore the noise, give your attention to what you love, and keep your eyes on God and the horizon. It’s worth what you paid for it.</p>
+<h2 id="The-Rent-Is-Too-Damn-High"><a href="#The-Rent-Is-Too-Damn-High" class="headerlink" title="The Rent Is Too Damn High"></a>The Rent Is Too Damn High</h2><p><a target="_blank" rel="noopener" href="https://www.jefftk.com/p/rents-are-high-but-not-skyrocketing">Jeff TK has made a valiant attempt</a> to allay our fears that rents are not skyrocketing. I do love a pretty colored graph showing facts on an axis. However, the problem I have with his article is that the nice flat graphs don’t go far enough to the left. His values begin in 2014, and by 2014, we already knew the rent was too damn high. <a target="_blank" rel="noopener" href="https://knowyourmeme.com/memes/the-rent-is-too-damn-high-jimmy-mcmillan">Jimmy McMillan was a meme in 2010</a>. Of course the graph shows stagnation if you look at it from 2014. There are <a target="_blank" rel="noopener" href="https://www.huduser.gov/portal/datasets/fmr.html?utm_source=chatgpt.com#history">plenty</a> of <a target="_blank" rel="noopener" href="https://www.census.gov/data/tables/time-series/dec/coh-grossrents.html">data sources</a> that will <a target="_blank" rel="noopener" href="https://www.zillow.com/research/data/">provide</a> a <a target="_blank" rel="noopener" href="https://usa.ipums.org/usa-action/variables/190639#source_variables_section">more accurate</a> picture of what’s going on. The rent is, indeed, too damn high, and has, indeed, skyrocketed. However I suppose I will concede to TK that the skyrocket has stalled - for the moment.</p>
+<h2 id="Jobs-and-Corporate"><a href="#Jobs-and-Corporate" class="headerlink" title="Jobs and Corporate"></a>Jobs and Corporate</h2><p>Amazon is now requiring its employees to list <a target="_blank" rel="noopener" href="https://www.businessinsider.com/amazon-corporate-employees-performance-reviews-accomplish-last-year-2026-1">three to five distinct accomplishments</a> from the past year in their new performance review process. Measuring employee productivity is actually really difficult, and you can tell a lot about a company’s current state by how they measure it. This kind of measuring stick is a strong indicator that the cuts are about to go deeper; don’t expect the layoffs to quit in 2026.</p>
+<p>Unfortunately, <a target="_blank" rel="noopener" href="https://thedailywtf.com/articles/the-modern-job-hunt-a-side-quest">the situation for job hunters is terrible, and not getting better</a>. If you find yourself looking for work, keep yourself open to new specializations within your field, or even new fields entirely. Being choosy in this economy is not a beneficial trait if you have bills to pay and mouths to feed. My own job search a couple of years ago - when the situation was actually a little better than now - saw me fire off almost 400 applications in the span of 1.5 months, with only 4 interview prospects. <a target="_blank" rel="noopener" href="http://jobquest.aklabs.net/">Here is a totally accurate simulation of the current job hunting experience</a>.</p>
+<p>Meanwhile, a new project has attempted to <a target="_blank" rel="noopener" href="https://www.remotelabor.ai/?itid=lk_inline_enhanced-template">measure the actual effectiveness of AI agents at performing several types of remote work</a>, and found that the LLMs were only able to independently complete work about 2.5% of the time. This is a positively abysmal measurement that proves that AI simply can not be left to do work alone. It doesn’t mean that AI won’t take <em>some</em> jobs, it just means that AI will still need at least one or more people to constantly look over its shoulder to ensure the work is getting done. Now, before the middle managers in my audience get excited, I must point out that those supervising the AI must actually be competent in the job the AI is doing, so that errors can be detected and corrected. And frankly both AI and many managers have this in common: a lack of basic competency in the job they are performing or supervising. So line jobs in these types of projects are probably safe for a while - although you will probably be forced to do the job with your ass in a corporate seat, rather than at home.</p>
+<p>Speaking of asses in corporate seats working for incompetent management, <a target="_blank" rel="noopener" href="https://www.businessinsider.com/amazon-flags-employees-rto-office-2026-1">Amazon has rolled out a new tool to help measure employee productivity</a>: this one measures the amount of time your ass spends in a seat. The tool will tell managers how long you spend badged into the building. (For those who don’t know, most companies now have digital door control systems that an employee accesses with a badge, so the company knows when you come and when you go.) The system will assist managers in making decisions by flagging employees that have low hours (4 hours or less in per day) and no hours (zero). As I said, measuring performance is a tricky business, and one of the oldest standby methods is to simply measure how much time your ass is in a seat. It’s called attendee-ism, it’s a garbage measurement used by dinosaurs and those interested in justifying their massive commercial real estate investments. It’s also alive and well in our biggest and supposedly smartest companies. Huzzah.</p>
+<h2 id="The-AI-Slop-Trough"><a href="#The-AI-Slop-Trough" class="headerlink" title="The AI Slop Trough"></a>The AI Slop Trough</h2><p>The good news is that while your ass is in a seat at your wage-slave job, <a target="_blank" rel="noopener" href="https://www.axios.com/2026/01/08/microsoft-ai-copilot-checkout">you can still get your shopping done by talking to Copilot and letting it buy things for you</a>. Just give the AI access to your financial accounts bro, it’s cool. <a target="_blank" rel="noopener" href="https://www.youtube.com/shorts/ar1iweInzc0">This will be a great way to get all the useless shit you don’t need</a>.</p>
+<p>Speaking of AI doing things it really shouldn’t, <a target="_blank" rel="noopener" href="https://www.msn.com/en-us/technology/software/a-new-approach-to-living-a-good-life-comes-from-a-most-unlikely-place/ar-AA1TSu0Q">the Workshop for Emotional and Spiritual Technology Corporation (West Co) is testing a platform called Tingle</a>, a social media platform that hopes to help users build more meaningful lives - by having users interact with smart devices to ask AI how to build more meaningful lives. A <a target="_blank" rel="noopener" href="https://tech.slashdot.org/comments.pl?sid=23889512&cid=65915338">Slashdot user</a> put it perfectly: “AI, which is incapable of deriving meaning or even determining relevance, is going to tell us humans how to build purposeful life. This is peak idiocy.” </p>
+<p>Turning away from how we’re using AI to continue to lose our humanity, and instead focusing on how we’re using it to try and lose more of our own skill and capacity by asking it to do work that we can (and probably should) do ourselves. <a target="_blank" rel="noopener" href="https://thenewstack.io/beyond-python-why-llms-need-more-stable-open-source-code/">An article on The New Stack recently posited</a> that AIs show a preference for certain languages in certain arenas, and that this is a problem for a variety of reasons. Namely “my LLM can’t generate the code for prompt X in language Y”, because for whatever reason language Y is the choice du-joure for this task. I don’t know why anyone is surprised by this habit of LLMs. AIs are trained on the stuff we say and the choices we make, specifically what’s published in the public domain (although not exclusively the public domain, as many trainers have unscrupulously stolen materials they should not have used for training purposes). Regardless, they are essentially reproducing what they have seen elsewhere (<em>cough</em> stack overflow <em>cough</em>). Why are we at all surprised by the language choices made by an LLM when they so clearly resemble what humans have been telling other humans to choose?</p>
+<p>Speaking of LLMs consuming things they shouldn’t, <a target="_blank" rel="noopener" href="https://www.seroundtable.com/tailwind-css-google-drop-40725.html">we need a stronger robots.text standard that lets content creators control how LLMs and AI agents can reproduce or use their content</a>. If Tailscale had been able to say things like “you can only use this content if you clearly advertise the source and include this blurb or link to this site or with this overlay”, then maybe they wouldn’t have had to fire 75% of their staff when AI began parroting their documentation, taking human eyes away from where their commercial option was advertised, effectively nuking a large part of their business model. This isn’t about sticking your head in the sand in an AI world, it’s about software authors having enough respect for each other to make their software honor the boundaries put up by humans. We do live in a society, after all.</p>
+<p>Our society needs to make some long term plans around AI anyway, especially around the usage of AI for code, and the code generated by that AI. <a target="_blank" rel="noopener" href="https://arxiv.org/html/2511.04427v2#S6">A Carnegie-Melon study on the impact of Cursor usage in software products</a> shows that while there are indeed short term bursts from the usage of these tools, they are likely to generate a lot more long term headache. As I mentioned, part of what happens when we turn to AI to solve our problems for us (whether those problems are in our relationships or our codebase), assuming that the solution works, we immediately begin to suffer atrophy in the skills we should have used to solve those problems. Because of that we are less able to spot quality problems in the output of the AI. And when we have to maintain that work (“though a program be but three lines long, some day it will have to be maintained” –<a target="_blank" rel="noopener" href="https://www.mit.edu/~xela/tao.html">Tao of Programming</a>, Book 5), we often find that we can’t maintain it very well (if at all) because we aren’t able to fall back on our original knowledge we used to solve the problem, because we didn’t solve it! All of this might sound like your middle school math teacher saying “you won’t always have a calculator in your pocket!”, but for at least the foreseeable horizon, this is the reality of the situation, and we mustn’t approach it blindly, lest we pass those headaches on to our successors (or our children).</p>
+<p>I recently posited the hilarity and terror of moving away from well defined to APIs towards AIs simply talking to each other and “having at it”, but it did highlight a real problem: most of our API specs suck anyway, and an AI may very likely do just as good a job of consuming your broken API spec as a human would. <a target="_blank" rel="noopener" href="https://thenewstack.io/why-most-apis-fail-in-ai-systems-and-how-to-fix-it/">The New Stack recently ran an article about why your API sucks and why an AI can’t effectively consume it</a>, and I largely agree with it. However it’s worth pointing out that the problems in this article apply to AIs and humans equally - if your API spec sucks, your docs suck, your examples don’t reflect real usage, then humans are going to suffer with your software too. The difference is that humans are used to suffering through poor specs and “figuring it out”, while AI is more likely to do <em>strange</em> things with poor assumptions based off your code, and we’re likely to give that AI more leash than it deserves to do <em>possibly bad</em> things with those <em>strange</em> interpretations of <em>your crappy API</em>. So, whether you’re working for humans or AI, do us all a favor: <strong>stop writing crappy APIs with crappy docs</strong></p>
+<p>But following on the ideas of “AIs are trained on what is well published” and “simple well defined interfaces are best”, once again, <a target="_blank" rel="noopener" href="https://thenewstack.io/the-key-to-agentic-success-let-unix-bash-lead-the-way/">UNIX solved this problem 50 years ago</a>. Some folks are finding that the best way to let agents solve many problems is, instead of giving them lots of custom skills and tools, simply given them a bash terminal and let them get to work. Most unix&#x2F;linux&#x2F;gnu command line programs follow <a href="en.wikipedia.org/wiki/Unix_philosophy">the UNIX design philosophy</a> and thus have pretty good documentation, they tend to do one thing and do it well, and they tend to operate on plain text passing in and out through pipes, making it easy to chain those programs together to do new things. This basic interface and pattern hasn’t really changed for 50 years, and we’ve got a ton of well published documentation on using these tools for all kinds of black magic, and LLMs have been trained on all of it. I kind of love it.</p>
+<p>Meanwhile, regardless of the specific ways your AI is implemented, <a target="_blank" rel="noopener" href="https://thenewstack.io/open-source-retrieval-infrastructure-can-fix-ais-production-gap/">a New Stack article captures some of the real problems your enterprise is likely to face</a> - things like observability and auditability. What documents in the knowledge base are being used, which sections, what questions lead to which answers, what answers were used to drive which automated decisions, etc. But the article doesn’t really put forward a good solution to the problem, instead it seems to be proposing that retrieval augmented generation is the solution. Maybe you can get something from it, but I don’t really see an answer here, beyond “we need to figure out answers to these problems”.</p>
+<p>Speaking of understanding why certain decisions were made, <a target="_blank" rel="noopener" href="https://perrotta.dev/2026/01/adrs-and-llms/">Thiago Perotta’s hot take is that the Architecture Decision Record is a key component of an LLM driven codebase</a>. ADRs are fine by themselves I suppose, and LLM coding agents definitely do benefit from the added context given by a set of ADRs. But the problem with ADRs that I’ve personally seen is that there is often not a clear link between “this piece of shit code I’m having to fix” and the ADR that introduced the architectural pattern that caused the shit code to be written. So the reasoning isn’t discovered until someone fixes the shit, proposes a merge request, and the architect (in all their glory) weighs in to the merge request explaining why this is bad because “this ADR explains this and didn’t you read it?”. (I may just have a bad history with architects.) Maybe integrating LLMs and ADRs can resolve that gap by linking specific ADRs to specific comments with some kind of metadata that links the implementation to the architectural decisions that lead to the implementation choices. That may be a beneficial thing to adopt. However Thiago takes the brakes off the AI, saying “nowadays your LLM agent can draft ADRs for you”. Soon we will have LLMs making decisions, justifying those decisions, writing ADRs about those decisions, using those ADRs to justify future decisions, and the human will just stand there slack-jawed watching it all happen. The AI has investigate its code, and has found justification from its ADRs, and thereby has found that the AI has done nothing wrong; the AI will push to prod now.</p>
+<h2 id="General-Technology-and-Dev"><a href="#General-Technology-and-Dev" class="headerlink" title="General Technology and Dev"></a>General Technology and Dev</h2><p>Turning away now from AI, but remaining in the realm of technology and code, <a target="_blank" rel="noopener" href="https://linux.slashdot.org/story/26/01/11/1926219/gentoo-linux-plans-migration-from-github-over-attempts-to-force-copilot-usage-for-our-repositories?utm_source=rss1.0mainlinkanon&utm_medium=feed">Gentoo reminds us that there is no free lunch and that you should probably host your own code</a>. If you weren’t aware, GitHub is essentially forcing Microsoft Copilot on everyone, because of course they are. Copilot can’t help you unless it trains itself on your codebase. And copilot will be improved for others by what it learns from you. So Microsoft is essentially building their product, which they will sell to others, by including your code, without attribution. This is obviously a problem. Remember kids - if the service you are using is free, then YOU, or what YOU are hosting, are the product. Someone is benefiting from hosting your code. I personally use gitea to hold my code at home, and anything I want to publish to the internet, is done with a github mirror - my gitea is the source of authority, not github. You should own your stuff, and you should own the distribution channels for it, where possible.</p>
+<p>Speaking of code, owning code, writing code, and reviewing code, <a target="_blank" rel="noopener" href="https://tidyfirst.substack.com/p/party-of-one-for-code-review">the code review process as we know it is really terrible</a>. Kent Beck makes the point that, when code review was first proposed from IBM, “Hardly anyone actually did it. Too much work. Too tedious.” Honestly the situation today is much the same. He concludes with the idea that “I’d rather be pairing. […] That’s less satisfying. It’s also where I’m at. […] I’m still figuring out what to do about it.” This mirrors my own experience and preferences. You write a change, send it to a teammate for a peer review, and one of three things happens: <code>1)</code> you wait forever for a detailed high quality review that will undoubtedly result in a bunch of proposed changes that are legitimate but that are outside of your timeline and will piss you off, <code>2)</code> you wait forever and the damn code never gets reviewed at all so you can’t ship, or <code>3)</code> you get a really fast turnaround with a rubber stamp approval that means nothing and was just a waste of time checking a box. Pairing is a much better answer, in my experience - talking through it with someone, working on the code together, you get better feedback in a lower span of time and you ship faster because they’re ready to approve once you’re done. And chances are you’re doing the same for them while you’re working, so you are probably shipping two features faster, rather than just one. <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8wUOUmeulNs">Really advanced teams will move past pair programming all the way into spooning</a>, but even that may not prevent <a target="_blank" rel="noopener" href="https://thedailywtf.com/articles/the-review">the Jimbo effect</a>.</p>
+<p>Anyway - back on ownership, not just of code, but you should own everything you buy, as well. That seems like an obvious statement but because of the ongoing <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Enshittification">enshittification</a> of everything, <a target="_blank" rel="noopener" href="https://www.eff.org/deeplinks/2016/12/john-deere-really-doesnt-want-you-own-tractor">you don’t own what you buy</a>. And if you try to reverse engineer the thing that you bought so that you can actually use the thing you bought for the thing you want to use it for, <a target="_blank" rel="noopener" href="https://ttconsultants.com/understanding-reverse-engineering-and-the-infringement-law/">you may be committing a crime</a>. Cory Doctorow, blogging from his hot air balloon high above international waters, <a target="_blank" rel="noopener" href="https://www.theguardian.com/commentisfree/2026/jan/10/trump-beginning-of-end-enshittification-make-tech-good-again">recommended in a Guardian article</a> that some countries may be well positioned to repeal certain laws from their books that make such activities illegal, which he argues (and I agree) will help put an end to enshittification. The problem I have with his take is that you don’t have to ask for permission to reverse engineer something. You can just do it. The suits are always going to complain about you doing it - <a target="_blank" rel="noopener" href="https://phrack.org/issues/7/3">“We explore… and you call us criminals.”</a> - but you can just take things apart, figure out how they work, and put them back together in a new way. I suppose it matters more when you’re talking about two nations dealing with each other, certain amounts of agreements must be honored, otherwise it might come to armies with guns having at each other. But what’s stopping individuals from doing this, and then just publishing the results, and now oh wait this state actor can benefit from it, and now the enshittification blockade has been broken because now the cat is out of the bag. Hackers used to do shit. When did we stop? </p>
+<p>Also, I’m so sick and tired of enshittification being presented as a uniquely American phenomenon. This is not a uniquely American phenomenon. Cory, if you’re listening, you’re wrong about this part: enshittification is a capitalist phenomenon, and is not a product of American culture. We are simply the unfortunate culture where the capitalists began their strip mining of the human experience. Please stop blaming this shit on us, Cory, and blame the real problem, being out of control greedy capitalists that don’t take answers from We The People anymore.</p>
+<p>Speaking of Cory and his insistence that the solution must be post-American, and the legal implications thereof, <a target="_blank" rel="noopener" href="https://yro.slashdot.org/story/26/01/10/054252/more-us-states-are-preparing-age-verification-laws-for-app-stores?utm_source=rss1.0mainlinkanon&utm_medium=feed">a Slashdot post aggregates a few things talking about US app stores rolling out age verification as a gateway to entry</a>. This is part of what Cory Doctorow is talking about when he says the American internet. Law only applies so far as ownership allows for enforcement: you can’t enforce the rights of a property owner on a house you don’t own. And right now America owns most of the physical infrastructure providing the internet. So the more infrastructure a given legal entity owns (certainly for nation states), the more autonomy they can exercise in the operation of that portion of the internet. Once that physical ownership changes, legal force changes, and the services operating on that internet have to behave differently. So eventually we are going to see nation level divisions of the internet where systems must function differently to comply with the laws in those nations. Folks like Cory will see this as a a win, and to be fair, it is a win in some regards. However, it’s also a wild regression : <a target="_blank" rel="noopener" href="https://phrack.org/issues/7/3">“We exist without skin color, without nationality, without religious bias… and you call us criminals.”</a> There are some of us out here that remember a time when, and still prefer to pretend that, the Internet is its own place. It transcends national boundaries. It is its own place with its own culture and its own rules. Unfortunately, while the infrastructure that built that internet is still around, the idea of that internet is just a ghost now. I really hope it comes back. But I think I know better. Still … <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=HrJSDrHpPUk">it’s fun to dream</a></p>
+<p>Speaking of things we buy but don’t own and cannot control, <a target="_blank" rel="noopener" href="https://www.macrumors.com/2026/01/08/ios-26-shows-unusually-slow-adoption/">Apple is lamenting the slow adoption rate of iOS 26</a>. These people have the nerve to be surprised. We are tired of and exhausted by constantly having to accept updates on devices we don’t actually own, disrupting our user experience with features we didn’t ask for that don’t actually benefit our lives. Stop sending us shit we didn’t ask for and don’t need. Half of the time your update breaks something we like. This is not a problem unique to Apple, it’s a general problem with internet attached devices. The constant stream of updates is exhausting and frustrating. Maybe we just want to use our device as it is, as we bought it, without interference. Piss off.</p>
+<p>Then again, sometimes there are cool ideas and we react unfairly. <a target="_blank" rel="noopener" href="https://slashdot.org/story/26/01/08/145236/lego-says-smart-brick-wont-replace-traditional-play-after-ces-backlash?utm_source=rss1.0mainlinkanon&utm_medium=feed">I personally think LEGO Smart Blocks were a neat idea</a>. Obviously, not everyone shares that idea. NIMLB - Not In My Lego Box!</p>
+<p>But you know what they say - if it ain’t broke, don’t fix it. Craigslist, which <a target="_blank" rel="noopener" href="https://arstechnica.com/culture/2026/01/ungentrified-craigslist-may-be-the-last-real-place-on-the-internet/">Ars Technica recently called “The Last Real Place on the Internet”</a>, has survived almost in spite of itself into the new internet. <a target="_blank" rel="noopener" href="https://tech.slashdot.org/story/26/01/09/1618243/craigslist-at-30-no-algorithms-no-ads-no-problemutm_source=rss1.0mainlinkanon&utm_medium=feed">A Slashdot discussion on the article</a> highlights the dichotomy: it does what it should, hasn’t chased trends, provides the services it intends to, and stays out of politics, while it is literally an advertising site, which is so much of what is wrong about the modern internet. But at the same time, while the interface is the same, and while it is still alive, those of us who remember the early internet will know that Craigslist is a shadow of its former self. Some people will say that’s because you can no longer buy sex there, but I think it’s deeper than that. I don’t know if Craigslist will survive the eventual internet die-off of millenials, and part of me is really sad about that.</p>
+<p>I came across a <a target="_blank" rel="noopener" href="https://dockhand.pro/">new tool for managing Docker deployments on your small lab called Dockhand</a> recently. A <a target="_blank" rel="noopener" href="https://thenewstack.io/free-dockhand-tool-simplifies-docker-container-management/">New Stack article</a> gives an overview of the tool, but I don’t believe it mentions the pricing on the tool, I believe it gave the impression it is a free tool, but it’s been a few days since the article. Dockhand seems neat, the interface reminds me of the docker UI on my Synology DSM NAS, which I honestly find really handy for quickly spinning things up. I’m not clear how well it can manage a fleet of hosts, or if it’s just the one host you can manage. While reading about it, I thought “… why not just use kubernetes?”, because it seems to solve such a similar problem, that is already well solved by Kubernetes. Then I realized, well it’s obvious why not, and I know this because I work with kubernetes every day: the interface for kubernetes is pretty shit! That’s like looking at a user rejoicing over their new DOS system, happily running programs, and saying “why not just write your boot loader in assembly?”. Why would you inflict the pain of that complexity on someone who obviously doesn’t need it? STFU nerd, the normies are having fun (and, apparently, paying for it).</p>
+<p>Speaking of nerds and normies, I kinda get mad when my wife calls me “normal”, because … well … I don’t feel normal. But regardless, when comparing myself to my wife and daughters, I have to accept that I am basically normal. Every once in a while writing software I get reminded of this. When I was working with <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/devinbangsund/">Devin</a> at Nintendo, I was working on a web dashboard for a tool, and was explaining how easy it was to tell which things were passing and failing. “The passed tests are in red, the failed ones are in green.” I forget exactly what he said - Devin has a way of witty deadpan delivery that ensures you get the point, even if you don’t remember the words - but he made the point that he was red&#x2F;green colorblind. I’d been in the industry for probably 10 years at that point, and had never confronted UI design for a colorblind person. It’s definitely not the first time I’d used the red&#x2F;green color combination. So as a “normal” person I do a lot of things that probably either alienate some from my software, and may actually outright harm people sometimes. Generally speaking, we normies don’t do it on purpose, we just don’t know better. But <a target="_blank" rel="noopener" href="https://www.ragman.net/musings/copypasta/">ragman recently put out a really interesting article</a> musing on how difficult it is to make a website accessible for neurodivergent people when you use emojis, gifs, colors, etc. There’s a lot in there about accessible webdev in general. Luckily my website has basically two colors - black and white - and usually only uses still images in the few places it does use images. But it was an eye opening article.</p>
+<h2 id="Nature-and-Nature’s-God"><a href="#Nature-and-Nature’s-God" class="headerlink" title="Nature and Nature’s God"></a>Nature and Nature’s God</h2><p>Pivoting away from code towards the intersection of technology and nature, <a target="_blank" rel="noopener" href="https://www.theregister.com/2026/01/08/camouflage_tech_mimics_octopus/">researchers at Stanford have produced a synthetic camouflage material that acts like octopus skin</a>. It’s often been said that any sufficiently advanced technology is effectively indistinguishable from an equally reliable&#x2F;predictable form of magic. Compare to this material to cloaks of elvenkind. Combine this with thermoptic camouflage that can hide soldiers (or anyone) from thermal imagers and we are well on our way to being in a Predator movie.</p>
+<p>It doesn’t do much to protect you from smell though. The dogs will still find you. Dogs are amazing creatures, and I’m firmly convinced we humans do not deserve them. <a target="_blank" rel="noopener" href="https://science.slashdot.org/story/26/01/08/2249216/some-super-smart-dogs-can-learn-new-words-just-by-eavesdropping?utm_source=rss1.0mainlinkanon&utm_medium=feed">A Slashdot discussion highlights an NPR quote</a> that shows Dogs can learn new words just by overhearing their favorite human saying them, even if the dog is not the target of the verbal action, and they don’t need to hear them a whole lot to understand. At the same time, not every dog can do this apparently, but the researchers imply that this points to some sort of inter-species shared social understanding that predates language and that is shared by many species. First, I think this shows that animals will only continue to impress us by how smart they are, and our assumptions about our special nature as the only “intelligent animal” will eventually be shattered. Second, I think it points to a truth that is already held in scripture: before the fall of mankind through sin, introducing the fallen state into the world, we existed in such harmony with the rest of God’s creation that we actually communicated with each other effectively. The book of Jubilees states this plainly: “And on that day the mouths of all the animals, the cattle, the birds, everything that walks and everything that moves about were made incapable of speaking because all of them used to converse with one another in one language and one tongue”.. But it’s apocryphal, so protestants outright reject it, and it’s not generally used for teaching in the high liturgy churches. But I’m convinced of it, and that’s part of why Christ tells us to preach the gospel to all creation (Mark 16:15), literally every creature - because the Good News of Christ is not just of saving mankind from sin, but of putting the entire order of Creation back right, such that we will once again be back in alignment with the rest of creation. The wolf shall lie down with the lamb. “Was I a good boy?”, he’ll ask us, and we’ll say, “you were the best”.</p>
+<p>Speaking of the wonder and majesty of God’s creation, <a target="_blank" rel="noopener" href="https://phys.org/news/2026-01-nature-good-math.html">a project at Sandia National Lab</a> shows that by using computer architecture more inspired by the architecture of our brain, the computer becomes “shockingly good” at math. The more I learn about science and engineering, the more in awe I am of the master builder who made me. This is a shared sentiment with many experienced scientists - Alan Perlis once famously quipped <a target="_blank" rel="noopener" href="https://www.cs.yale.edu/homes/perlis-alan/quotes.html">“A year spent in artificial intelligence is enough to make one believe in God.”</a>. (And a year of trying to get work done with ChatGPT is enough to make one understand why God is so constantly frustrated with us, and to appreciate His infinite patience with us.)</p>
+<h2 id="Ennui-and-Hope-Read-some-books"><a href="#Ennui-and-Hope-Read-some-books" class="headerlink" title="Ennui and Hope : Read some books"></a>Ennui and Hope : Read some books</h2><p>One of my favorite books in the Bible is Ecclesiastes. In Ecclesiastes, Solomon muses, there is nothing new under the sun. As a technologist, especially one who remembers the early days of the internet and personal computing, we may be left to wonder <a target="_blank" rel="noopener" href="https://ldstephens.net/blog/on-what-more-to-do/">(as LD Stephens does on their blog), what more is there to do?</a>. There seems to be nothing new under the digital sun. Have we reached the end of the frontier that was the personal computing revolution and the opening of the internet? Sometimes I feel that way. Sometimes I will look at my terminal and think “all software has been written, all thoughts have been said, all is meaningless”. Other times I feel the warmth of that old digital sun rising on my face over that endless horizon, and feel like a veil is lifted and chains are falling away, as I rediscovered what was there all the time. It comes and it goes. I think a lot of it has to do with the attention economy, the general ennui of life and getting older. The samurai Yamamoto Tsunetomo once said, in response to the desire to return to the feeling of a prior age, “… and this is due to the world’s passing away”. And it’s probably also a result of our individual and collective ADHD. Do what you love, don’t worry about who has done it before, or how new it is. Do you love it? Do it. Cheer up my brother, live in the sunshine, and give your attention to the things you love.</p>
+<p>Speaking of attention, counteracting ADHD and giving it to what you love, <a target="_blank" rel="noopener" href="https://amanhimself.dev/blog/2025-year-in-books/">Aman Mittal reports that he read 64 books in 2025</a>. 64 books in a year is astonishing to me. I could barely get through that even with audio books. My hat’s off to you. I’m told this used to be normal behavior. What an absolute reading Chad. But … I imagine that, if you read 64 books in a year, you don’t have as much a problem seeing the horizon.</p>
+<center><img alt="Bring me that horizon" src="/images/bringmethathorizon.jpeg"/></center>
+
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2026/01/10/libakerror/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">libakerror </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Rent-Is-Too-Damn-High"><span class="toc-text">The Rent Is Too Damn High</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jobs-and-Corporate"><span class="toc-text">Jobs and Corporate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-AI-Slop-Trough"><span class="toc-text">The AI Slop Trough</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Technology-and-Dev"><span class="toc-text">General Technology and Dev</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nature-and-Nature%E2%80%99s-God"><span class="toc-text">Nature and Nature’s God</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ennui-and-Hope-Read-some-books"><span class="toc-text">Ennui and Hope : Read some books</span></a></li></ol>
+</div>
+
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Rent-Is-Too-Damn-High"><span class="toc-text">The Rent Is Too Damn High</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jobs-and-Corporate"><span class="toc-text">Jobs and Corporate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-AI-Slop-Trough"><span class="toc-text">The AI Slop Trough</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#General-Technology-and-Dev"><span class="toc-text">General Technology and Dev</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nature-and-Nature%E2%80%99s-God"><span class="toc-text">Nature and Nature’s God</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ennui-and-Hope-Read-some-books"><span class="toc-text">Ennui and Hope : Read some books</span></a></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-16</div>
+        <a href="/2026/01/16/News-2026-Week-2/"><div class="recent-posts-item-content">News-2026-Week-2</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-10</div>
+        <a href="/2026/01/10/libakerror/"><div class="recent-posts-item-content">libakerror</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-08</div>
+        <a href="/2026/01/08/News-2026-Week-1/"><div class="recent-posts-item-content">News - 2026 - Week 1</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-06</div>
+        <a href="/2026/01/06/Smart-LEGO/"><div class="recent-posts-item-content">Smart LEGO</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+          
+                - 
+                2026
+          
+        </span>
+        &nbsp;
+        <a 
+          href="mailto:andrew@aklabs.net" 
+          class="footer-link">
+          Andrew Kesterson
+        </a>
+	<br/>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+      <script>
+        var googleAnalytics = function () {
+          window.dataLayer = window.dataLayer || []
+          function gtag() {
+            dataLayer.push(arguments)
+          }
+          gtag('js', new Date())
+          gtag('config', 'G-S3YLF516N6')
+        }
+    </script>
+      <script>
+        loadScript(
+          'https://www.googletagmanager.com/gtag/js?id=' +
+            'G-S3YLF516N6',
+          googleAnalytics
+        )
+      </script>
+    
+    
+  </body>
+</html>
