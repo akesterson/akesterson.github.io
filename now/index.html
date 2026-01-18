@@ -574,17 +574,17 @@
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2026-01-16T16:02:40.108Z">
+    <time datetime="2026-01-18T17:50:19.329Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2026-01-16</span>
+      <span>2026-01-18</span>
     </time>
     
     
       <span class="dot"></span>
-      <span>264 words</span>
+      <span>648 words</span>
     
   </div>
   
@@ -596,24 +596,28 @@
 <p>These days I’m mostly focused on my day job, which means I won’t publish a lot of personal code, but the good news is that most of my work is open source on Repo1, and you can <a target="_blank" rel="noopener" href="https://repo1.dso.mil/akesterson/dotfiles/-/blob/main/.plan.md">follow me there</a>.</p>
 <h2 id="Recent-Progress"><a href="#Recent-Progress" class="headerlink" title="Recent Progress"></a>Recent Progress</h2><ul>
 <li><p><input checked="" disabled="" type="checkbox"> 
-Patched libsdlerror (which is now renamed to <a target="_blank" rel="noopener" href="https://github.com/akesterson/libakerror">libakerror</a>) to remove the dependency on SDL, support user defined logging backends, make the usage of stdlib optional (to better support embedding), and improve the README. <a target="_blank" rel="noopener" href="https://github.com/akesterson/libakerror/commit/cf0f2bbeacb1a3124702f13474c268a5a9dff4f8">See the diff here</a></p>
+Accepted or closed several merges&#x2F;bugs on <a target="_blank" rel="noopener" href="https://github.com/akesterson/cmdarg">cmdarg</a>, my pure bash argument parsing library. Took the time to construct a CI pipeline that runs tests. I was a bit gunshy about accepting changes to the library since it had been so long since I wrote it, then I remembered I had written 30 checks with <a target="_blank" rel="noopener" href="https://github.com/akesterson/shunit">shunit</a> (another one of my old bash tools), so all I had to do was rig it up with the github pipeline. Took the chance to fix a bunch of little things about how cmdarg, shunit, and <a target="_blank" rel="noopener" href="https://github.com/akesterson/versioners">versioners</a> (yet another bash tool I wrote a while back) run their <code>make install</code> target.</p>
 </li>
 <li><p><input checked="" disabled="" type="checkbox"> 
-Started a fork of <a target="_blank" rel="noopener" href="https://github.com/akesterson/py-synologydsm-api">py-synologydsm-api</a> to implement the various <code>SYNO.Cal.*</code> APIs necessary to fetch Calendar and Event objects. (See the WIP here](<a target="_blank" rel="noopener" href="https://github.com/akesterson/py-synologydsm-api/pull/1">https://github.com/akesterson/py-synologydsm-api/pull/1</a>)) Very primitive enumeration is working. Needs some more work before it’s useful for my purposes, lots more work before it’s suitable for contribution back upstream.</p>
-</li>
-<li><p><input checked="" disabled="" type="checkbox"> 
-Wrote an article about <a target="_blank" rel="noopener" href="https://github.com/akesterson/libakerror">libakerror</a> explaining why this kind of error handling is useful in C</p>
+Started the 2026 fire academy down here in Marion county Georgia. We have a little under a dozen recruits that are going through the academy. Lots more cadre are stepping up from across the county to help this year, as well, in addition to the students who graduated last year. Each one, teach one.</p>
 </li>
 </ul>
 <h2 id="Specific-Plans"><a href="#Specific-Plans" class="headerlink" title="Specific Plans"></a>Specific Plans</h2><!-- personal .plan here -->
 <ul>
-<li>Implement <a target="_blank" rel="noopener" href="https://github.com/akesterson/py-synologydsm-api">py-synologydsm-api</a> SYNO.Cal event filtering by calendar ID and filtering by date (only show me events in the future)</li>
-<li>Publish my RFC on Decentralized Claim-Based Professional Credentials and Trust Attestations, aka, “how we can use the crypto web of trust to solve the AI slop hiring problem in our job market”</li>
+<li>Program a bunch of Baofeng BF-888S radios for the fire academy. Recruits need radios for training, and our regular Kenwoods are way too expensive to give them out to recruits (and with the BF-888s we won’t risk accidental training mayday transmissions on the actual fire repeater….)</li>
+<li>Implement <a target="_blank" rel="noopener" href="https://github.com/akesterson/py-synologydsm-api">py-synologydsm-api</a> SYNO.Cal event filtering by calendar ID and filtering by date (only show me events in the future). I’ll be honest, every day that passes, I’m less inclined to complete this. The reason I wanted to do this in the first place was to avoid having to learn <code>org-mode</code> (as an emacs user, I know, this is sacrilege), but I just don’t think I love Synology enough to force myself to work in this ecosystem. There’s probably a blog post coming about this.</li>
+<li>Plan and implement a distributed storage network for myself and my relatives. One of us recently suffered a catastrophic data failure on their NAS and there were no backups. This was a serious wake-up call that RAID in one location is not enough, so we’re taking steps towards geographically distributed replicated backups.</li>
+<li>Publish my RFC on Decentralized Claim-Based Professional Credentials and Trust Attestations, aka, “how we can use the crypto web of trust to solve the AI slop hiring problem in our job market”. I’ve been sleeping on this to see if I still like the idea, and some parts of it have not grown on me, but I think the idea is worth talking about.</li>
+<li>Resolve a couple of bugs in the Steam DevKit Client, now that we’ve gotten guidance on how to contribute changes back. I’m at least going to solve the problem where the client doesn’t even run on recent X ubuntu installations. (Wayland can suck it.)</li>
 <li>Do some things with the kubernetes homelab, letsencrypt, synology, and …. things</li>
 </ul>
 <h1 id="Musings"><a href="#Musings" class="headerlink" title="Musings"></a>Musings</h1><!-- musings here -->
 <blockquote>
-<p>Isn’t it nice that people who prefer Los Angeles to San Francisco live there?<br>– Herb Caen</p>
+<p>Q:      How many elephants can you fit in a VW Bug?<br>A:      Four.  Two in the front, two in the back.</p>
+<p>Q:      How can you tell if an elephant is in your refrigerator?<br>A:      There’s a footprint in the mayo.</p>
+<p>Q:      How can you tell if two elephants are in your refrigerator?<br>A:      There’s two footprints in the mayo.</p>
+<p>Q:      How can you tell if three elephants are in your refrigerator?<br>A:      The door won’t shut.</p>
+<p>Q:      How can you tell if four elephants are in your refrigerator?<br>A:      There’s a VW Bug in your driveway.</p>
 </blockquote>
 
   </div>
@@ -655,8 +659,8 @@ Wrote an article about <a target="_blank" rel="noopener" href="https://github.co
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2026-01-16</div>
-        <a href="/2026/01/16/News-2026-Week-2/"><div class="recent-posts-item-content">News-2026-Week-2</div></a>
+        <div class="recent-posts-item-title">2026-01-18</div>
+        <a href="/2026/01/18/News-2026-Week-2/"><div class="recent-posts-item-content">News-2026-Week-2</div></a>
       </div>
     
       <div class="recent-posts-item">
