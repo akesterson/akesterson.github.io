@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="AKLabs">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>This Old Tool : cmdarg</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="This Old Tool : cmdarg">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://aklabs.net/2026/01/19/This-Old-Tool-cmdarg/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/images/akesterson.webp">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2026-01-19">
+      <meta 
+        property="og:article:modified_time" 
+        content="2026-01-19">
+      <meta 
+        property="og:article:author" 
+        content="Andrew Kesterson">
+      
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-defauult.min.css', '[data-prism]', 'prism-defauult');
+              } else {
+                loadCSS('/js/lib/prism/prism-defauult.min.css', 'prism', 'prism-defauult');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+      
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="AKLabs" type="application/atom+xml">
+</head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">AKLabs</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/now" 
+        class="navbar-menu-item">
+        
+          ~/.plan
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/consulting" 
+        class="navbar-menu-item">
+        
+          Consulting
+        
+      </a>
+    
+      <a 
+        href="/contact" 
+        class="navbar-menu-item">
+        
+          Contact
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/images/akesterson.webp" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">Andrew Kesterson</p>
+<p class="author-description"><center><i>"Love God. Live Righteously. Die Well."</i> <br/> <br/> <a target="_blank" rel="noopener" href="https://github.com/akesterson">GitHub</a> || <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/andrewkesterson/">LinkedIn</a> <br/> </center></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>23</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>9</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>0</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cmdarg-Parsing-arguments-on-bash-scripts"><span class="toc-text">cmdarg: Parsing arguments on bash scripts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Declarative-Syntax-for-Clear-Interfaces"><span class="toc-text">Declarative Syntax for Clear Interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clear-interface-for-development"><span class="toc-text">Clear interface for development</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Positional-arguments"><span class="toc-text">Positional arguments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stop-processing-with-%E2%80%93"><span class="toc-text">Stop processing with –</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There%E2%80%99s-more-Go-read-the-README"><span class="toc-text">There’s more. Go read the README</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-I-still-use-this-almost-two-decades-later"><span class="toc-text">Why I still use this almost two decades later</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-frustrates-me-about-this-tool"><span class="toc-text">What frustrates me about this tool</span></a></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/Books/">
+        <div class="categories-list-item">
+          Books
+          <span class="categories-list-item-badge">14</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Faith/">
+        <div class="categories-list-item">
+          Faith
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Outdoors/">
+        <div class="categories-list-item">
+          Outdoors
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Philosophy/">
+        <div class="categories-list-item">
+          Philosophy
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Leadership/">
+        <div class="categories-list-item">
+          Leadership
+          <span class="categories-list-item-badge">8</span>
+        </div>
+      </a>
+    
+      <a href="/categories/History/">
+        <div class="categories-list-item">
+          History
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Liberal-Education/">
+        <div class="categories-list-item">
+          Liberal-Education
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Technology/">
+        <div class="categories-list-item">
+          Technology
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Current-Events/">
+        <div class="categories-list-item">
+          Current-Events
+          <span class="categories-list-item-badge">2</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      This Old Tool : cmdarg
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2026-01-19T19:37:26.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2026-01-19</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/Technology/" 
+          class="post-meta-link">
+          Technology
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>2.9k words</span>
+    
+  </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <center><img alt="A craftsman's toolbox full of old tools (shutterstock)" src="/images/toolbox-shutterstock.jpg"/></center>
+
+<p>A craftsman tends to collect up a few tools over the course of their career that travel with them from job to job, because they need them on every job, and you really prefer having your tools, the ones that you’ve chosen for your reasons because they work well for you. Your hammer, your circular saw, your calculator, your IDE configuration. I recently had to do some maintenance on some of the oldest tools in my toolbox, so I thought now would be a good time to talk about those tools, and the classes of problems they solve. Because, despite how advanced our modern programming tools have become, I find myself having to solve some of hte same basic problems basically everywhere I go; and I have yet to find a solution that works better than the tools I wrote long ago. So, in a series of articles, I’ll be presenting some of the oldest, most well-worn, hand-made tools in my toolbox.</p>
+<p>These are not the only tools available to solve these problems. I am not even necessarily saying they are the best (though I can make some strong arguments in at least one case). These are just the ones that I have written early in my career, and found useful enough to maintain, because I have had to use them in every single technology job I’ve ever worked since I first wrote them. Maybe someone else will find them useful, or will benefit from exploring my thought process or philosophy of usage.</p>
+<h2 id="cmdarg-Parsing-arguments-on-bash-scripts"><a href="#cmdarg-Parsing-arguments-on-bash-scripts" class="headerlink" title="cmdarg: Parsing arguments on bash scripts"></a>cmdarg: Parsing arguments on bash scripts</h2><p>If you spend more than a few weeks administering any kind of Linux&#x2F;UNIX system, whether a server or a desktop, you will find yourself writing <a target="_blank" rel="noopener" href="https://www.gnu.org/software/bash/">bash</a> scripts to extend and automate the administration or usage of that system. At first your scripts will be simple - a script that wraps a few commands with some hardcoded values in it. Then you’ll wind up having to share the script with someone else, or extend the script for some new use case. This will require that you variablize some of the code that used to have hardcoded values in them. Project IDs, hostnames, secrets, input values, whatever. Your script now has some kind of information that you need to take in from the user in order to do your job.</p>
+<p>In bash, you have four ways (or, at least, four large stylistic buckets) for how to handle this:</p>
+<ul>
+<li>Move all of your variables to the top of your script, and tell the user to change them before running it</li>
+<li>Read environment variables for user configurable input</li>
+<li>Use the bash builtin <code>getopts</code> to parse arguments on the command line</li>
+<li>Use the program <code>getopt</code> to parse arguments on the command line</li>
+</ul>
+<p>There are benefits and drawbacks to each approach.</p>
+<ul>
+<li>Variables at the top of the script is bulletproof from the script writer’s perspective, but very inconvenient from a user’s perspective</li>
+<li>Environment variables are nearly as bulletproof from the script writer’s perspective, and not all that inconvenient from the user’s perspective. However there is no kind of help message available at the command line, so to review the interface, you have to open the script. You’re also limited in the kind of values that can be easily transmitted this way - strings and integers are pretty much it.</li>
+<li><code>getopts</code> is simple and guaranteed to be present in pretty much every bash, however it’s as limited as environment variables, it requires you to write a good bit of parsing code, and it has some surprising behavior regarding parsing order, option bundling, and error reporting. But it does allow you to have a <code>--help</code>, assuming you are willing to go to the trouble of coding it (and accounting for the fact that <code>getopts</code> only handles <code>-h</code> not <code>--help</code>)</li>
+<li><code>getopt</code> is about as simple as <code>getopts</code> and it gives you <code>--long-options</code>, but it’s implemented differently literally everywhere - busybox, GNU&#x2F;Linux, MacOS, BSD, they all have their own <code>getopt</code> that behaves slightly differently. Your code may work great in one system and fail in mysterious ways on another system.</li>
+</ul>
+<p>Further, regardless of which option you choose, there tends to be a certain class of problems that crop up:</p>
+<ul>
+<li>The code that generates your <code>--help</code> message is often located <em>just far enough away</em> from your option parsing code that your <code>--help</code> message can quickly and easily fall out of sync with your actual arguments unless you are very disciplined</li>
+<li>When you want to validate input arguments, you have to define some early-exit behavior in your code, and then you have to decide whether to continue parsing and collect more errors, or bail immediately, and do you print the help or not, and how do you link all that code together</li>
+<li>When you’re writing your parser, you often wind up with such a large <code>case</code> statement that it becomes difficult to keep the context of the parser in your head when you’re adding a new flag. It’s surprisingly common to wind up duplicating flags or adding a new flag for something that could be extended or refined.</li>
+<li>You might need to accept an argument that defines a <code>key=value</code> pair, now you have to parse that pair, break it apart, and store them separately (depending on your use case)</li>
+<li>You might need to accept multiple values for a given argument and build a list. How do you do this? Do you accept a string with space separated items? Do you accept the same argument over and over? How do you store this in your script’s internal state?</li>
+</ul>
+<p>I feel the same way about bash that I do about C: it’s basically the perfect language for gluing tasks together on a unix system. But this particular task in bash has always managed to really piss me off, because frankly, we can do so much better than what we are doing right now. This is one of the big reasons why people will abandon bash for the kinds of glue tasks it’s so good at, and move to something like <code>golang</code>, because there’s not a great interface between the user and the script for configuring options at runtime. Parsing arguments can be downright unfriendly to the user, in fact, let alone to the developer. It doesn’t have to be this way! There’s no reason why Java and Python and Ruby and Golang and <em>literally every other language out there</em> can have high quality argument parsing libraries but Bash can’t have them.</p>
+<p>So I wrote <a target="_blank" rel="noopener" href="https://github.com/akesterson/cmdarg">cmdarg</a>: A pure bash argument parsing library. This library solves all of the above problems you will suffer through in all of the above scenarios. Any time I need to add arguments to a bash script, I reach for this library, and I am always pleased with the result.</p>
+<h2 id="Declarative-Syntax-for-Clear-Interfaces"><a href="#Declarative-Syntax-for-Clear-Interfaces" class="headerlink" title="Declarative Syntax for Clear Interfaces"></a>Declarative Syntax for Clear Interfaces</h2><p><a target="_blank" rel="noopener" href="https://github.com/akesteron/cmdarg">Cmdarg</a> wants to help you build a clear interface to your script without asking you to write any of the parsing code. You want to write your script - you don’t want to write argument parsing code. So cmdarg allows you to <a target="_blank" rel="noopener" href="https://github.com/akesterson/cmdarg?tab=readme-ov-file#cmdarg-1">declare the interface</a>, <a target="_blank" rel="noopener" href="https://github.com/akesterson/cmdarg?tab=readme-ov-file#cmdarg_parse">parse the arguments</a>, and <a target="_blank" rel="noopener" href="https://github.com/akesterson/cmdarg?tab=readme-ov-file#tldr">get on with using the values in your script</a>. Cmdarg assumes your script will take 0 or more command line arguments, and each one of these arguments will have:</p>
+<ul>
+<li>A name</li>
+<li>A type, including whether or not the argument is required or optional</li>
+<li>A description of what this argument does</li>
+<li>An optional default value for the argument</li>
+<li>An optional validation function to validate whatever the user gives the library</li>
+</ul>
+<p>Additionally, cmdarg asks you to provide it with some metadata about your script:</p>
+<ul>
+<li>The name of the script author</li>
+<li>The copyright notice for the script</li>
+<li>A short description of the script suitable for inclusion in the help message</li>
+</ul>
+<p>Your interface into cmdarg is simple and compact, and avoids sprawling information about your interface all over. The code winds up looking like this:</p>
+<pre class="line-numbers language-none"><code class="language-none">#!&#x2F;bin&#x2F;bash
+source &#x2F;usr&#x2F;lib&#x2F;cmdarg.sh
+declare -a myarray
+declare -A mymap
+
+cmdarg_info &quot;header&quot; &quot;Some script that needed argument parsing&quot;
+cmdarg_info &quot;author&quot; &quot;Some Poor Bastard &lt;somepoorbastard@hell.com&gt;&quot;
+cmdarg_info &quot;copyright&quot; &quot;(C) 2013&quot;
+cmdarg &#39;R:&#39; &#39;required-thing&#39; &#39;Some thing I REALLY require&#39;
+cmdarg &#39;r:&#39; &#39;required-thing-with-default&#39; &#39;Some thing I require&#39; &#39;Some default&#39;
+cmdarg &#39;o?&#39; &#39;optional-thing&#39; &#39;Some optional thing&#39;
+cmdarg &#39;b&#39; &#39;boolean-thing&#39; &#39;Some boolean thing&#39;
+cmdarg &#39;a?[]&#39; &#39;myarray&#39; &#39;Some array of stuff&#39;
+cmdarg &#39;m?&#123;&#125;&#39; &#39;mymap&#39; &#39;Some map of keys and values&#39;
+cmdarg_parse &quot;$@&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>… and your user gets a clear usage message describing the interface, and you didn’t have to write a single line of extra code to do it:</p>
+<pre class="line-numbers language-none"><code class="language-none">test.sh (C) 2013 : Some Poor Bastard &lt;somepoorbastard@hell.com&gt;
+
+Some script that needed argument parsing
+
+Required Arguments:
+    -R,--required-thing v : String. Some thing I REALLY require
+
+Optional Arguments:
+    -r,--required-thing-with-default v : String. Some thing I require (Default &quot;Some default&quot;)
+    -o,--optional-thing v : String. Some optional thing
+    -b,--boolean-thing : Boolean. Some boolean thing
+    -a,--myarray v[, ...] : Array. Some array of stuff. Pass this argument multiple times for multiple values.
+    -m,--mymap k&#x3D;v&#123;, ..&#125; : Hash. Some map of keys and values. Pass this argument multiple times for multiple key&#x2F;value pairs.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Clear-interface-for-development"><a href="#Clear-interface-for-development" class="headerlink" title="Clear interface for development"></a>Clear interface for development</h2><p>As a developer, using the parsed flags is equally simple. All simple options (strings and integers) get parsed into a toplevel map called <code>cmdarg_cfg</code>:</p>
+<pre class="line-numbers language-none"><code class="language-none">echo &quot;$&#123;cmdarg_cfg[required-thing]&#125;&quot;
+# ...
+
+$ script.sh -R &quot;A moose once bit my sister&quot;
+A moose once bit my sister<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>Array and map values are populated fully without any additional effort from you, presuming you have previously declared those arrays and maps, as per the documentation:</p>
+<pre class="line-numbers language-none"><code class="language-none">echo &quot;array items: $&#123;myarray[@]&#125;&quot;
+echo &quot;key items: $&#123;!mymap[@]&#125;&quot;
+echo &quot;key values: $&#123;mymap[@]&#125;&quot;
+# ...
+
+$ script.sh -m key1&#x3D;value1 -m key2&#x3D;value2 -a thing1 -a thing2
+array items: thing1 thing2
+key items: key2 key1
+key values: value2 value1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>As a script author, sometimes you want to say “Dump the entire configuration set passed to me by the user, as parsed by the parser, so I can see if something got FUBAR’ed in the parser”. There’s a function for that:</p>
+<pre class="line-numbers language-none"><code class="language-none">cmdarg_dump
+#....
+
+$ script.sh -R &quot;A moose once bit my sister&quot; -m key1&#x3D;value1 -m key2&#x3D;value2 -a thing1 -a thing2
+boolean-thing:4 &#x3D;&gt;
+myarray:1 &#x3D;&gt;
+        1 &#x3D;&gt; thing1
+        2 &#x3D;&gt; thing2
+required-thing-with-default:3 &#x3D;&gt; Some default
+optional-thing:3 &#x3D;&gt;
+mymap:2 &#x3D;&gt;
+        key2 &#x3D;&gt; value2
+        key1 &#x3D;&gt; value1
+required-thing:3 &#x3D;&gt; A moose once bit my sister<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Positional-arguments"><a href="#Positional-arguments" class="headerlink" title="Positional arguments"></a>Positional arguments</h2><p>cmdarg automatically adds any string on the command line that isn’t positioned as the value of another argument, and doesn’t begin with <code>-</code>, as a positional argument. Consider our example above:</p>
+<pre class="line-numbers language-none"><code class="language-none">echo $&#123;!cmdarg_argv[@]&#125;
+echo $&#123;cmdarg_argv[@]&#125;
+# ...
+
+
+$ script.sh -R &quot;A moose once bit my sister&quot; -m key1&#x3D;value1 positional_arg_1 -m key2&#x3D;value2 -a thing1 positional_arg_2 -a thing2
+0 1
+positional_arg_1 positional_arg_2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>… and cmdarg_dump shows them as well:</p>
+<pre class="line-numbers language-none"><code class="language-none">cmdarg_dump
+# ...
+$ script.sh -R &quot;A moose once bit my sister&quot; -m key1&#x3D;value1 positional_arg_1 -m key2&#x3D;value2 -a thing1 positional_arg_2 -a thing2
+boolean-thing:4 &#x3D;&gt;
+myarray:1 &#x3D;&gt;
+        1 &#x3D;&gt; thing1
+        2 &#x3D;&gt; thing2
+required-thing-with-default:3 &#x3D;&gt; Some default
+optional-thing:3 &#x3D;&gt;
+mymap:2 &#x3D;&gt;
+        key2 &#x3D;&gt; value2
+        key1 &#x3D;&gt; value1
+required-thing:3 &#x3D;&gt; A moose once bit my sister
+argv &#x3D;&gt;
+        0 &#x3D;&gt; positional_arg_1
+        1 &#x3D;&gt; positional_arg_2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Stop-processing-with-–"><a href="#Stop-processing-with-–" class="headerlink" title="Stop processing with –"></a>Stop processing with –</h2><p>Sometimes you need to provide an argument value that begins with <code>-</code>. The library must not interpret this as an argument, but as a value. The respected way of doing this is with <code>--</code> on the command line. cmdarg supports this natively:</p>
+<pre class="line-numbers language-none"><code class="language-none">$ script.sh -R &quot;A moose once bit my sister&quot; -m key1&#x3D;value1 positional_arg_1 -m key2&#x3D;value2 -a thing1 positional_arg_2 -a thing2 -- -a -m --some_thing
+boolean-thing:4 &#x3D;&gt;
+myarray:1 &#x3D;&gt;
+        1 &#x3D;&gt; thing1
+        2 &#x3D;&gt; thing2
+required-thing-with-default:3 &#x3D;&gt; Some default
+optional-thing:3 &#x3D;&gt;
+mymap:2 &#x3D;&gt;
+        key2 &#x3D;&gt; value2
+        key1 &#x3D;&gt; value1
+required-thing:3 &#x3D;&gt; A moose once bit my sister
+argv &#x3D;&gt;
+        0 &#x3D;&gt; positional_arg_1
+        1 &#x3D;&gt; positional_arg_2
+        2 &#x3D;&gt; -a
+        3 &#x3D;&gt; -m
+        4 &#x3D;&gt; --some_thing<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="There’s-more-Go-read-the-README"><a href="#There’s-more-Go-read-the-README" class="headerlink" title="There’s more. Go read the README"></a>There’s more. Go read the README</h2><p>I’m not going to repeat the entirety of the README here, so <a href="">go find out for yourself</a> about:</p>
+<ul>
+<li>Using <a target="_blank" rel="noopener" href="https://github.com/akesterson/cmdarg?tab=readme-ov-file#validators">validator functions</a> to validate user input on the arguments (including key names on map options)</li>
+<li>Using <a target="_blank" rel="noopener" href="https://github.com/akesterson/cmdarg?tab=readme-ov-file#helpers">helper functions</a> to control how arguments are described and how usage (<code>--help</code>) messages are constructed&#x2F;printed</li>
+<li>Using <a target="_blank" rel="noopener" href="https://github.com/akesterson/cmdarg?tab=readme-ov-file#controlling-cmdargs-behavior-on-error">custom error handlers</a> to control what happens when the parser encounters an error in user input</li>
+</ul>
+<h2 id="Why-I-still-use-this-almost-two-decades-later"><a href="#Why-I-still-use-this-almost-two-decades-later" class="headerlink" title="Why I still use this almost two decades later"></a>Why I still use this almost two decades later</h2><p>A lot can change in 15 years. <a target="_blank" rel="noopener" href="https://github.com/akesterson">cmdarg</a> is not the only game in town anymore. So why am I still using something I wrote 15 years ago? Well obviously I know this one, because I wrote it, so that’s an easy win. But also because, in 15 years, I have yet to find another library that meets all these requirements:</p>
+<ul>
+<li>Written purely in bash. Some contemporaries <a target="_blank" rel="noopener" href="https://github.com/nhoffman/argparse-bash">actually call some other language like python behind your back</a>. Others <a target="_blank" rel="noopener" href="https://github.com/matejak/argbash/tree/master">rely on some complicated preprocessor</a> that compiles your script down into a new script.</li>
+<li>Generate help messages that sufficiently document usage for the user, including all flags, optional vs required, array inputs, copyright, etc. Some contemporaries do this, but the formatting is kinda gross. Others simply omit it and still expect you to do it.</li>
+<li>Allows me to validate user input against custom rules. Some contemporaries provide this functionality but they have a <a target="_blank" rel="noopener" href="https://github.com/Anvil/bash-argsparse/blob/master/tutorial/4-types">built-in type system that is positively bonkers</a>, as it is easy to go way too far with this kind of thing. Just let me give you a callback function that tells you if the input is valid or not, and get out of my way. And honestly speaking bash only has three types - strings, arrays, and maps. Pretending otherwise is unhealthy.</li>
+<li>Allows me to control error behavior. Sometimes I want parse errors or <code>--help</code> invocation to terminate the program, sometimes I don’t. You come across all kinds of wacky use cases in scripting. Some contemporaries <a target="_blank" rel="noopener" href="https://github.com/kward/shflags">meet almost all other requirements and are syntax-same to other known libraries</a>, but they don’t allow for enough control over the parser’s behavior.</li>
+<li>Has a simple and clear interface. Quite frankly I think that a lot of other contemporaries simply have ugly interfaces. This is a purely personal aesthetic choice, and if we don’t share aesthetics, that’s fine. But I feel that cmdarg is downright elegant in not only what it does, but how it does it. Some tools have <a target="_blank" rel="noopener" href="https://github.com/svenfuchs/bash_opts/blob/master/examples/readme-1.sh#L5">a delightful interface</a> - I think the <code>bash_opts</code> single line spec to its <code>opts</code> function is really cool - but it doesn’t have enough other features.</li>
+</ul>
+<h2 id="What-frustrates-me-about-this-tool"><a href="#What-frustrates-me-about-this-tool" class="headerlink" title="What frustrates me about this tool"></a>What frustrates me about this tool</h2><p>This tool isn’t perfect and there are some things I continually think I should change. But, like how Plan 9 faded to antiquity while UNIX and Linux dominated the landscape, this tool is “good enough” that I just don’t see the need for some of these things.</p>
+<p>The biggest thing I keep thinking I should add is sub-parsers. This is one thing that parsers in other languages like golang or python have a serious leg-up on us. Let’s say you’re writing a tool like this:</p>
+<pre class="line-numbers language-none"><code class="language-none">$ sometool --help
+
+Usage: sometool [subcommand] &lt;options&gt;
+
+subcommands:
+    file
+	socket
+	exec
+
+$ sometoool file --help
+
+Usage: sometool file &lt;options&gt;
+
+Options:
+    --filename
+	--output
+
+$ sometoool socket --help
+
+Usage: sometool socket &lt;options&gt;
+
+Options:
+    --host
+	--port<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>… cmdarg falls over here. Everything about cmdarg lives in the global namespace of the current script, so subparsers are difficult to implement. However, the reason I haven’t really worried about this TOO much, was summarized in a comment on <a target="_blank" rel="noopener" href="https://github.com/akesterson/cmdarg/issues/15">a recently closed issue that I left open for 12 years</a>:</p>
+<blockquote>
+<p>The right answer to your problem is to remember that you’re writing bash, not python, and you shouldn’t be creating submodules that live in the same space, you should be writing separate scripts. Entrypoint script A calls script B and presents it through the CLI as if it were some kind of submodule. Then script B does its own argument parsing with what script A passes it.</p>
+</blockquote>
+<p>… and I’ll probably wind up implementing a nice little handler for doing that at some point in the near future. Something like</p>
+<pre class="line-numbers language-none"><code class="language-none">cmdarg_submodule &#39;submodule_name&#39; &quot;&#x2F;path&#x2F;to&#x2F;script&#x2F;that&#x2F;gets&#x2F;submodule&#x2F;arguments.sh&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>… and that will probably be good enough to justify improving on this old tool in the toolbox.</p>
+
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2026/01/16/News-2026-Week-2/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">News-2026-Week-2 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cmdarg-Parsing-arguments-on-bash-scripts"><span class="toc-text">cmdarg: Parsing arguments on bash scripts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Declarative-Syntax-for-Clear-Interfaces"><span class="toc-text">Declarative Syntax for Clear Interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clear-interface-for-development"><span class="toc-text">Clear interface for development</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Positional-arguments"><span class="toc-text">Positional arguments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stop-processing-with-%E2%80%93"><span class="toc-text">Stop processing with –</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There%E2%80%99s-more-Go-read-the-README"><span class="toc-text">There’s more. Go read the README</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-I-still-use-this-almost-two-decades-later"><span class="toc-text">Why I still use this almost two decades later</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-frustrates-me-about-this-tool"><span class="toc-text">What frustrates me about this tool</span></a></li></ol>
+</div>
+
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cmdarg-Parsing-arguments-on-bash-scripts"><span class="toc-text">cmdarg: Parsing arguments on bash scripts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Declarative-Syntax-for-Clear-Interfaces"><span class="toc-text">Declarative Syntax for Clear Interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Clear-interface-for-development"><span class="toc-text">Clear interface for development</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Positional-arguments"><span class="toc-text">Positional arguments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stop-processing-with-%E2%80%93"><span class="toc-text">Stop processing with –</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#There%E2%80%99s-more-Go-read-the-README"><span class="toc-text">There’s more. Go read the README</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-I-still-use-this-almost-two-decades-later"><span class="toc-text">Why I still use this almost two decades later</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-frustrates-me-about-this-tool"><span class="toc-text">What frustrates me about this tool</span></a></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-19</div>
+        <a href="/2026/01/19/This-Old-Tool-cmdarg/"><div class="recent-posts-item-content">This Old Tool : cmdarg</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-16</div>
+        <a href="/2026/01/16/News-2026-Week-2/"><div class="recent-posts-item-content">News-2026-Week-2</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-10</div>
+        <a href="/2026/01/10/libakerror/"><div class="recent-posts-item-content">libakerror</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-08</div>
+        <a href="/2026/01/08/News-2026-Week-1/"><div class="recent-posts-item-content">News - 2026 - Week 1</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+          
+                - 
+                2026
+          
+        </span>
+        &nbsp;
+        <a 
+          href="mailto:andrew@aklabs.net" 
+          class="footer-link">
+          Andrew Kesterson
+        </a>
+	<br/>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+      <script>
+        var googleAnalytics = function () {
+          window.dataLayer = window.dataLayer || []
+          function gtag() {
+            dataLayer.push(arguments)
+          }
+          gtag('js', new Date())
+          gtag('config', 'G-S3YLF516N6')
+        }
+    </script>
+      <script>
+        loadScript(
+          'https://www.googletagmanager.com/gtag/js?id=' +
+            'G-S3YLF516N6',
+          googleAnalytics
+        )
+      </script>
+    
+    
+  </body>
+</html>
