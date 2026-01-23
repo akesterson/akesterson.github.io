@@ -6,7 +6,7 @@
   <link href="https://aklabs.net/atom.xml" rel="self"/>
   
   <link href="https://aklabs.net/"/>
-  <updated>2026-01-23T14:59:12.891Z</updated>
+  <updated>2026-01-23T15:24:30.203Z</updated>
   <id>https://aklabs.net/</id>
   
   <author>
@@ -21,18 +21,18 @@
     <link href="https://aklabs.net/2026/01/23/News-2026-Week-3/"/>
     <id>https://aklabs.net/2026/01/23/News-2026-Week-3/</id>
     <published>2026-01-23T12:00:51.000Z</published>
-    <updated>2026-01-23T14:59:12.891Z</updated>
+    <updated>2026-01-23T15:24:30.203Z</updated>
     
     
     <summary type="html">Here&#39;s my thoughts on news across the internet this week. It&#39;s worth what you paid for it.</summary>
     
     
     
+    <category term="Philosophy" scheme="https://aklabs.net/categories/Philosophy/"/>
+    
     <category term="Technology" scheme="https://aklabs.net/categories/Technology/"/>
     
-    <category term="Current Events" scheme="https://aklabs.net/categories/Technology/Current-Events/"/>
-    
-    <category term="Philosophy" scheme="https://aklabs.net/categories/Technology/Current-Events/Philosophy/"/>
+    <category term="Current Events" scheme="https://aklabs.net/categories/Current-Events/"/>
     
     
   </entry>
