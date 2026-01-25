@@ -6,7 +6,7 @@
   <link href="https://aklabs.net/atom.xml" rel="self"/>
   
   <link href="https://aklabs.net/"/>
-  <updated>2026-01-23T15:24:30.203Z</updated>
+  <updated>2026-01-25T15:57:34.000Z</updated>
   <id>https://aklabs.net/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>There are two kinds of programmers</title>
+    <link href="https://aklabs.net/2026/01/25/Two-kinds-of-programmers/"/>
+    <id>https://aklabs.net/2026/01/25/Two-kinds-of-programmers/</id>
+    <published>2026-01-25T13:57:43.000Z</published>
+    <updated>2026-01-25T15:57:34.000Z</updated>
+    
+    
+    <summary type="html">Musings on the rift that the &quot;AI Revolution&quot; is exposing in the field of computer programming, that being a divide between programmers who view it as an artform, and who enjoy the act of programming itself, and those who actually do not enjoy programming, and just want to get around it faster to be more productive.</summary>
+    
+    
+    
+    <category term="Philosophy" scheme="https://aklabs.net/categories/Philosophy/"/>
+    
+    <category term="Technology" scheme="https://aklabs.net/categories/Technology/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>News - 2026 - Week 3</title>
@@ -445,31 +464,6 @@
         
         
     <summary type="html">&lt;img alt=&quot;Image of Christianity: The First 3000 Years&quot; style=&quot;float: left; padding: 20px 20px 20px 20px;&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Books" scheme="https://aklabs.net/categories/Books/"/>
-    
-    <category term="Faith" scheme="https://aklabs.net/categories/Faith/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Live Not By Lies</title>
-    <link href="https://aklabs.net/2022/10/15/Live-Not-By-Lies/"/>
-    <id>https://aklabs.net/2022/10/15/Live-Not-By-Lies/</id>
-    <published>2022-10-16T02:11:25.000Z</published>
-    <updated>2024-03-31T16:10:27.030Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img alt=&quot;Image of Live Not By Lies&quot; style=&quot;float: left; padding: 20px 20px 20px 20px;&quot;</summary>
         
       
     
