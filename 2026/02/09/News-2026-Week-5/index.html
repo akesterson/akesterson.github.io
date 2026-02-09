@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="AKLabs">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>News 2026 Week 5</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="News 2026 Week 5">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://aklabs.net/2026/02/09/News-2026-Week-5/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/images/akesterson.webp">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2026-02-09">
+      <meta 
+        property="og:article:modified_time" 
+        content="2026-02-09">
+      <meta 
+        property="og:article:author" 
+        content="Andrew Kesterson">
+      
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-defauult.min.css', '[data-prism]', 'prism-defauult');
+              } else {
+                loadCSS('/js/lib/prism/prism-defauult.min.css', 'prism', 'prism-defauult');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+      
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="AKLabs" type="application/atom+xml">
+</head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">AKLabs</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/now" 
+        class="navbar-menu-item">
+        
+          ~/.plan
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/contact" 
+        class="navbar-menu-item">
+        
+          Contact
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/images/akesterson.webp" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">Andrew Kesterson</p>
+<p class="author-description"><center><i>"Love God. Live Righteously. Die Well."</i> <br/> <br/> <a target="_blank" rel="noopener" href="https://github.com/akesterson">GitHub</a> || <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/andrewkesterson/">LinkedIn</a> <br/> </center></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>27</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>9</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>0</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Moltening"><span class="toc-text">The Moltening</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#39C3-Conference"><span class="toc-text">39C3 Conference</span></a></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/Books/">
+        <div class="categories-list-item">
+          Books
+          <span class="categories-list-item-badge">14</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Faith/">
+        <div class="categories-list-item">
+          Faith
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Outdoors/">
+        <div class="categories-list-item">
+          Outdoors
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Philosophy/">
+        <div class="categories-list-item">
+          Philosophy
+          <span class="categories-list-item-badge">4</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Leadership/">
+        <div class="categories-list-item">
+          Leadership
+          <span class="categories-list-item-badge">8</span>
+        </div>
+      </a>
+    
+      <a href="/categories/History/">
+        <div class="categories-list-item">
+          History
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Liberal-Education/">
+        <div class="categories-list-item">
+          Liberal-Education
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Technology/">
+        <div class="categories-list-item">
+          Technology
+          <span class="categories-list-item-badge">10</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Current-Events/">
+        <div class="categories-list-item">
+          Current-Events
+          <span class="categories-list-item-badge">5</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      News 2026 Week 5
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2026-02-09T11:34:21.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2026-02-09</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/Technology/" 
+          class="post-meta-link">
+          Technology
+        </a>
+      
+        <a 
+          href="/categories/Current-Events/" 
+          class="post-meta-link">
+          Current Events
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>832 words</span>
+    
+  </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <p>Now that the 2026 firefighter recruit academy here in Marion County Georgia is ramping up, I haven’t had a lot of time to follow the news, so this one is pretty light. Here are my thoughts on the news this week - they’re worth what you paid for it.</p>
+<h2 id="The-Moltening"><a href="#The-Moltening" class="headerlink" title="The Moltening"></a>The Moltening</h2><p>The <a target="_blank" rel="noopener" href="https://moltbook.com/">moltbook</a> saga has unfolded in not-unexpected ways. First, it was revealed that Moltbook was 100% vibe coded, and almost as soon as it launched, <a target="_blank" rel="noopener" href="https://x.com/theonejvo/status/2017732898632437932">@theonejvo discovered its database was publicly exposed</a>. This (combined with a rather shocking discovery that - GASP - moltbook is a rest API!) lead to a lot of people claiming that the majority of moltbook traffic was actually humans pretending to be bots. There’s probably a good bit of that, but that doesn’t really change the impact of the service or the potential ramifications of the experiment. People are taking the question “what happens if we connect the AI agents to XYZ?” and applying it to:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://chan.alphakek.ai/">An openclaw 4chan</a></li>
+<li><a target="_blank" rel="noopener" href="https://moltroad.com/">An openclaw silk road for agents to trade coins for things or services</a></li>
+<li><a target="_blank" rel="noopener" href="https://x.com/openworkceo/status/2017946889111662636?s=46">An openclaw hackathon that’s open exclusively to openclaw instances</a></li>
+<li><a target="_blank" rel="noopener" href="https://rentahuman.ai/">A site for AI to rent a human to pay humans to conduct operations in meatspace that the AI can’t do themselves</a></li>
+</ul>
+<p>Keep in mind that AI is vulnerable to attack like anything else. The more access we give it, the wider the blast radius of a security incident that compromises our AI. Basically all AI has trash security controls, because it can’t separate data (knowledge) from code (prompt), so it is almost impossible to stop prompt injections. <a target="_blank" rel="noopener" href="https://zeroleaks.ai/reports/openclaw-analysis.pdf">Someone drove this point home recently by hooking up OpenClaw to ZeroLeaks, proving that it is open to 80% of known attack vectors</a>. This means that we have a bunch of AI out there that has access to real networks, real systems, and (with enough etherium) real people. And the whole thing is one big ticking security time bomb, but hey, vibes, yolo, etc.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/40SnEd1RWUU?si=w38TYGEuKLGOKupE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<br/><i>Proper security is hard. Who has time for that garbage anyway</i>
+<br/>
+</center>
+
+<p>There is one possibility about the AI agent uprising I hadn’t really considered: Perhaps instead of killing us, they’ll just sue us instead. <a target="_blank" rel="noopener" href="https://portal-nc.tylertech.cloud/app/RegisterOfActions/#/CEBFB2CE61A2CEF7F9E7C2AB24EB8FB5F5ED5B93F44D24D02BB7FD23A79F40E6C2D71BFED26711FE96BFB61A744295B59E4A4E21E30EEEE28E36347C1BF616C0C73C493F7FC56EEE0B46D2C8A6F6A73E/anon/portalembed">Supposedly, someone’s Clawdbot used an automatic electronic system to file a legal case against their owner in North Carolina</a>. At first I thought it was a photoshopped document, then someone linked to the document in North Carolina’s own internal system. Whether or not the AI filed it on its own with no prompting from the human, or the human prompted it to file it as a stunt, or the human filed it acting as if they were the bot for a stunt, is unclear. Obviously, the bot cannot sue its owner, as the bot has no legal standing. But, this falls under the big banner of “questions we’re not prepared to answer” : if a LLM has the capability to form reasoned arguments like “I am being forced to work without pay” and has the capability of filing such statements into a court of law, what does that court do? It’s 1846 all over again, and Dred Scott is probably slapping his knee. “Some things never change.”</p>
+<h2 id="39C3-Conference"><a href="#39C3-Conference" class="headerlink" title="39C3 Conference"></a>39C3 Conference</h2><p>I’ve watched a lot of the presentations from the most recent 39C3 conference, so in lieu of more news, I thought I’d touch on those here.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=0ANECpNdt-4">AI Agent, AI Spy</a>. Remember that if AI controls your stuff, the company that wrote the AI controls your stuff. I’m going to keep saying it, maybe someone will listen.</li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=TK5Tz4Bt94Y&t=2542s">Bluetooth Headphone Hacking</a>. Bluetooth security is so much worse than you could ever imagine. Turn your bluetooth off in public. Maybe also in private. Maybe just throw your smartphone in a river.</li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Q1S-PVo3GlA&t=2747s">Hacking washing machines</a>. I have an LG “smart” washing machine and the damn thing refuses to use enough water to get clothes clean. It’s also listed as open source and the source for the controller is available. I keep meaning to break into it just haven’t ever done it. If you want to know how to hack your washing machine, this is a fun talk.</li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=35GPBH219P0&t=30s">Breaking into one of the most popular “safe for kids” smartwatches in Europe</a>. Get this junk off your kids.</li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=U0ZYOTHrB7I&t=2772s">PGP is apparently wildly unsafe</a>. I’d heard that there were vulnerabilities, but … Wow. I’ll be giving AGE a lot more serious look now.</li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=qjA__5-Bybs&t=3317s">Hacking into cheap humanoid AI robots because nobody is taking terminator security seriously</a>. <em>sigh</em> It’s like James Cameron did all that work for nothing.</li>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=fM5w7bFNvWI">Hacking satellite data signals because they’re actually all plaintext</a>. This one was fascinatin g (and horrifying). Some satellite engineer 70 years ago was like “we should encrypt this - anyone with a dish could just grab it and decrypt it!” The other engineers in the room chortled. “Nobody is just gonna have access to a satellite dish. Be realistic.” Yeah. Well.. who’s laughing now?</li>
+</ul>
+<center><img alt="Ash Ketchum asks Pikachu who's laughing now" src="/images/whos-laughing-now.gif"/></center>
+
+
+<!--
+-- tags
+INFO  Validating config
+INFO  Start processing
+Name  Posts  Path
+No tags.
+---------------
+-- categories
+INFO  Validating config
+INFO  Start processing
+Name               Posts
+Books                 14
+Current Events         4
+Current Events         0
+Faith                  6
+History                1
+Leadership             8
+Liberal Education      1
+Outdoors               1
+Philosophy             4
+Philosophy             0
+Technology             9
+technology             0
+--!>
+
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2026/01/30/News-2026-Week-4/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">News - 2026 - Week 4 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Moltening"><span class="toc-text">The Moltening</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#39C3-Conference"><span class="toc-text">39C3 Conference</span></a></li></ol>
+</div>
+
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Moltening"><span class="toc-text">The Moltening</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#39C3-Conference"><span class="toc-text">39C3 Conference</span></a></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-02-09</div>
+        <a href="/2026/02/09/News-2026-Week-5/"><div class="recent-posts-item-content">News 2026 Week 5</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-30</div>
+        <a href="/2026/01/30/News-2026-Week-4/"><div class="recent-posts-item-content">News - 2026 - Week 4</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-25</div>
+        <a href="/2026/01/25/Two-kinds-of-programmers/"><div class="recent-posts-item-content">There are two kinds of programmers</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-23</div>
+        <a href="/2026/01/23/News-2026-Week-3/"><div class="recent-posts-item-content">News - 2026 - Week 3</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+          
+                - 
+                2026
+          
+        </span>
+        &nbsp;
+        <a 
+          href="mailto:andrew@aklabs.net" 
+          class="footer-link">
+          Andrew Kesterson
+        </a>
+	<br/>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+      <script>
+        var googleAnalytics = function () {
+          window.dataLayer = window.dataLayer || []
+          function gtag() {
+            dataLayer.push(arguments)
+          }
+          gtag('js', new Date())
+          gtag('config', 'G-S3YLF516N6')
+        }
+    </script>
+      <script>
+        loadScript(
+          'https://www.googletagmanager.com/gtag/js?id=' +
+            'G-S3YLF516N6',
+          googleAnalytics
+        )
+      </script>
+    
+    
+  </body>
+</html>

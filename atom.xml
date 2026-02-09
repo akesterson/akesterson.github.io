@@ -6,7 +6,7 @@
   <link href="https://aklabs.net/atom.xml" rel="self"/>
   
   <link href="https://aklabs.net/"/>
-  <updated>2026-01-31T17:20:03.149Z</updated>
+  <updated>2026-02-09T12:09:07.329Z</updated>
   <id>https://aklabs.net/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>News 2026 Week 5</title>
+    <link href="https://aklabs.net/2026/02/09/News-2026-Week-5/"/>
+    <id>https://aklabs.net/2026/02/09/News-2026-Week-5/</id>
+    <published>2026-02-09T11:34:21.000Z</published>
+    <updated>2026-02-09T12:09:07.329Z</updated>
+    
+    
+    <summary type="html">Here are my (limited) thoughts on the news for the 5th week of 2026. It&#39;s worth what you paid for it.</summary>
+    
+    
+    
+    <category term="Technology" scheme="https://aklabs.net/categories/Technology/"/>
+    
+    <category term="Current Events" scheme="https://aklabs.net/categories/Current-Events/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>News - 2026 - Week 4</title>
@@ -443,31 +462,6 @@
     <category term="Books" scheme="https://aklabs.net/categories/Books/"/>
     
     <category term="Outdoors" scheme="https://aklabs.net/categories/Outdoors/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>How Should We Then Live</title>
-    <link href="https://aklabs.net/2023/09/24/How-Should-We-Then-Live/"/>
-    <id>https://aklabs.net/2023/09/24/How-Should-We-Then-Live/</id>
-    <published>2023-09-25T00:58:40.000Z</published>
-    <updated>2024-03-31T16:10:27.030Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;img alt=&quot;Image of How Should We Then Live&quot; style=&quot;float: left; padding: 20px 20px 20px 20px;&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Books" scheme="https://aklabs.net/categories/Books/"/>
-    
-    <category term="Faith" scheme="https://aklabs.net/categories/Faith/"/>
     
     
   </entry>
