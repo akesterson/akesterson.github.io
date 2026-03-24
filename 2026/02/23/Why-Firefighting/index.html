@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="AKLabs">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>Why Firefighting</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="Why Firefighting">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://aklabs.net/2026/02/23/Why-Firefighting/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/images/akesterson.webp">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2026-02-23">
+      <meta 
+        property="og:article:modified_time" 
+        content="2026-03-24">
+      <meta 
+        property="og:article:author" 
+        content="Andrew Kesterson">
+      
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-defauult.min.css', '[data-prism]', 'prism-defauult');
+              } else {
+                loadCSS('/js/lib/prism/prism-defauult.min.css', 'prism', 'prism-defauult');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+      
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="AKLabs" type="application/atom+xml">
+</head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">AKLabs</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/now" 
+        class="navbar-menu-item">
+        
+          ~/.plan
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/contact" 
+        class="navbar-menu-item">
+        
+          Contact
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/images/akesterson.webp" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">Andrew Kesterson</p>
+<p class="author-description"><center><i>"Love God. Live Righteously. Die Well."</i> <br/> <br/> <a target="_blank" rel="noopener" href="https://github.com/akesterson">GitHub</a> || <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/andrewkesterson/">LinkedIn</a> <br/> </center></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>28</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>9</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>0</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-with-Why"><span class="toc-text">Start with Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-my-why"><span class="toc-text">What’s my why?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I%E2%80%99m-a-desk-jockey-in-firefighter-clothes"><span class="toc-text">I’m a desk jockey in firefighter clothes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#This-was-never-in-my-plans"><span class="toc-text">This was never in my plans</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-don%E2%80%99t-want-to-be-like-other-adults-%E2%80%98cause-they%E2%80%99ve-already-died"><span class="toc-text">I don’t want to be like other adults, ‘cause they’ve already died</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#This-comfortable-desk-is-gonna-kill-me"><span class="toc-text">This comfortable desk is gonna kill me</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#It%E2%80%99s-about-the-people-next-to-me"><span class="toc-text">It’s about the people next to me</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-want-to-make-my-community-better"><span class="toc-text">I want to make my community better</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-need-to-shake-hands-with-death-from-time-to-time"><span class="toc-text">I need to shake hands with death from time to time</span></a></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/Books/">
+        <div class="categories-list-item">
+          Books
+          <span class="categories-list-item-badge">14</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Faith/">
+        <div class="categories-list-item">
+          Faith
+          <span class="categories-list-item-badge">6</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Outdoors/">
+        <div class="categories-list-item">
+          Outdoors
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Philosophy/">
+        <div class="categories-list-item">
+          Philosophy
+          <span class="categories-list-item-badge">5</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Leadership/">
+        <div class="categories-list-item">
+          Leadership
+          <span class="categories-list-item-badge">8</span>
+        </div>
+      </a>
+    
+      <a href="/categories/History/">
+        <div class="categories-list-item">
+          History
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Liberal-Education/">
+        <div class="categories-list-item">
+          Liberal-Education
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Technology/">
+        <div class="categories-list-item">
+          Technology
+          <span class="categories-list-item-badge">10</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Current-Events/">
+        <div class="categories-list-item">
+          Current-Events
+          <span class="categories-list-item-badge">5</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      Why Firefighting
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2026-02-24T03:40:28.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2026-02-23</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/Philosophy/" 
+          class="post-meta-link">
+          Philosophy
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>4.7k words</span>
+    
+  </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <h2 id="Start-with-Why"><a href="#Start-with-Why" class="headerlink" title="Start with Why"></a><a href="/2024/01/29/Simon-Sinek-Start-with-Why/">Start with Why</a></h2><p>Four volunteer fire recruits were laying on the ground, soaked in sweat, their turnout jackets on the ground next to their SCBAs, their turnout great stripped away, deseprately trying to get the heat out of their body as they panted up at the starry night sky past the streetlights. I had been running them through basement fire attack drills for hours. They were exhausted. Later, one of the recruits would tell me, “That was the first time I really thought about giving up”. I could see it in their eyes at the time, I knew what they were feeling, because I had been there too. So I told them something very important.</p>
+<p><i>“WHY are you doing this?!”</i>, I shouted at them.</p>
+<p><i>“When your body is beaten, and tired, and you are afraid, and everything in you is screaming at you, ‘WHY are you doing this to us? You don’t have to do this! This isn’t your job! You aren’t even getting paid for this! Why are you putting us through this?!’, what will you say? You had better have an answer. It doesn’t matter what that answer is, but you need to know it, and you need to be able to answer that question. Because if you can’t, you will tell your body and your brain, ‘Youre right - this doesnt make any sense.’ And then you quit. YOU have to know the answer to that question.”</i></p>
+<h2 id="What’s-my-why"><a href="#What’s-my-why" class="headerlink" title="What’s my why?"></a>What’s my why?</h2><p>Riding in the car with my wife recently, we were sharing one of those moments where we ask each other seemingly innocuous but actually really important questions. She asked me, “why firefighting?” And I had to admit that I have a really hard time putting it into words - at least, into simple words. It’s something I understand in my gut, to the point where I can answer my body and brain when they say “I’m tired boss!”, but it’s not something I am able to easily articulate for others.</p>
+<p>So I’m going to try to do that here. I’m probably going to use a lot of words. There may be some concepts that tie up together and don’t get the individual attention they probably deserve. It’s really hard for me to do this because, in a lot of ways, while it was absolutely never my plan, firefighting is where all of my life up until now has been leading me. It’s one of those things you can only see in the rearview - and explaining it is difficult without explaining every single stop along the way.</p>
+<p>But here’s my short but still rambling answer to the question.</p>
+<h2 id="I’m-a-desk-jockey-in-firefighter-clothes"><a href="#I’m-a-desk-jockey-in-firefighter-clothes" class="headerlink" title="I’m a desk jockey in firefighter clothes"></a>I’m a desk jockey in firefighter clothes</h2><p>First, I need to set expectations. Firefighting is not my full time job. I have the luxury of not answering calls for whatever reason I might have (regardless of how my conscience will treat me for the decision). My call volume is pretty low; I go days without answering a call, sometimes an entire week. Paid firefighters run dozens of calls every day, sometimes more. There are people in my local volunteer community who do this job full time, AND work EMS as a second job, AND volunteer at the same time. I can’t hold a candle to these people. Keep this in mind - my professional life, and my average professional day, is a lot more like Office Space than Backdraft.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uiik3zS4y4I?si=ylECy5ykVYh_CfU4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<h2 id="This-was-never-in-my-plans"><a href="#This-was-never-in-my-plans" class="headerlink" title="This was never in my plans"></a>This was never in my plans</h2><p>Lots of firefighters have had a dream of being a firefighter ever since they were a kid. For many of them it’s a proud family tradition. Others were just infatuated with fire trucks. At least one will say “because chicks love the uniform”. I’m not one of those people. The first real memory I have of fire trucks or firemen was when I accidentally lit off 40 acres of hay field with fireworks as a teen. I saw Backdraft as a kid. I don’t recall thinking, at any point in my life, “yeah that’s what I want to do with my life”. I didn’t have any malice or disrespect for the profession that I can remember, I just simply never thought about it being an option.</p>
+<p>My plans as a young man had essentially two possible paths along two possible and very different forks:</p>
+<ol>
+<li>Write video games for a living and grow into one of those fun old graybearded guys who runs an arcade or something</li>
+<li>Join up with some tribe that lives to fight, grip a rifle in my hands, and fight with and for them until something killed me</li>
+</ol>
+<p>Given that those were my possible expectations as a young man, I was also surprised when I lived past 30, made firefighting part of my identity, and firefighters became my tribe. But growing old is a funny thing - nobody knows exactly how we’re going to develop. Nobody really knows who they’re going to be when they get old.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Zxr4V7TnWmk?si=oibKyzZNdcdPFUuB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<h2 id="I-don’t-want-to-be-like-other-adults-‘cause-they’ve-already-died"><a href="#I-don’t-want-to-be-like-other-adults-‘cause-they’ve-already-died" class="headerlink" title="I don’t want to be like other adults, ‘cause they’ve already died"></a>I don’t want to be like other adults, ‘cause they’ve already died</h2><p>This is not one factor, rather it’s a composite of several factors, or maybe a motivation.</p>
+<p>At some point, probably about 10 years ago, I looked around at my peers in my technology career and realized something. I didn’t want to be like most of them. I certainly did not want to be like most of the people I saw in executive or senior leadership roles. Don’t get me wrong, I found plenty of peers whom I admired, several who had traits I emulated, and I found at least a few mentors in those executive and senior leaders. But by and large, when I looked around and above me, I didn’t like (at worst) and felt completely alien from (at best) the people and culture I found there. </p>
+<p>I don’t know a better way to say it than this: there are a whole lot of people walking around out there who have already died, they just don’t know it yet. And if they know it, they don’t know what to do about it, so they are just out there going through the motions of pretending to be alive. It’s like watching ghosts who still have their skin.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/u1ZvPSpLxCg?si=6Gp2FHWm-PqK25iI&amp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<p>Different people have different reasons for reaching this state. Maybe they spent their life on their career, and then one day they woke up to find themselves hollowed out and burnt up for a system that neither cares for nor filled them in return. Some of them lost their purpose in life (or never found it at all), so every day of existence is a tedious chore. Some of them are filled with regret for how they have lived their lives and long for a chance to do it again, or become bitter towards others for it. Some of them have lost their connection to God, and therefore are trying to justify hoping against nihilism. And there are doubtless other reasons too. </p>
+<p>To be fair, there are people in every profession that are walking around like that. Including soldiers, police, paramedics, and firefighters. So a profession or skillset does not cure it on its own. But it’s a part of the recipe for the cure to the walking dead.</p>
+<p>Once I saw it and realized what I was seeing, I realized that I could not live like these people. If that was my option, I’d rather just be dead on the outside and be done with it. And, along the way, I made a discovery that was startling to me: I didn’t want to die yet. Not to be confused with the fear of death, I simply wasn’t interested in that option. So I had to find a way to start digging out of this hole I found myself in.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wLvd_ZbX1w0?si=-WYLaabAOKXXj34D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<h2 id="This-comfortable-desk-is-gonna-kill-me"><a href="#This-comfortable-desk-is-gonna-kill-me" class="headerlink" title="This comfortable desk is gonna kill me"></a>This comfortable desk is gonna kill me</h2><p>Like I said, my career has put and kept me behind a desk. Part of looking around at my peers in my career was also looking at my self, and I didn’t like what I saw. I was in my mid 30s, hedonistic, addicted, out of shape, and my mental state was an absolute wreck. The funny thing about it was, in the specific career I was in, none of that mattered. There were no real consequences for leaving work, hitting the bar, drinking yourself half to death, acting a complete fool, pouring yourself into an uber (if you were smart - and not all of us were), and sleeping it off - as long as you were back at the office in time for the 8:30 standup meeting. In fact many of the offices I worked at encouraged that kind of culture. At some point I realized that the life I was leading behind the desk was gonna kill me, and I wasn’t okay with that.</p>
+<p>I’ve dabbled in gardening my whole life. My family were professional farmers if you go back two generations from me, and some of that is still in me as a gardener. Through that, I’ve discovered that there is great delight in simple things - like moving heavy things or digging holes. I found that there was great peace to be found in getting outside, feeling the sun on my body, and feeling the muscles that God gave me doing some meaningful work. It was a sort of catharsis in motion, a healing work, a silent protest against the physical decay of my profession.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wczkA_cULYk?si=COKOL6EpRYTGhL-j&amp;start=43" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<p>My brother James (God rest him) used to call our brother Robert “Hard Way”. He gave Robert this nickname because Robert intentionally chose to do everything the hard way, for the longest time. Had to dig some postholes? Don’t use the tractor and auger, get a posthole digger. Need to move some stone? Don’t use the truck or tractor, carry or roll them. It took me a while to understand the wisdom of “Hard Way”, but now I finally get it. Embrace the suck. Do the hard thing. Discipline your mind and body to love it.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oYJRwgHEFS0?si=ASziYk-iF9RVarmp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<p>Firefighting is <em>hard</em> work. And I mean <em>hard</em>. It is one of the most physically demanding things I have ever done, and it requires that I keep myself in the best shape I can be in. And the motivation for that is real: it’s not about looking good, or feeling good, it’s about being fit to save my life or someone else’s in an impossibly difficult situation. Firefighters wear anywhere between 50 and 80 pounds of equipment, even more depending on the task at hand. The gear is hot - imagine wearing winter coveralls while working in the hottest environment you can imagine, doing incredibly difficult physical work. Now put a mask on your face that restricts your vision to a small tunnel, and makes it harder for you to breathe. Now go work harder.</p>
+<p>Embrace the suck. Do the hard thing. Discipline the mind, make savage the body. Firefighting makes it impossible for me to make excuses and take the easy way out.</p>
+<h2 id="It’s-about-the-people-next-to-me"><a href="#It’s-about-the-people-next-to-me" class="headerlink" title="It’s about the people next to me"></a>It’s about the people next to me</h2><p>For a man (not just men but especially for men), there is not much better than being surrounded by other men who all have each others’ back. Knowing that you are a member of a strong tribe that is held together not by circumstance, or by birth, or by forcible assignment, but by merit and honor is <a target="_blank" rel="noopener" href="https://www.biblegateway.com/passage/?search=Ecclesiastes%204:12&version=ESV">a cord of three strands</a>.</p>
+<p>I have long sought the presence of this tribe, and have moved through a few of them. There are, thank God, many places for men to find such a tribe. You can find it in negative places - many men find it in gang culture, for example - so some discernment is required to join the right tribe that will ultimately lift you up not only as a <i>high functioning biological male</i> but as a <i><b>good man</b></i>. For a long time I didn’t understand the difference here and wound up in some of the wrong places, or in the right places for the wrong reasons. But I wound up attached to many good examples of such tribes - most notably the Bujinkan dojo, the Order of Christian Knights, and the Georgia State Defense Force. I have found it in all of these places, and most recently in the fire service.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WsyVRpW4xNk?si=NLotYIpqsVCDMzCC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<p>Tribes tend to be local things. Soldiers, for example, are a vocation, and they have a shared recognition and respect for each other - but members of the same unit are a tribe. They train together, they eat together, they work together, they celebrate success and lament failure together. So when I have moved, and I have moved many times in my life, I wound up moving from one tribe to another. </p>
+<p>When I moved back to Georgia, I wound up joining two tribes: the <a target="_blank" rel="noopener" href="https://gsdf.georgia.gov/opfor/">Georgia State Defense Force OPFOR unit</a> and <a target="_blank" rel="noopener" href="https://www.facebook.com/Fortperryvfd">Fort Perry Volunteer Fire Department</a>. (Ironically, I’m still on some of the photos on the OPFOR front page). I found great people and great reasons to be attached to both tribes, but ultimately, a man has only so much time in his life. After about a year, I had to decide which one to drop and which one to keep. OPFOR was quite far away from me, and I had some recent development in my personal maturity that made it less attractive to me. The fire service was literally right up the road from me, and I found it to be a better fit with where I was going in my life and my headspace. So I wound up leaving the OPFOR tribe, and clinging to the Fire tribe.</p>
+<p>In the fire service, we call everyone (males at least) “brother”. I don’t take that word lightly. I have five brothers, I am the youngest of six. When I call someone “brother”, I am saying that their blood is mine, and mine is theirs, and that I will give mine for them in all of the possible senses of that term. And I have found that, in the fire service, as in the military, and in various other occupations where the survival of the one depends on the skill and honor of the other, that’s what other people mean when they say it.</p>
+<blockquote>
+We few, we happy few, we band of brothers;<br/>
+For he to-day that sheds his blood with me<br/>
+Shall be my brother<br/>
+</blockquote>
+
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/St_Crispin%27s_Day_Speech">William Shakespeare, Henry V, St Crispin’s Day Speech</a></p>
+<p>Part of being in a tribe of men like I’m describing here are concepts like earning your spot, gaining and maintaining honor, and carrying your own weight. These ultimately all boil down to espousing high standards, and holding each other accountable to them. It’s about having honor. Put quite simply, <i><b>“Honor” is having the respect of those whose respect is worth having</b></i>.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5EnlA45a9b0?si=lrIT65A6ng27kfS2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<p>In the fire service, if you aren’t meeting the standard, there’s nowhere to hide. There’s no hiding the fact that you can’t drag that unconscious victim, or get on that roof, or haul that hose, or breach that door, or push into that fire. Everyone can see it. The fire service is one of the few places left that have a functioning honor group (along with military, law enforcement, EMS, and a few others) for this reason: you can’t bullshit your way through it, and the tribe will viciously protect its capability and its reputation from your own lackadaisical bullshit.</p>
+<p>For firefighters specifically, we have expectations placed upon us by those outside of our own honor group: the general public. When the public calls 911 because their house is on fire or their loved one is dying, they don’t know if you’re a volunteer. They don’t know how much sleep you have had, how you have been eating, how hydrated you are, or how many workouts you have skipped. They expect a physically fit, mentally alert, well equipped, well educated tactician to step off that truck who will know what to do, and who will immediately set about doing it. If that doesn’t seem fair, stop and consider this. Imagine that your house is on fire, and your loved one is trapped inside. You call 911. Who, exactly, are you expecting to step off that truck? Firefighters welcome that image, and those of us who seek the honor of our peers, and who truly want to serve the public, do our best to live up to it.</p>
+<p>As a man, if you haven’t experienced what it’s like to approach one of these tribes, these honor groups from outside, figure out what their standards are, push yourself to try and meet them, and finally have them slap you on the back and call you brother - it’s impossible to explain how that feels. And once you’re holding it, once you’re a part of that tribe, that legacy, you viciously protect it too. Because the value of what you have earned is precious, and only those who have held it will ever understand that.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BVAo7tAxtVw?si=PBgnFOaQe5dfvTnK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<h2 id="I-want-to-make-my-community-better"><a href="#I-want-to-make-my-community-better" class="headerlink" title="I want to make my community better"></a>I want to make my community better</h2><p>My brother James (God rest him), before he died, used to give me grief about how I would often get involved in situations that (strictly speaking) weren’t my problem. I remember one facebook disagreement about going outside of my apartment (at the time) to investigate the sound of a woman in distress. He said he wouldn’t have done that, because why get involved in someone else’s BS when you will not only not be thanked but may in fact get yourself domed in the process. He would say I was “putting on the red boots and cape” to go be superman. I recall we got pretty upset over that one - especially considering how similar we were in our stances on the necessity of fighting evil and protecting the helpless. Brothers get over these kinds of things, and when he passed, I doubt either of us were thinking about this conversation. But it sticks with me when I think about this “why” question.</p>
+<p>Ultimately, I want to make my community better. Our local community is a vertical slice of our larger society. Our local community inherits things from society, and contributes things back to that society. This relationship works the same way at the individual level: we all receive things from our community, and we give back to that community. Therefore, if we want a better, healthier society, we must first improve ourselves, and then we can give back to others, then the community gets better. If we all do this enough, society as a whole gets better.</p>
+<p>Ultimately we have to start where we are - we are the people we are, we live in the communities we live in, and we have the skills and talents we have right now. The important thing about this is not waiting. Do what you can where you are right now. I promise you, no matter what you can do, someone around you needs it.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sAQfzHBpRsc?si=4AvRsfOkJjeLnlzY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<p>When Hurricane Harvey struck Houston Texas in 2017, I felt compelled to go down and help. There’s a whole lot to that story, but the short version is that I wound up spending the next week driving across the country, living out of my truck with a complete stranger (who became my friend) as we helped distribute food and tear apart flood damaged structures in the suburbs of Houston. After I got back from this event, I wanted to find a way to become directly involved with my local community, with a group that performed direct actions to support individuals in distress. I wound up connecting with Skagit Ground Search and Rescue in Skagit county Washington where I lived.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gz_qLTU9Y0k?si=xJZ_33AmS5qZ29I0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<p>It is impossible for me to say just how important my time with GSAR was. I would absolutely not be the person I am today without the time I spent, the friends I made, and the lessons I learned (about myself and others) in Skagit Ground Search and Rescue. I spent 4 years with them, and worked with them through the COVID era. I met several firefighters in SAR - many members were EMTs and career firefighters who volunteered with SAR in their off time. I got to know them, and more about their profession, through SAR. When I had to move away from Skagit back to Georgia, leaving this tribe (and their mission) behind was one of the most difficult things I’ve ever done. I miss them all terribly.</p>
+<p>When I arrived in Georgia, I immediately wanted to hook up with a search and rescue group. But in central Georgia, along the fall line, the terrain and recreation activities are wildly different than in the Cascade mountains. With rare exception, hikers don’t get injured on trails, hunters don’t get lost in the woods, climbers don’t get stuck, kids don’t wander away from camp and get lost in the wild. There are search and rescue teams down here, but they focus on urban search and rescue, and I wasn’t interested in that. I was pretty upset, thinking that I was not going to be able to find a tribe to serve with down here. </p>
+<p>That’s when I fell into, quite by accident, the Fort Perry Volunteer Fire Department. They where holding a shotgun shoot fundraiser, and I went to meet other shooters in the area. Several people had expressed very negative opinions of the fire department - “they’ll just show up and watch your house burn” - and that didn’t sound like any of the firefighters I knew from SAR. I wound up talking to Chief Lockhart, asking about what fire does, how it’s funded, what kinds of operations they perform, etc. I discovered that the volunteer fire service is (generally, but specifically in Marion county Georgia) woefully underfunded, understaffed, and poorly equipped. It was immediately apparent to me that this service was in desperate need of help, so I volunteered. The rest is history.</p>
+<p>If you want to live in a functional community, you need to have functional civil and emergency services. You need government that functions, businesses that provide jobs goods and services, trash trucks that pick up refuse on a schedule, fresh water that flows from the tap, functional sewage systems, police that can respond in force, ambulances that can transport to hospitals, and fire trucks in good repair that can arrive quickly to suppress fire. And all of these services need to be fully staffed. If any part of this breaks down, everything suffers, especially the people.</p>
+<p>Marion county Georgia is my home. My wife and 3 children live here. My mother in law and her husband live here. Many of my friends live here. If I don’t step up and volunteer, then not only does the community suffer, my family personally suffers, and I suffer individually. Nobody wants their house to burn down, or for their loved one to die because there was nobody around who could perform CPR. That is not the kind of community I want my children to grow up in, let alone inherit. I want to leave them a community full of healthy people who care about each other, with functional emergency services they can rely on.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QageNN-V8rY?si=sLlY1Z4N4BUZnpED" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<p>This is also worth passing on to the next generation. Part of the reason we are in the situation we are in is because the next generation of Americans has less capability and less motivation to volunteer than previous generations. If our community is to have a future, then the next generation needs to be shown that it is worthwhile to volunteer to help them. So I show my children that the need is real, that they can make a difference, and that it’s up to normal everyday people just like them to make that difference.</p>
+<p>If we don’t teach the next generation the values that we hold dear, then we can not be surprised when those values die out. Our community will soon die out after.</p>
+<h2 id="I-need-to-shake-hands-with-death-from-time-to-time"><a href="#I-need-to-shake-hands-with-death-from-time-to-time" class="headerlink" title="I need to shake hands with death from time to time"></a>I need to shake hands with death from time to time</h2><blockquote>
+<p><i>Meditation on inevitable death should be performed daily. Every day when one’s body and mind are at peace, one should meditate upon being ripped apart by arrows, rifles, spears and swords, being carried away by surging waves, being thrown into the midst of a great fire, being struck by lightning, being shaken to death by a great earthquake, falling from thousand-foot cliffs, dying of disease or committing seppuku at the death of one’s master. And every day without fail one should consider himself as dead</p>
+<p>–Yamamoto Tsunetomo, Samurai</i></p>
+</blockquote>
+<p>Rainn Wilson recently did a bang-up job playing a paramedic in the film <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Np4MAXPz_PM">Code 3</a>. The film is worth a watch. The film ends with Wilson looking into the camera and saying “Besides … The only time I feel alive, is when you’re about to die.”</p>
+<p>Mostly I’m a peace loving desk jocky that enjoys a simple life and a good ciesta. I’m not an adrenaline junkie. If I was, my full time life would look a lot different. But at the same time, what’s life without some risk? In the fire service, we say <i>“Risk a little to save a little; Risk a lot to save a lot”</i>. When I was in Search and Rescue, we said <i>“These things we do so that others may live”</i>. You have to be comfortable with at least meeting death across the ramparts, if not face to face, to do these things.</p>
+<p>The level of risk to firefighters has been drastically reduced in recent decades. Advances in equipment, data collection, training improvements, cultural advancements, have all contributed to reduced firefighter fatalities. The most common causes of firefighter mortality are cancer and cardiac arrest. All that being said, we regularly are called upon to enter confined spaces well in excess of five hundred degrees, under total blackout conditions, find the fire, and defeat it before it defeats us. Recruits train in burn buildings that reach 900 degrees farenheit during basement fire attack conditions. We operate chainsaws on rooftops to ventilate smoke while a structure burns beneath us.</p>
+<p>There is no denying that part of the allure of the fire service is the risk of danger. There is a healthy balance to be found here: having enough respect for the danger to avoid giving too much too soon so that you lose it all, versus being so afraid of it that you don’t give anything and so you gain nothing. Some people are too addicted to it and endanger themselves and others. Part of the function of the tribe is to keep an eye on each other and catch each other before they go over that edge. The other function of the tribe is to encourage the right kind of risk taking, the right level of disregard for your own safety, the right way of judging when to retreat and when to charge ahead.</p>
+<p>What these kinds of people, and tribes of these people, understand is this: everyone dies. The question is how you are going to meet that end. Will you leave behind unfinished business? Will you go decisively, sure of the righteousness of your course of action? Will you be blessed to go quietly in your sleep? Will you be presented with a life or death situation, where you have the opportunity to make a righteous choice, and shy from the challenge because you are not familiar with death? When you regularly shake hands with death, you don’t fear him so much, and life becomes all that much sweeter.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lIPBSk4Di9c?si=RG1ATkgTxmoNnEf9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</center>
+
+<center><b><i>Love God. Live Righteously. Die Well.</i></b></center>
+
+<!--
+-- tags
+INFO  Validating config
+INFO  Start processing
+Name  Posts  Path
+No tags.
+---------------
+-- categories
+INFO  Validating config
+INFO  Start processing
+Name               Posts
+Books                 14
+Current Events         5
+Current Events         0
+Faith                  6
+History                1
+Leadership             8
+Liberal Education      1
+Outdoors               1
+Philosophy             4
+Philosophy             0
+Technology            10
+technology             0
+--!>
+
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2026/02/09/News-2026-Week-5/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">News 2026 Week 5 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-with-Why"><span class="toc-text">Start with Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-my-why"><span class="toc-text">What’s my why?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I%E2%80%99m-a-desk-jockey-in-firefighter-clothes"><span class="toc-text">I’m a desk jockey in firefighter clothes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#This-was-never-in-my-plans"><span class="toc-text">This was never in my plans</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-don%E2%80%99t-want-to-be-like-other-adults-%E2%80%98cause-they%E2%80%99ve-already-died"><span class="toc-text">I don’t want to be like other adults, ‘cause they’ve already died</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#This-comfortable-desk-is-gonna-kill-me"><span class="toc-text">This comfortable desk is gonna kill me</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#It%E2%80%99s-about-the-people-next-to-me"><span class="toc-text">It’s about the people next to me</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-want-to-make-my-community-better"><span class="toc-text">I want to make my community better</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-need-to-shake-hands-with-death-from-time-to-time"><span class="toc-text">I need to shake hands with death from time to time</span></a></li></ol>
+</div>
+
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-with-Why"><span class="toc-text">Start with Why</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-my-why"><span class="toc-text">What’s my why?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I%E2%80%99m-a-desk-jockey-in-firefighter-clothes"><span class="toc-text">I’m a desk jockey in firefighter clothes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#This-was-never-in-my-plans"><span class="toc-text">This was never in my plans</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-don%E2%80%99t-want-to-be-like-other-adults-%E2%80%98cause-they%E2%80%99ve-already-died"><span class="toc-text">I don’t want to be like other adults, ‘cause they’ve already died</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#This-comfortable-desk-is-gonna-kill-me"><span class="toc-text">This comfortable desk is gonna kill me</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#It%E2%80%99s-about-the-people-next-to-me"><span class="toc-text">It’s about the people next to me</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-want-to-make-my-community-better"><span class="toc-text">I want to make my community better</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-need-to-shake-hands-with-death-from-time-to-time"><span class="toc-text">I need to shake hands with death from time to time</span></a></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-02-23</div>
+        <a href="/2026/02/23/Why-Firefighting/"><div class="recent-posts-item-content">Why Firefighting</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-02-09</div>
+        <a href="/2026/02/09/News-2026-Week-5/"><div class="recent-posts-item-content">News 2026 Week 5</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-30</div>
+        <a href="/2026/01/30/News-2026-Week-4/"><div class="recent-posts-item-content">News - 2026 - Week 4</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-25</div>
+        <a href="/2026/01/25/Two-kinds-of-programmers/"><div class="recent-posts-item-content">There are two kinds of programmers</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+          
+                - 
+                2026
+          
+        </span>
+        &nbsp;
+        <a 
+          href="mailto:andrew@aklabs.net" 
+          class="footer-link">
+          Andrew Kesterson
+        </a>
+	<br/>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+      <script>
+        var googleAnalytics = function () {
+          window.dataLayer = window.dataLayer || []
+          function gtag() {
+            dataLayer.push(arguments)
+          }
+          gtag('js', new Date())
+          gtag('config', 'G-S3YLF516N6')
+        }
+    </script>
+      <script>
+        loadScript(
+          'https://www.googletagmanager.com/gtag/js?id=' +
+            'G-S3YLF516N6',
+          googleAnalytics
+        )
+      </script>
+    
+    
+  </body>
+</html>
